@@ -101,6 +101,9 @@ def seed_startups(session: Session, startups_json_path: Optional[Path] = None) -
             )
             session.add(template_version)
 
+        if template.current_version < version:
+            template.current_version = version
+
         templates.append(template)
 
     session.commit()

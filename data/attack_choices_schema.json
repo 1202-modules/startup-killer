@@ -40,6 +40,17 @@
         "evidence_fact_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
         "duration": {"enum": ["temporary", "persistent", "structural"]},
         "stack_group": {"type": "string", "minLength": 1, "maxLength": 80},
+        "v2_effect": {
+          "type": "object",
+          "required": ["group", "base_effect"],
+          "properties": {
+            "group": {"type": "string", "minLength": 1},
+            "cause": {"enum": ["customer_churn"]},
+            "base_effect": {"$ref": "#/$defs/effect"},
+            "combo": {"$ref": "#/$defs/effect"}
+          },
+          "additionalProperties": false
+        },
         "scene_type": {"enum": ["demand", "reputation", "competition", "supply", "technology", "finance", "pivot", "absurd"]},
         "narrative": {
           "type": "object",
@@ -51,6 +62,19 @@
           },
           "additionalProperties": false
         }
+      },
+      "additionalProperties": false
+    },
+    "effect": {
+      "type": "object",
+      "required": ["stream_loss_bps", "duration", "incident_cost_kopeks", "reputation_delta", "set_flags"],
+      "properties": {
+        "requires_all": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "stream_loss_bps": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "integer", "minimum": 0, "maximum": 9500}},
+        "duration": {"enum": ["temporary", "persistent", "structural"]},
+        "incident_cost_kopeks": {"type": "integer", "minimum": 0},
+        "reputation_delta": {"type": "integer", "maximum": 0},
+        "set_flags": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
       },
       "additionalProperties": false
     }

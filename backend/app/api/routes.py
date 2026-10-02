@@ -113,20 +113,24 @@ def choice_snapshot(choice: AttackChoice) -> dict:
         "stack_group": choice.stack_group,
         "scene_type": choice.scene_type,
         "narrative": dict(choice.narrative),
+        "v2_effect": dict(choice.v2_effect) if choice.v2_effect else None,
     }
 
 
-def public_choice(snapshot: dict) -> AttackChoicePublic:
+def public_choice(snapshot: dict, flags: list[str] | None = None) -> AttackChoicePublic:
+    combo = (snapshot.get("v2_effect") or {}).get("combo") or {}
     return AttackChoicePublic(
         id=snapshot["id"], round_number=snapshot["round_number"],
         title=snapshot["title"],
         short_description=snapshot["short_description"],
         attack_narrative=snapshot["narrative"]["attack"],
+        combo_available=bool(combo and set(combo.get("requires_all", [])).issubset(flags or [])),
     )
 
 
 def session_choices(session: GameSession, round_number: int) -> list[AttackChoicePublic]:
-    return [public_choice(choice) for choice in session.attack_choices_snapshot
+    flags = session.state.get("v2_data", {}).get("flags", [])
+    return [public_choice(choice, flags) for choice in session.attack_choices_snapshot
             if choice["round_number"] == round_number]
 
 
@@ -348,6 +352,7 @@ def create_session(
         "used_defenses": [],
         "active_defense_modifiers": [],
         "active_effects_public": [],
+        "v2_data": {},
     }
 
     template_snapshot = {
@@ -491,6 +496,7 @@ def _round_result(round_obj: GameRound) -> RoundResultResponse:
         state_after=SessionStateAfterPublic(**outcome["state_after"]),
         new_circumstance=outcome.get("new_circumstance"),
         game_completed=outcome["game_completed"], next_action=outcome["next_action"],
+        impact=outcome.get("impact"),
     )
 
 
@@ -548,6 +554,7 @@ def submit_choice(
             defense_type=DefenseType(m["defense_type"]), activated_round=m["activated_round"],
             activated_month=m["activated_month"], target_stream_id=m.get("target_stream_id"),
         ) for m in old.get("active_defense_modifiers", [])],
+        v2_data=old.get("v2_data", {}),
     )
     outcome = simulate_round(state, startup, to_validated_attack(choice, startup))
     game_round = GameRound(
@@ -582,6 +589,7 @@ def submit_choice(
         "used_defenses": [d.value for d in new_state.used_defenses],
         "active_defense_modifiers": [serialize_defense_modifier(m) for m in new_state.active_defense_modifiers],
         "active_effects_public": [f"{e.origin_attack_type.value} (-{e.magnitude_bps // 100}%)" for e in new_state.active_effects],
+        "v2_data": new_state.v2_data,
     }
     session.elapsed_months += len(outcome.monthly_ledger)
     session.version += 1
@@ -596,12 +604,14 @@ def submit_choice(
         session.status = SessionStatus.result_pending
     outcome_data = {
         "event": {"title": choice.result_headline, "narrative": choice.narrative["result"], "scene_type": choice.scene_type},
-        "defense": {"type": outcome.defense.defense_type.value, "summary": outcome.defense.detail},
+        "defense": {"type": outcome.defense.defense_type.value, "summary": outcome.defense.detail,
+                    "cost_kopeks": outcome.defense.cost_kopeks, "reason": outcome.defense.reason},
         "deltas": {"cash_kopeks": outcome.cash_delta_kopeks, "monthly_revenue_kopeks": outcome.revenue_delta_kopeks, "reputation": outcome.reputation_delta},
         "state_after": {"cash_kopeks": new_state.cash_kopeks, "monthly_revenue_kopeks": final_row.revenue_kopeks, "reputation": new_state.reputation},
         "months_simulated": [row.month for row in outcome.monthly_ledger],
         "new_circumstance": None, "game_completed": completed,
         "next_action": "result" if completed else "continue",
+        "impact": outcome.details or None,
     }
     game_round.outcome = outcome_data
     game_round.event_title = choice.result_headline

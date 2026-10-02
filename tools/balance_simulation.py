@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from decimal import Decimal, ROUND_HALF_UP
+from itertools import product
 import json
 from pathlib import Path
 import resource
@@ -23,7 +25,7 @@ from backend.app.engine.attack_choices import (
 )
 from backend.app.engine.calculator import simulate_round
 from backend.app.engine.loader import load_startups
-from backend.app.engine.types import GameState, StartupTemplate
+from backend.app.engine.types import DefenseType, GameState, StartupTemplate
 
 
 @dataclass(frozen=True)
@@ -35,6 +37,11 @@ class PathOutcome:
     elapsed_months: int
     final_cash_kopeks: int
     bankruptcy_month: int | None
+    combo_flags: tuple[str, ...] = ()
+    defenses: tuple[str, ...] = ()
+    baseline_cash_kopeks: int = 0
+    player_damage_kopeks: int = 0
+    active_causes: tuple[str, ...] = ()
 
 
 def initial_state(startup: StartupTemplate) -> GameState:
@@ -59,6 +66,11 @@ def enumerate_startup_paths(startup: StartupTemplate, catalog: AttackCatalog) ->
                 elapsed_months=state.elapsed_months,
                 final_cash_kopeks=state.cash_kopeks,
                 bankruptcy_month=state.bankruptcy_month,
+                combo_flags=tuple(state.v2_data.get('flags', [])),
+                defenses=tuple(d['name'] for d in state.v2_data.get('defenses', [])),
+                baseline_cash_kopeks=startup.baseline_series[state.elapsed_months].closing_cash_kopeks,
+                player_damage_kopeks=startup.baseline_series[state.elapsed_months].closing_cash_kopeks - state.cash_kopeks,
+                active_causes=tuple(f"{e['group']}:{e['cause']}" for e in state.v2_data.get('effects', [])),
             )]
 
         round_choices = choices_for(catalog, startup.slug, state.round_number)
@@ -84,6 +96,10 @@ def enumerate_all_paths() -> tuple[dict[str, StartupTemplate], AttackCatalog, di
 def _percentile(values: list[float], fraction: float) -> float:
     ordered = sorted(values)
     return ordered[max(0, (int(len(ordered) * fraction + 0.999999) - 1))]
+
+
+def percent(count: int, total: int) -> Decimal:
+    return (Decimal(count) * 100 / Decimal(total)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
 
 def benchmark_round(startup: StartupTemplate, catalog: AttackCatalog, iterations: int = 1000) -> dict[str, Any]:
@@ -124,7 +140,7 @@ def build_report_data() -> tuple[dict[str, Any], dict[str, StartupTemplate], Att
             "score_max": max(scores),
             "score_mean": round(statistics.fmean(scores), 2),
             "score_median": statistics.median(scores),
-            "bankruptcy_rate_percent": round(sum(r.final_status == "bankrupt" for r in outcomes) * 100 / len(outcomes), 2),
+            "bankruptcy_rate_percent": percent(sum(r.final_status == "bankrupt" for r in outcomes), len(outcomes)),
             "best_path": asdict(best),
             "worst_path": asdict(worst),
         })
@@ -135,6 +151,7 @@ def build_report_data() -> tuple[dict[str, Any], dict[str, StartupTemplate], Att
 
 def main() -> None:
     data, startups, catalog = build_report_data()
+    _, _, all_paths = enumerate_all_paths()
     report = ROOT / "BALANCE_REPORT.md"
     benchmark = benchmark_round(startups["coffeebot"], catalog)
     lines = [
@@ -150,10 +167,99 @@ def main() -> None:
         lines.append(
             f"| {row['startup_slug']} | {row['path_count']} | {row['score_min']} | {row['score_max']} | {row['score_mean']} | {row['score_median']} | {row['bankruptcy_rate_percent']}% | {fmt_path(row['best_path'])} | {fmt_path(row['worst_path'])} |"
         )
-    lines += ["", "## Local deterministic round benchmark", "",
+    lines += ["", "## Four v2 startups: exhaustive outcome summary", "",
+              "Each startup has 64 choice sequences. Cash and damage are in RUB below; the raw path table retains kopeks. Player damage uses baseline at the same terminal month; score A uses baseline M9, including when bankruptcy ends a game early.",
+              "A bankrupt game stops immediately. The listed sequence is the actual played prefix.", "",
+              "| Startup | Min | Max | Mean | Median | Bankrupt | Near | Deep | Survived | Best coherent | DDD | Mixed mean |",
+              "|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---:|"]
+    for slug in ('petmind', 'coffeebot', 'foodrover', 'studygenie'):
+        outcomes = all_paths[slug]
+        scores = [o.score for o in outcomes]
+        by_path = {''.join(cid.rsplit('_', 1)[-1].upper() for cid in o.choice_ids): o for o in outcomes}
+        coherent = max((by_path[p] for p in ('AAA', 'BBB', 'CCC', 'DDD')), key=lambda o: o.score)
+        mixed = [o.score for path, o in by_path.items() if path not in ('AAA', 'BBB', 'CCC', 'DDD')]
+        pct = lambda status: percent(sum(o.final_status == status for o in outcomes), len(outcomes))
+        path_label = lambda o: ''.join(cid.rsplit('_', 1)[-1].upper() for cid in o.choice_ids)
+        lines.append(f"| {slug} | {min(scores)} | {max(scores)} | {statistics.fmean(scores):.2f} | {statistics.median(scores)} | {pct('bankrupt')}% | {pct('near_bankruptcy')}% | {pct('deep_crisis')}% | {pct('survived')}% | {path_label(coherent)}: {coherent.score} | {by_path['DDD'].score} | {statistics.fmean(mixed):.2f} |")
+    lines += ["", "## Explicit chains and prerequisite bypass controls", "",
+              "Controls ABB, CBB, DBB and AAC, ABC, ACB verify that a later same-letter card gets only base effects when the prerequisite chain was broken.", "",
+              "| Startup | Path | Score | Status | Cash RUB | Damage RUB | Flags | Defenses | Bankruptcy month |",
+              "|---|---|---:|---|---:|---:|---|---|---:|"]
+    controls = ('AAA', 'BBB', 'CCC', 'DDD', 'ABB', 'CBB', 'DBB', 'AAC', 'ABC', 'ACB')
+    for slug in ('petmind', 'coffeebot', 'foodrover', 'studygenie'):
+        by_path = {''.join(cid.rsplit('_', 1)[-1].upper() for cid in o.choice_ids): o for o in all_paths[slug]}
+        for path in controls:
+            o = by_path[path]
+            lines.append(f"| {slug} | {path} | {o.score} | {o.final_status} | {o.final_cash_kopeks / 100:,.0f} | {o.player_damage_kopeks / 100:,.0f} | {', '.join(o.combo_flags) or '—'} | {', '.join(o.defenses) or 'NONE'} | {o.bankruptcy_month or '—'} |")
+    lines += ["", "## Matched BBB defense controls", "",
+              "The same BBB choices are simulated with normal deterministic defense selection and with defense forced to NONE; coefficients and incident costs are identical.", "",
+              "| Startup | Selected/no-defense cash RUB | Selected/no-defense bankruptcy month | Selected/no-defense total revenue RUB | Selected defense cost RUB | Selected/no-defense score |",
+              "|---|---:|---|---:|---:|---:|"]
+    for slug in ('petmind', 'coffeebot', 'foodrover', 'studygenie'):
+        startup = startups[slug]
+        controls = []
+        for forced in (None, DefenseType.NONE):
+            state = initial_state(startup)
+            revenue = defense_cost = 0
+            for round_number in range(1, 4):
+                choice = choices_for(catalog, slug, round_number)[1]
+                outcome = simulate_round(state, startup, to_validated_attack(choice, startup), forced_defense=forced)
+                revenue += sum(row.revenue_kopeks for row in outcome.monthly_ledger)
+                defense_cost += sum(row.defense_cost_kopeks for row in outcome.monthly_ledger)
+                state = outcome.state_after
+                if state.is_bankrupt:
+                    break
+            controls.append((state, revenue, defense_cost))
+        selected, no_defense = controls
+        lines.append(f"| {slug} | {selected[0].cash_kopeks / 100:,.0f} / {no_defense[0].cash_kopeks / 100:,.0f} | {selected[0].bankruptcy_month or '—'} / {no_defense[0].bankruptcy_month or '—'} | {selected[1] / 100:,.0f} / {no_defense[1] / 100:,.0f} | {selected[2] / 100:,.0f} | {selected[0].score_breakdown.score if selected[0].score_breakdown else '—'} / {no_defense[0].score_breakdown.score if no_defense[0].score_breakdown else '—'} |")
+    lines += ["", "## All 64 paths per v2 startup", "",
+              "Monetary values in this table are integer kopeks; flags and defenses are server-side simulation observations.", "",
+              "| Startup | Choices | Combo flags | Active causes | Defenses | Final cash | Same-month baseline cash | Player damage | Score | Status | Bankruptcy month |",
+              "|---|---|---|---|---|---:|---:|---:|---:|---|---:|"]
+    for slug in ('petmind', 'coffeebot', 'foodrover', 'studygenie'):
+        for o in all_paths[slug]:
+            path = ''.join(cid.rsplit('_', 1)[-1].upper() for cid in o.choice_ids)
+            lines.append(f"| {slug} | {path} | {', '.join(o.combo_flags) or '—'} | {', '.join(o.active_causes) or '—'} | {', '.join(o.defenses) or 'NONE'} | {o.final_cash_kopeks} | {o.baseline_cash_kopeks} | {o.player_damage_kopeks} | {o.score} | {o.final_status} | {o.bankruptcy_month or '—'} |")
+    lines += ["", "## Balance observations", "",
+              "Approved coefficients were not tuned. CoffeeBot, FoodRover and StudyGenie B chains reach 913; PetMind has no bankrupt path. DDD is markedly weaker than BBB on all four. Review product coefficients before treating the shared leaderboard as fair.",
+              "", "## Local deterministic round benchmark", "",
               f"{benchmark['iterations']} rounds with `{benchmark['choice_id']}` for `{benchmark['startup_slug']}`; per round: mean {benchmark['latency_ms']['mean']} ms, median {benchmark['latency_ms']['median']} ms, p95 {benchmark['latency_ms']['p95']} ms, max {benchmark['latency_ms']['max']} ms. Peak process RSS observed: {benchmark['process_peak_rss_mib']} MiB.",
-              "", "No economy or scoring changes are proposed by this report.", ""]
+              "", "The four v2 catalogs use explicit effects and new ending thresholds; six legacy catalogs retain v1 behavior. This local benchmark is not a target-host benchmark.", ""]
     report.write_text("\n".join(lines), encoding="utf-8")
+    audit = []
+    for slug in ('petmind', 'coffeebot', 'foodrover', 'studygenie'):
+        startup = startups[slug]
+        for sequence in product('ABCD', repeat=3):
+            state = initial_state(startup)
+            rounds = []
+            for round_number, letter in enumerate(sequence, 1):
+                choice = choices_for(catalog, slug, round_number)['ABCD'.index(letter)]
+                outcome = simulate_round(state, startup, to_validated_attack(choice, startup))
+                rounds.append({
+                    'choice': letter, 'combo_triggered': outcome.details['combo_triggered'],
+                    'applied_stream_loss_bps': outcome.details['affected_streams'],
+                    'active_causes_after_round': [f"{effect['group']}:{effect['cause']}" for effect in outcome.state_after.v2_data.get('effects', [])],
+                    'defense': outcome.details['defense_name'],
+                    'defense_cost_kopeks': outcome.details['defense_cost_kopeks'],
+                    'defense_candidates': outcome.audit.get('defense_candidates', []),
+                    'monthly_ledger': [asdict(row) for row in outcome.monthly_ledger],
+                    'baseline_cash_at_endpoint_kopeks': outcome.details['baseline_cash_kopeks'],
+                    'player_damage_at_endpoint_kopeks': outcome.details['player_damage_kopeks'],
+                })
+                state = outcome.state_after
+                if state.is_bankrupt:
+                    break
+            audit.append({
+                'startup': slug, 'sequence': ''.join(sequence),
+                'played_prefix': ''.join(r['choice'] for r in rounds),
+                'baseline_cash_m9_kopeks': startup.baseline_cash_m9_kopeks,
+                'final_cash_kopeks': state.cash_kopeks,
+                'bankruptcy_month': state.bankruptcy_month,
+                'score': asdict(state.score_breakdown) if state.score_breakdown else None,
+                'rounds': rounds,
+            })
+    audit_path = ROOT / 'BALANCE_AUDIT.json'
+    audit_path.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({"report": str(report), "paths": data["total_paths"], "benchmark": benchmark}, ensure_ascii=False, indent=2))
 
 

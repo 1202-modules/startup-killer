@@ -3,7 +3,7 @@
   "startups": [
     {
       "slug": "coffeebot",
-      "version": 1,
+      "version": 2,
       "name": "CoffeeBot",
       "industry": "Food robotics",
       "asset_key": "coffeebot",
@@ -153,11 +153,11 @@
         }
       ],
       "baseline_cash_m9_kopeks": 472385682,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "petmind",
-      "version": 1,
+      "version": 2,
       "name": "PetMind",
       "industry": "Pet AI",
       "asset_key": "petmind",
@@ -307,11 +307,11 @@
         }
       ],
       "baseline_cash_m9_kopeks": 440000000,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "foodrover",
-      "version": 1,
+      "version": 2,
       "name": "FoodRover",
       "industry": "Delivery robotics",
       "asset_key": "foodrover",
@@ -461,11 +461,11 @@
         }
       ],
       "baseline_cash_m9_kopeks": 537473577,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "studygenie",
-      "version": 1,
+      "version": 2,
       "name": "StudyGenie",
       "industry": "EdTech AI",
       "asset_key": "studygenie",
@@ -511,7 +511,10 @@
           "pivot"
         ],
         "pivot_compatible": true,
-        "production_partner_alternative": false
+        "production_partner_alternative": false,
+        "product_facts": [
+          "В экзаменационный сезон StudyGenie зависит от ограниченной приоритетной квоты основного внешнего AI provider; резервный provider доступен, но заметно дороже."
+        ]
       },
       "finance_config": {
         "initial_cash_kopeks": 500000000,
@@ -615,7 +618,7 @@
         }
       ],
       "baseline_cash_m9_kopeks": 363347068,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "sleepwork",

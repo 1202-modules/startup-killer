@@ -20,6 +20,7 @@ export interface AttackChoice {
   title: string;
   short_description: string;
   attack_narrative: string;
+  combo_available?: boolean;
 }
 
 export interface StartupPublic {
@@ -69,12 +70,25 @@ export interface RoundResult {
   selected_choice?: AttackChoice | null;
   months_simulated: number[];
   event: { title: string; narrative: string; scene_type: SceneType; };
-  defense: { type: string; summary: string; company_response?: string | null; };
+  defense: { type: string; summary: string; company_response?: string | null; cost_kopeks?: number; reason?: string; };
   deltas: { cash_kopeks: number; monthly_revenue_kopeks: number; reputation: number; };
   state_after: { cash_kopeks: number; monthly_revenue_kopeks: number; reputation: number; };
   new_circumstance?: string | null;
   game_completed: boolean;
   next_action: string;
+  impact?: {
+    combo_triggered: boolean;
+    affected_streams: Record<string, number>;
+    baseline_cash_kopeks: number;
+    player_damage_kopeks: number;
+    baseline_revenue_kopeks: number;
+    revenue_damage_kopeks: number;
+    opened_flags: string[];
+    defense_name: string;
+    defense_cost_kopeks: number;
+    defense_reason: string;
+    incident_cost_kopeks: number;
+  } | null;
 }
 
 export interface ContinueResponse {

@@ -52,6 +52,21 @@ class DefenseType(str, Enum):
     PR = "pr"
     SUPPLIER_SWITCH = "supplier_switch"
     PIVOT = "pivot"
+    INDEPENDENT_AUDIT = "independent_audit"
+    SECOND_FACTORY = "second_factory"
+    RETENTION_OFFER = "retention_offer"
+    CAMPUS_REDEPLOY = "campus_redeploy"
+    SERVICE_RESERVE = "service_reserve"
+    LOYALTY_PROGRAM = "loyalty_program"
+    SLA_GUARANTEE = "sla_guarantee"
+    ROUTE_REBUILD = "route_rebuild"
+    BATTERY_RESERVE = "battery_reserve"
+    RESTAURANT_RETENTION = "restaurant_retention"
+    PARTNER_SERVICE = "partner_service"
+    QUALITY_AUDIT = "quality_audit"
+    BACKUP_PROVIDER = "backup_provider"
+    STUDENT_RETENTION = "student_retention"
+    SCHOOL_SUCCESS_TEAM = "school_success_team"
 
 
 class SceneType(str, Enum):
@@ -200,6 +215,7 @@ class DefenseDecision:
     cost_kopeks: int
     effective_from_month: int
     detail: str
+    reason: str = ""
 
 
 @dataclass
@@ -235,6 +251,7 @@ class GameState:
     bankruptcy_month: Optional[int] = None
     unpaid_obligations_kopeks: int = 0
     score_breakdown: Optional[FinalScore] = None
+    v2_data: Dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -253,6 +270,7 @@ class ValidatedAttack:
     adapted_event: str = ""
     headline: str = ""
     narrative: str = ""
+    v2_effect: Optional[Dict[str, Any]] = None
 
 
 @dataclass
@@ -269,3 +287,5 @@ class EngineOutcome:
     final_status: Optional[FinalStatus] = None
     score_breakdown: Optional[FinalScore] = None
     engine_version: str = "v1.0"
+    details: Dict[str, Any] = field(default_factory=dict)
+    audit: Dict[str, Any] = field(default_factory=dict)

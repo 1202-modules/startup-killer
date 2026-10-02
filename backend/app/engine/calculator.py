@@ -321,10 +321,10 @@ def project_defense_outcome(
     round_start_month: int,
     candidate: DefenseType,
     incident_cost_kopeks: int,
-) -> Tuple[int, int]:
+) -> Tuple[int, int, Optional[int]]:
     cost = get_defense_cost_kopeks(candidate, initial_state.fixed_cost_kopeks)
     if initial_state.cash_kopeks < cost:
-        return -1, cost
+        return -1, cost, None
 
     cur_state = copy.deepcopy(initial_state)
     if candidate != DefenseType.NONE:
@@ -344,10 +344,10 @@ def project_defense_outcome(
             )
         )
 
-    for step in range(3):
-        m = round_start_month + step
-        defense_pay = cost if step == 0 else 0
-        inc_cost = incident_cost_kopeks if step == 0 else 0
+    for step in range(round_start_month, 10):
+        m = step
+        defense_pay = cost if m == round_start_month else 0
+        inc_cost = incident_cost_kopeks if m == round_start_month else 0
         row, cur_state = simulate_month(
             state=cur_state,
             startup=startup,
@@ -356,9 +356,9 @@ def project_defense_outcome(
             defense_payment_kopeks=defense_pay,
         )
         if cur_state.is_bankrupt:
-            return 0, cost
+            return 0, cost, m
 
-    return cur_state.cash_kopeks, cost
+    return cur_state.cash_kopeks, cost, None
 
 
 def format_defense_detail(defense_type: DefenseType, cost_kopeks: int) -> str:
@@ -366,10 +366,7 @@ def format_defense_detail(defense_type: DefenseType, cost_kopeks: int) -> str:
     cost_formatted = f"{cost_rubles:,}".replace(",", " ")
 
     if defense_type == DefenseType.NONE:
-        return (
-            "Стартап не предпринял защитных мер (расходы: 0 ₽). "
-            "Команда растеряна или сочла контратаку нецелесообразной."
-        )
+        return "Защита не запущена: прогнозируемая экономия меньше её стоимости (расходы: 0 ₽)."
     elif defense_type == DefenseType.COST_CUT:
         return f"Экстренное сокращение расходов: урезаны операционные траты и бонусы команды (затраты: {cost_formatted} ₽)."
     elif defense_type == DefenseType.PR:
@@ -410,14 +407,16 @@ def select_best_defense(
         DefenseType.PIVOT,
     ]
 
+    none_bankruptcy = project_defense_outcome(state, startup, round_start_month, DefenseType.NONE, incident_cost_kopeks)[2]
     best_candidate = DefenseType.NONE
-    best_cash = -1
-    best_cost = 999999999999
+    best_key = None
 
     for candidate in defense_enum_order:
         if candidate not in available:
             continue
-        projected_cash, defense_cost = project_defense_outcome(
+        if candidate == DefenseType.COST_CUT and none_bankruptcy is None:
+            continue
+        projected_cash, defense_cost, bankruptcy_month = project_defense_outcome(
             initial_state=state,
             startup=startup,
             round_start_month=round_start_month,
@@ -427,15 +426,10 @@ def select_best_defense(
         if projected_cash < 0:
             continue
 
-        if projected_cash > best_cash:
-            best_cash = projected_cash
+        key = (bankruptcy_month is None, projected_cash if bankruptcy_month is None else bankruptcy_month, -defense_cost)
+        if best_key is None or key > best_key:
+            best_key = key
             best_candidate = candidate
-            best_cost = defense_cost
-        elif projected_cash == best_cash:
-            if defense_cost < best_cost:
-                best_cash = projected_cash
-                best_candidate = candidate
-                best_cost = defense_cost
 
     chosen_cost = get_defense_cost_kopeks(best_candidate, state.fixed_cost_kopeks)
     effective_delay = 1
@@ -446,6 +440,9 @@ def select_best_defense(
         cost_kopeks=chosen_cost,
         effective_from_month=round_start_month + effective_delay,
         detail=format_defense_detail(best_candidate, chosen_cost),
+        reason=("Защита не запущена: прогнозируемая экономия меньше её стоимости."
+                if best_candidate == DefenseType.NONE else
+                "Выбрана мера с лучшим прогнозом денег к девятому месяцу."),
     )
 
 
@@ -472,6 +469,9 @@ def simulate_round(
     attack: ValidatedAttack,
     forced_defense: Optional[DefenseType] = None,
 ) -> EngineOutcome:
+    if attack.v2_effect:
+        from backend.app.engine.v2 import simulate_v2_round
+        return simulate_v2_round(state, startup, attack, forced_defense)
     # Guard clauses
     if state.is_bankrupt:
         return EngineOutcome(

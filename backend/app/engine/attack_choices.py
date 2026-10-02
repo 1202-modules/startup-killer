@@ -46,6 +46,7 @@ class AttackChoice:
     stack_group: str
     scene_type: str
     narrative: Mapping[str, str]
+    v2_effect: Mapping[str, Any] | None = None
 
 
 @dataclass(frozen=True)
@@ -113,6 +114,7 @@ def load_attack_catalog(source: Path | Mapping[str, Any]) -> AttackCatalog:
             stack_group=item["stack_group"],
             scene_type=item["scene_type"],
             narrative=MappingProxyType(dict(item["narrative"])),
+            v2_effect=MappingProxyType(item["v2_effect"]) if item.get("v2_effect") else None,
         )
         for item in choices_data
     )
@@ -142,6 +144,13 @@ def validate_attack_catalog(
         missing_streams = set(choice.target_stream_ids) - stream_ids
         if missing_streams:
             raise ValueError(f"unknown stream {sorted(missing_streams)[0]} for {choice.id}")
+        if choice.v2_effect:
+            for phase in ("base_effect", "combo"):
+                effect = choice.v2_effect.get(phase)
+                if effect and set(effect["stream_loss_bps"]) - stream_ids:
+                    raise ValueError(f"unknown v2 stream for {choice.id}")
+            if choice.v2_effect["group"] != choice.stack_group:
+                raise ValueError(f"v2 group mismatch for {choice.id}")
 
         weakness_by_id = {item.id: item for item in startup.private_profile.weaknesses}
         if choice.weakness_id:
@@ -189,4 +198,5 @@ def to_validated_attack(choice: AttackChoice, startup: StartupTemplate) -> Valid
         adapted_event=choice.narrative["attack"],
         headline=choice.result_headline,
         narrative=choice.narrative["result"],
+        v2_effect=dict(choice.v2_effect) if choice.v2_effect else None,
     )

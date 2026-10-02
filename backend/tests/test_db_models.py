@@ -72,12 +72,12 @@ def test_seed_startups_and_idempotency(db_session):
     coffeebot = db_session.scalar(select(StartupTemplate).where(StartupTemplate.slug == "coffeebot"))
     assert coffeebot is not None
     assert coffeebot.is_enabled is True
-    assert coffeebot.current_version == 1
+    assert coffeebot.current_version == 2
 
     cb_version = db_session.scalar(
         select(StartupTemplateVersion).where(
             StartupTemplateVersion.template_id == coffeebot.id,
-            StartupTemplateVersion.version == 1,
+            StartupTemplateVersion.version == 2,
         )
     )
     assert cb_version is not None
@@ -88,6 +88,11 @@ def test_seed_startups_and_idempotency(db_session):
     assert cb_version.content_sha256 is not None
     assert len(cb_version.content_sha256) == 64
     assert len(cb_version.finance_config["revenue_streams"]) == 2
+
+    coffeebot.current_version = 1
+    db_session.commit()
+    seed_startups(db_session)
+    assert coffeebot.current_version == 2
 
     # Check idempotency: run seed again
     seed_again = seed_startups(db_session)
@@ -567,4 +572,3 @@ async def test_async_session_generator_and_context_managers():
 
     async with async_db_session() as s2:
         assert s2 is not None
-

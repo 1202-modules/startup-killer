@@ -22,6 +22,42 @@ const DEFENSE_TITLES: Record<string, string> = {
   fundraise: 'ПОИСК ИНВЕСТИЦИЙ',
   product_fix: 'ТЕХНИЧЕСКИЙ ПАТЧ',
   regulatory_defense: 'ЛОББИЗМ И СУДЫ',
+  independent_audit: 'НЕЗАВИСИМЫЙ АУДИТ',
+  second_factory: 'ВТОРОЙ ЗАВОД',
+  retention_offer: 'ПРЕДЛОЖЕНИЕ ПОДПИСЧИКАМ',
+  campus_redeploy: 'ПЕРЕНОС ТОЧЕК',
+  service_reserve: 'РЕЗЕРВ ОБСЛУЖИВАНИЯ',
+  loyalty_program: 'ПРОГРАММА ЛОЯЛЬНОСТИ',
+  sla_guarantee: 'ГАРАНТИЯ СЕРВИСА',
+  route_rebuild: 'ПЕРЕСТРОЙКА МАРШРУТОВ',
+  battery_reserve: 'РЕЗЕРВ АККУМУЛЯТОРОВ',
+  restaurant_retention: 'УДЕРЖАНИЕ РЕСТОРАНОВ',
+  partner_service: 'ПАРТНЁРСКИЙ СЕРВИС',
+  quality_audit: 'АУДИТ КАЧЕСТВА',
+  backup_provider: 'РЕЗЕРВНЫЙ ПРОВАЙДЕР',
+  student_retention: 'УДЕРЖАНИЕ УЧЕНИКОВ',
+  school_success_team: 'КОМАНДА ДЛЯ ШКОЛ',
+};
+
+const STREAM_TITLES: Record<string, string> = {
+  collars: 'Ошейники', subscription: 'Подписка', kiosks: 'Кофейные точки',
+  service: 'Корпоративный сервис', delivery: 'Доставка', maintenance: 'Обслуживание',
+  subscriptions: 'Подписки учеников', schools: 'Школьные лицензии',
+};
+
+const FLAG_TITLES: Record<string, string> = {
+  accuracy_doubted: 'сомнения в точности', factory_pressure: 'давление на завод',
+  free_alternative: 'бесплатная альтернатива', trust_crisis: 'кризис доверия',
+  stockout: 'дефицит устройств', churn_wave: 'отток подписчиков',
+  footfall_contested: 'борьба за поток студентов', uptime_exposed: 'известные простои',
+  price_pressure: 'ценовое давление', campus_locked: 'потеря кампусных точек',
+  repair_backlog: 'очередь ремонтов', margin_squeeze: 'давление на продажи',
+  route_scrutiny: 'проверка маршрутов', battery_pressure: 'дефицит аккумуляторов',
+  competitor_trial: 'пробный переход ресторанов', route_restricted: 'ограниченные маршруты',
+  battery_backlog: 'простои из-за батарей', restaurant_switch: 'переход ресторанов',
+  quality_doubt: 'сомнения в качестве', api_pressure: 'нехватка мощности сервиса',
+  exam_trial: 'пробный уход учеников', api_bottleneck: 'перебои сервиса',
+  cohort_churn: 'отток учеников',
 };
 
 export const RoundResultView: React.FC<RoundResultViewProps> = ({
@@ -106,6 +142,22 @@ export const RoundResultView: React.FC<RoundResultViewProps> = ({
           {result.defense.summary}
         </p>
       </div>
+
+      {result.impact && (
+        <div className="p-4 rounded-xl bg-bg-surface border border-border/70 space-y-3 text-sm text-text-primary">
+          <p className="font-mono text-xs font-bold text-accent-lime">
+            {result.impact.combo_triggered ? 'КОМБО СРАБОТАЛО' : 'БАЗОВЫЙ ЭФФЕКТ'}
+          </p>
+          <p>Пострадали: {Object.entries(result.impact.affected_streams).map(([id, bps]) => `${STREAM_TITLES[id] || id} −${bps / 100}%`).join(', ')}</p>
+          {result.impact.incident_cost_kopeks > 0 && <p>Разовые расходы: <CashDisplay kopeks={result.impact.incident_cost_kopeks} /></p>}
+          <p>Деньги после раунда: <CashDisplay kopeks={result.state_after.cash_kopeks} /></p>
+          <p>Без атак к этому месяцу: <CashDisplay kopeks={result.impact.baseline_cash_kopeks} /></p>
+          <p>Дополнительный ущерб от ваших действий: <CashDisplay kopeks={result.impact.player_damage_kopeks} /></p>
+          <p>Выручка: <CashDisplay kopeks={result.state_after.monthly_revenue_kopeks} />; без атак: <CashDisplay kopeks={result.impact.baseline_revenue_kopeks} />; разница: <CashDisplay kopeks={result.impact.revenue_damage_kopeks} /></p>
+          <p>Защита стоила: <CashDisplay kopeks={result.impact.defense_cost_kopeks} />. {result.impact.defense_reason}</p>
+          {result.impact.opened_flags.length > 0 && <p>Открыто для следующего хода: {result.impact.opened_flags.map(flag => FLAG_TITLES[flag] || flag).join(', ')}</p>}
+        </div>
+      )}
 
       {/* Economic Deltas */}
       <div className="grid grid-cols-3 gap-3">

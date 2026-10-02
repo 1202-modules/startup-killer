@@ -28,4 +28,9 @@ describe('AttackChoiceGrid', () => {
     render(<AttackChoiceGrid choices={choices} roundNumber={1} onSelect={vi.fn()} />);
     expect(screen.getByRole('group', { name: 'Выберите приём атаки' })).toHaveClass('grid-cols-1', 'sm:grid-cols-2');
   });
+
+  it('shows combo availability only on an unlocked choice', () => {
+    render(<AttackChoiceGrid choices={[{ ...choices[0], combo_available: true }, choices[1]]} roundNumber={1} onSelect={vi.fn()} />);
+    expect(screen.getAllByText('КОМБО ДОСТУПНО')).toHaveLength(1);
+  });
 });

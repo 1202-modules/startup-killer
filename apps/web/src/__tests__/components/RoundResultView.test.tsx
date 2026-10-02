@@ -65,6 +65,20 @@ describe('RoundResultView', () => {
     expect(screen.getByText(baseResult.new_circumstance!)).toBeInTheDocument();
   });
 
+  it('separates company cash from player damage for v2 results', () => {
+    render(<RoundResultView result={{ ...baseResult, impact: {
+      combo_triggered: true, affected_streams: { kiosks: 3400 },
+      baseline_cash_kopeks: 900000000, player_damage_kopeks: 250000000,
+      baseline_revenue_kopeks: 200000000, revenue_damage_kopeks: 50000000,
+      opened_flags: ['campus_locked'], defense_name: 'campus_redeploy',
+      defense_cost_kopeks: 35000000, defense_reason: 'Выбрана мера с лучшим прогнозом.',
+      incident_cost_kopeks: 0,
+    } }} onContinue={vi.fn()} />);
+    expect(screen.getByText('КОМБО СРАБОТАЛО')).toBeInTheDocument();
+    expect(screen.getByText(/Дополнительный ущерб от ваших действий/)).toBeInTheDocument();
+    expect(screen.getByText(/Открыто для следующего хода/)).toBeInTheDocument();
+  });
+
   it('does not repeat a circumstance that is identical to the event narrative', () => {
     render(<RoundResultView result={{
       ...baseResult,

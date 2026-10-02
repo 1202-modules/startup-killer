@@ -29,6 +29,8 @@ def calculate_score(
     unpaid_obligations_kopeks: int,
     baseline_series: List[BaselineMonth],
     baseline_fixed_cost_kopeks: int,
+    deep_runway_months: int = 12,
+    deep_cash_ratio: Decimal = Decimal('0.7'),
 ) -> FinalScore:
     m9_baseline = next(b for b in baseline_series if b.month == 9)
     baseline_cash_m9 = m9_baseline.closing_cash_kopeks
@@ -85,7 +87,7 @@ def calculate_score(
         status = FinalStatus.BANKRUPT
     elif burn_now > 0 and runway_now <= Decimal(3) and actual_cash_kopeks > 0:
         status = FinalStatus.NEAR_BANKRUPTCY
-    elif (burn_now > 0 and runway_now <= Decimal(12)) or (Decimal(actual_cash_kopeks) < Decimal(0.7) * Decimal(baseline_cash_m9)):
+    elif (burn_now > 0 and runway_now <= Decimal(deep_runway_months)) or (Decimal(actual_cash_kopeks) < deep_cash_ratio * Decimal(baseline_cash_m9)):
         status = FinalStatus.DEEP_CRISIS
     else:
         status = FinalStatus.SURVIVED

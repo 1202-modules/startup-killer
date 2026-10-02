@@ -634,3 +634,28 @@ def test_continue_rejected_after_round_3(client, db_session):
     )
     assert r_cont3.status_code == 409
     assert r_cont3.json()["error"]["code"] == "CONTINUE_NOT_AVAILABLE"
+
+
+def test_v2_snapshot_combo_and_damage_response(client, monkeypatch):
+    from backend.app.api import routes
+    monkeypatch.setattr(routes.random, 'choice', lambda templates: next(t for t in templates if t.slug == 'petmind'))
+    csrf = client.get('/api/v1/bootstrap').json()['csrf_token']
+    headers = {'X-CSRF-Token': csrf, 'Idempotency-Key': str(uuid.uuid4())}
+    created = client.post('/api/v1/sessions', headers=headers, json={'nickname': 'V2Player'})
+    assert created.status_code == 201
+    session_id = created.json()['session_id']
+    choices = client.get(f'/api/v1/sessions/{session_id}').json()['available_choices']
+    assert all(not choice['combo_available'] for choice in choices)
+    headers['Idempotency-Key'] = str(uuid.uuid4())
+    result = client.post(f'/api/v1/sessions/{session_id}/choices', headers=headers,
+                         json={'choice_id': 'petmind_r1_b'})
+    assert result.status_code == 200
+    body = result.json()
+    assert body['impact']['baseline_cash_kopeks'] - body['state_after']['cash_kopeks'] == body['impact']['player_damage_kopeks']
+    assert body['defense']['reason']
+    headers['Idempotency-Key'] = str(uuid.uuid4())
+    continued = client.post(f'/api/v1/sessions/{session_id}/continue', headers=headers,
+                            json={'resolved_round_id': body['round_id']})
+    assert continued.status_code == 200
+    choices = client.get(f'/api/v1/sessions/{session_id}').json()['available_choices']
+    assert [choice['id'] for choice in choices if choice['combo_available']] == ['petmind_r2_b']

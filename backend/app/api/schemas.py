@@ -54,6 +54,7 @@ class AttackChoicePublic(BaseModel):
     title: str
     short_description: str
     attack_narrative: str
+    combo_available: bool = False
 
 
 class CreateSessionResponse(BaseModel):
@@ -110,6 +111,8 @@ class RoundDefensePublic(BaseModel):
     type: str
     summary: str
     company_response: Optional[str] = None
+    cost_kopeks: int = 0
+    reason: str = ""
 
 
 class RoundDeltasPublic(BaseModel):
@@ -137,6 +140,7 @@ class RoundResultResponse(BaseModel):
     new_circumstance: Optional[str] = None
     game_completed: Optional[bool] = None
     next_action: Optional[str] = None
+    impact: Optional[dict] = None
 
 
 class ContinueRequest(BaseModel):

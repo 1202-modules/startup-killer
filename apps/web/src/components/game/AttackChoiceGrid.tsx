@@ -37,6 +37,7 @@ export const AttackChoiceGrid: React.FC<AttackChoiceGridProps> = ({ choices, rou
             <span className="block mt-2 text-sm leading-relaxed text-text-secondary">
               {choice.short_description}
             </span>
+            {choice.combo_available && <span className="block mt-3 text-xs font-mono font-bold text-accent-lime">КОМБО ДОСТУПНО</span>}
           </motion.button>
         ))}
       </div>

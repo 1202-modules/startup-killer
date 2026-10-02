@@ -95,8 +95,7 @@ def test_evaluate_defense_russian_narrative_none():
 
     assert not decision.detail.startswith("Selected defense")
     assert decision.detail == (
-        "Стартап не предпринял защитных мер (расходы: 0 ₽). "
-        "Команда растеряна или сочла контратаку нецелесообразной."
+        "Защита не запущена: прогнозируемая экономия меньше её стоимости (расходы: 0 ₽)."
     )
 
 
@@ -119,8 +118,7 @@ def test_evaluate_defense_russian_narratives_all_types():
     # NONE
     d_none = evaluate_defense(state, startup, create_dummy_attack(DefenseType.NONE), round_start_month=1, forced_defense=DefenseType.NONE)
     assert d_none.detail == (
-        "Стартап не предпринял защитных мер (расходы: 0 ₽). "
-        "Команда растеряна или сочла контратаку нецелесообразной."
+        "Защита не запущена: прогнозируемая экономия меньше её стоимости (расходы: 0 ₽)."
     )
 
     # COST_CUT: 0.25 * fixed_cost = 500,000 rubles

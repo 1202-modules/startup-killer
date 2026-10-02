@@ -1,14 +1,14 @@
 {
-  "catalog_version": "1.0.0",
+  "catalog_version": "2.0.0-partial",
   "choices_per_round": 4,
   "choices": [
     {
-      "id": "coffeebot_r1_1",
+      "id": "coffeebot_r1_a",
       "startup_slug": "coffeebot",
       "round_number": 1,
-      "title": "Кампусный ценовой пресс",
-      "short_description": "Соседняя кофейня продаёт американо дешевле робота у главного корпуса.",
-      "result_headline": "CoffeeBot: кампусный ценовой пресс",
+      "title": "ПЕРЕХВАТИТЬ КАМПУСНЫЙ ТРАФИК",
+      "short_description": "Открыть конкурирующие кофейные точки на основных маршрутах студентов.",
+      "result_headline": "ПЕРЕХВАТИТЬ КАМПУСНЫЙ ТРАФИК",
       "attack_type": "competition",
       "severity": "weak",
       "scale": "local",
@@ -22,27 +22,42 @@
         "cf1"
       ],
       "duration": "temporary",
-      "stack_group": "coffeebot_competition",
+      "stack_group": "coffeebot_a",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Соседняя кофейня продаёт американо дешевле робота у главного корпуса.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+        "attack": "Открыть конкурирующие кофейные точки на основных маршрутах студентов.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Поток покупателей у киосков CoffeeBot уменьшается."
+      },
+      "v2_effect": {
+        "group": "coffeebot_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 1000
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "footfall_contested"
+          ]
+        }
       }
     },
     {
-      "id": "coffeebot_r1_2",
+      "id": "coffeebot_r1_b",
       "startup_slug": "coffeebot",
       "round_number": 1,
-      "title": "Очередь без скидки",
-      "short_description": "Студенческий кофе-поинт раздаёт бонусы за повторный визит в часы пик.",
-      "result_headline": "CoffeeBot: очередь без скидки",
-      "attack_type": "competition",
+      "title": "УДАРИТЬ ПО РЕПУТАЦИИ ПРОСТОЯМИ",
+      "short_description": "Публично собрать и распространить подтверждённые случаи простоя CoffeeBot.",
+      "result_headline": "УДАРИТЬ ПО РЕПУТАЦИИ ПРОСТОЯМИ",
+      "attack_type": "technology",
       "severity": "weak",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "kiosks"
+        "kiosks",
+        "service"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
@@ -50,77 +65,118 @@
         "cf1"
       ],
       "duration": "temporary",
-      "stack_group": "coffeebot_competition",
-      "scene_type": "competition",
+      "stack_group": "coffeebot_b",
+      "scene_type": "technology",
       "narrative": {
-        "attack": "Студенческий кофе-поинт раздаёт бонусы за повторный визит в часы пик.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+        "attack": "Публично собрать и распространить подтверждённые случаи простоя CoffeeBot.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты реже покупают кофе и заключают сервисные договоры."
+      },
+      "v2_effect": {
+        "group": "coffeebot_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 500,
+            "service": 800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -2,
+          "set_flags": [
+            "uptime_exposed"
+          ]
+        }
       }
     },
     {
-      "id": "coffeebot_r1_3",
+      "id": "coffeebot_r1_c",
       "startup_slug": "coffeebot",
       "round_number": 1,
-      "title": "Ремонт по подписке наоборот",
-      "short_description": "Сервисный конкурент предлагает офисам фиксированное обслуживание кофемашин.",
-      "result_headline": "CoffeeBot: ремонт по подписке наоборот",
-      "attack_type": "technology",
+      "title": "НАЧАТЬ ЦЕНОВУЮ ВОЙНУ",
+      "short_description": "Поставить рядом автоматы с более дешёвым кофе.",
+      "result_headline": "НАЧАТЬ ЦЕНОВУЮ ВОЙНУ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "service"
+        "kiosks"
       ],
-      "weakness_id": "cw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "cf2"
       ],
-      "duration": "persistent",
-      "stack_group": "coffeebot_technology",
-      "scene_type": "technology",
+      "duration": "temporary",
+      "stack_group": "coffeebot_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Сервисный конкурент предлагает офисам фиксированное обслуживание кофемашин.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+        "attack": "Поставить рядом автоматы с более дешёвым кофе.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Часть продаж CoffeeBot уходит к дешёвому конкуренту."
+      },
+      "v2_effect": {
+        "group": "coffeebot_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 1200
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "price_pressure"
+          ]
+        }
       }
     },
     {
-      "id": "coffeebot_r1_4",
+      "id": "coffeebot_r1_d",
       "startup_slug": "coffeebot",
       "round_number": 1,
-      "title": "Кофе до пары",
-      "short_description": "Университет переносит перерыв, и утренний поток проходит мимо автоматов.",
-      "result_headline": "CoffeeBot: кофе до пары",
-      "attack_type": "demand",
+      "title": "ПЕРЕМАНИТЬ ОФИСНЫХ КЛИЕНТОВ",
+      "short_description": "Предложить офисам обслуживание кофеен на лучших условиях.",
+      "result_headline": "ПЕРЕМАНИТЬ ОФИСНЫХ КЛИЕНТОВ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "kiosks"
+        "service"
       ],
-      "weakness_id": "cw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "cf1"
       ],
-      "duration": "persistent",
-      "stack_group": "coffeebot_demand",
-      "scene_type": "demand",
+      "duration": "temporary",
+      "stack_group": "coffeebot_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Университет переносит перерыв, и утренний поток проходит мимо автоматов.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+        "attack": "Предложить офисам обслуживание кофеен на лучших условиях.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "CoffeeBot теряет сервисные контракты."
+      },
+      "v2_effect": {
+        "group": "coffeebot_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "service": 1800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "coffeebot_r2_1",
+      "id": "coffeebot_r2_a",
       "startup_slug": "coffeebot",
       "round_number": 2,
-      "title": "Сиропный ребрендинг",
-      "short_description": "Сеть кофеен копирует сезонное меню и запускает кампанию в кампусе.",
-      "result_headline": "CoffeeBot: сиропный ребрендинг",
+      "title": "ЗАБРАТЬ ЛУЧШИЕ ТОЧКИ В КАМПУСАХ",
+      "short_description": "Заключить договоры на наиболее проходные места в кампусах.",
+      "result_headline": "ЗАБРАТЬ ЛУЧШИЕ ТОЧКИ В КАМПУСАХ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
@@ -134,26 +190,53 @@
         "cf1"
       ],
       "duration": "persistent",
-      "stack_group": "coffeebot_competition",
+      "stack_group": "coffeebot_a",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Сеть кофеен копирует сезонное меню и запускает кампанию в кампусе.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+        "attack": "Заключить договоры на наиболее проходные места в кампусах.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Киоски CoffeeBot теряют важные точки продаж."
+      },
+      "v2_effect": {
+        "group": "coffeebot_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 1500
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "footfall_contested"
+          ],
+          "stream_loss_bps": {
+            "kiosks": 3400
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "campus_locked"
+          ]
+        }
       }
     },
     {
-      "id": "coffeebot_r2_2",
+      "id": "coffeebot_r2_b",
       "startup_slug": "coffeebot",
       "round_number": 2,
-      "title": "Запчасти с дедлайном",
-      "short_description": "Поставка насосов задерживается перед плановым обслуживанием точек.",
-      "result_headline": "CoffeeBot: запчасти с дедлайном",
-      "attack_type": "supply",
+      "title": "СОРВАТЬ РЕМОНТ И ОБСЛУЖИВАНИЕ",
+      "short_description": "Переманить ключевых ремонтных подрядчиков CoffeeBot.",
+      "result_headline": "СОРВАТЬ РЕМОНТ И ОБСЛУЖИВАНИЕ",
+      "attack_type": "technology",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
+        "kiosks",
         "service"
       ],
       "weakness_id": null,
@@ -162,82 +245,201 @@
         "cf2"
       ],
       "duration": "persistent",
-      "stack_group": "coffeebot_supply",
-      "scene_type": "supply",
+      "stack_group": "coffeebot_b",
+      "scene_type": "technology",
       "narrative": {
-        "attack": "Поставка насосов задерживается перед плановым обслуживанием точек.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+        "attack": "Переманить ключевых ремонтных подрядчиков CoffeeBot.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Простои снижают продажи и сервисную выручку."
+      },
+      "v2_effect": {
+        "group": "coffeebot_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 1200,
+            "service": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 20000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "uptime_exposed"
+          ],
+          "stream_loss_bps": {
+            "kiosks": 3200,
+            "service": 4200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 35000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "repair_backlog"
+          ]
+        }
       }
     },
     {
-      "id": "coffeebot_r2_3",
+      "id": "coffeebot_r2_c",
       "startup_slug": "coffeebot",
       "round_number": 2,
-      "title": "Гарантия на нервы",
-      "short_description": "Обзор показывает очередь ремонтов у офисных кофемашин.",
-      "result_headline": "CoffeeBot: гарантия на нервы",
-      "attack_type": "technology",
+      "title": "УСИЛИТЬ ЦЕНОВУЮ ВОЙНУ",
+      "short_description": "Расширить сеть дешёвых автоматов рядом с CoffeeBot.",
+      "result_headline": "УСИЛИТЬ ЦЕНОВУЮ ВОЙНУ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "service"
+        "kiosks"
       ],
-      "weakness_id": "cw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "cf2"
       ],
-      "duration": "temporary",
-      "stack_group": "coffeebot_technology",
-      "scene_type": "technology",
+      "duration": "persistent",
+      "stack_group": "coffeebot_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Обзор показывает очередь ремонтов у офисных кофемашин.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+        "attack": "Расширить сеть дешёвых автоматов рядом с CoffeeBot.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Продажи киосков CoffeeBot падают."
+      },
+      "v2_effect": {
+        "group": "coffeebot_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 2000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "price_pressure"
+          ],
+          "stream_loss_bps": {
+            "kiosks": 3800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "margin_squeeze"
+          ]
+        }
       }
     },
     {
-      "id": "coffeebot_r2_4",
+      "id": "coffeebot_r2_d",
       "startup_slug": "coffeebot",
       "round_number": 2,
-      "title": "Кофе после каникул",
-      "short_description": "Кампус меняет расписание, поэтому привычные часы покупок смещаются.",
-      "result_headline": "CoffeeBot: кофе после каникул",
-      "attack_type": "demand",
+      "title": "ПЕРЕМАНИТЬ ОФИСЫ БЕСПЛАТНЫМ ПЕРЕХОДОМ",
+      "short_description": "Оплатить офисам переход на свой сервис.",
+      "result_headline": "ПЕРЕМАНИТЬ ОФИСЫ БЕСПЛАТНЫМ ПЕРЕХОДОМ",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "service"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf1"
+      ],
+      "duration": "persistent",
+      "stack_group": "coffeebot_d",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Оплатить офисам переход на свой сервис.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "CoffeeBot теряет корпоративную сервисную выручку."
+      },
+      "v2_effect": {
+        "group": "coffeebot_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "service": 3000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
+      }
+    },
+    {
+      "id": "coffeebot_r3_a",
+      "startup_slug": "coffeebot",
+      "round_number": 3,
+      "title": "ВЫТЕСНИТЬ COFFEEBOT ИЗ КЛЮЧЕВЫХ КАМПУСОВ",
+      "short_description": "Занять оставшиеся ключевые места конкурирующими кофейными точками.",
+      "result_headline": "ВЫТЕСНИТЬ COFFEEBOT ИЗ КЛЮЧЕВЫХ КАМПУСОВ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "kiosks"
       ],
-      "weakness_id": "cw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
-        "cf1"
+        "cf3"
       ],
       "duration": "structural",
-      "stack_group": "coffeebot_demand",
-      "scene_type": "demand",
+      "stack_group": "coffeebot_a",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Кампус меняет расписание, поэтому привычные часы покупок смещаются.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+        "attack": "Занять оставшиеся ключевые места конкурирующими кофейными точками.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Продажи CoffeeBot в кампусах надолго падают."
+      },
+      "v2_effect": {
+        "group": "coffeebot_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 2200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "campus_locked"
+          ],
+          "stream_loss_bps": {
+            "kiosks": 8600
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "coffeebot_r3_1",
+      "id": "coffeebot_r3_b",
       "startup_slug": "coffeebot",
       "round_number": 3,
-      "title": "Тендер на капучино",
-      "short_description": "Офисный оператор проводит повторный конкурс на кофе для сотрудников.",
-      "result_headline": "CoffeeBot: тендер на капучино",
+      "title": "ЗАБРАТЬ КЛИЕНТОВ НА ФОНЕ ПРОСТОЕВ",
+      "short_description": "Предложить клиентам CoffeeBot немедленную замену простаивающих точек.",
+      "result_headline": "ЗАБРАТЬ КЛИЕНТОВ НА ФОНЕ ПРОСТОЕВ",
       "attack_type": "competition",
-      "severity": "strong",
-      "scale": "regional",
+      "severity": "medium",
+      "scale": "company_wide",
       "feasibility": "established_in_state",
       "target_stream_ids": [
+        "kiosks",
         "service"
       ],
       "weakness_id": null,
@@ -245,140 +447,191 @@
       "evidence_fact_ids": [
         "cf3"
       ],
-      "duration": "persistent",
-      "stack_group": "coffeebot_competition",
+      "duration": "structural",
+      "stack_group": "coffeebot_b",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Офисный оператор проводит повторный конкурс на кофе для сотрудников.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+        "attack": "Предложить клиентам CoffeeBot немедленную замену простаивающих точек.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты уходят; ремонт автоматов не возвращает их автоматически."
+      },
+      "v2_effect": {
+        "group": "coffeebot_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 2200,
+            "service": 3500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "repair_backlog"
+          ],
+          "stream_loss_bps": {
+            "kiosks": 6200,
+            "service": 9000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 90000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
       }
     },
     {
-      "id": "coffeebot_r3_2",
+      "id": "coffeebot_r3_c",
       "startup_slug": "coffeebot",
       "round_number": 3,
-      "title": "Кофейный аудит",
-      "short_description": "Корпоративный клиент просит отдельно подтвердить стоимость обслуживания точек.",
-      "result_headline": "CoffeeBot: кофейный аудит",
-      "attack_type": "finance",
-      "severity": "medium",
+      "title": "ДОБИТЬ ОСНОВНЫЕ ПРОДАЖИ ДЕМПИНГОМ",
+      "short_description": "Предложить кофе дешевле CoffeeBot в большинстве его точек.",
+      "result_headline": "ДОБИТЬ ОСНОВНЫЕ ПРОДАЖИ ДЕМПИНГОМ",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "kiosks"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf2"
+      ],
+      "duration": "structural",
+      "stack_group": "coffeebot_c",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Предложить кофе дешевле CoffeeBot в большинстве его точек.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Основные продажи киосков переходят конкуренту."
+      },
+      "v2_effect": {
+        "group": "coffeebot_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "kiosks": 2800
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "margin_squeeze"
+          ],
+          "stream_loss_bps": {
+            "kiosks": 8800
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
+      }
+    },
+    {
+      "id": "coffeebot_r3_d",
+      "startup_slug": "coffeebot",
+      "round_number": 3,
+      "title": "ЗАБРАТЬ КОРПОРАТИВНЫЕ КОНТРАКТЫ",
+      "short_description": "Заключить долгосрочные договоры с офисными клиентами CoffeeBot.",
+      "result_headline": "ЗАБРАТЬ КОРПОРАТИВНЫЕ КОНТРАКТЫ",
+      "attack_type": "competition",
+      "severity": "strong",
       "scale": "company_wide",
-      "feasibility": "established_in_state",
+      "feasibility": "plausible",
       "target_stream_ids": [
         "service"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
-        "cf3"
-      ],
-      "duration": "persistent",
-      "stack_group": "coffeebot_finance",
-      "scene_type": "finance",
-      "narrative": {
-        "attack": "Корпоративный клиент просит отдельно подтвердить стоимость обслуживания точек.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "coffeebot_r3_3",
-      "startup_slug": "coffeebot",
-      "round_number": 3,
-      "title": "Датчик простоя",
-      "short_description": "Мониторинг конкурента публично сравнивает время ремонта автоматов.",
-      "result_headline": "CoffeeBot: датчик простоя",
-      "attack_type": "technology",
-      "severity": "strong",
-      "scale": "local",
-      "feasibility": "plausible",
-      "target_stream_ids": [
-        "kiosks"
-      ],
-      "weakness_id": "cw1",
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
-        "cf2"
-      ],
-      "duration": "structural",
-      "stack_group": "coffeebot_technology",
-      "scene_type": "technology",
-      "narrative": {
-        "attack": "Мониторинг конкурента публично сравнивает время ремонта автоматов.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "coffeebot_r3_4",
-      "startup_slug": "coffeebot",
-      "round_number": 3,
-      "title": "Смена меню в холле",
-      "short_description": "Кампусный оператор продвигает локальную кофейню в студенческом приложении.",
-      "result_headline": "CoffeeBot: смена меню в холле",
-      "attack_type": "demand",
-      "severity": "strong",
-      "scale": "company_wide",
-      "feasibility": "plausible",
-      "target_stream_ids": [
-        "kiosks"
-      ],
-      "weakness_id": "cw2",
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
         "cf1"
       ],
-      "duration": "temporary",
-      "stack_group": "coffeebot_demand",
-      "scene_type": "demand",
+      "duration": "structural",
+      "stack_group": "coffeebot_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Кампусный оператор продвигает локальную кофейню в студенческом приложении.",
-        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
-        "result": "CoffeeBot: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+        "attack": "Заключить долгосрочные договоры с офисными клиентами CoffeeBot.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Сервисная выручка CoffeeBot надолго снижается."
+      },
+      "v2_effect": {
+        "group": "coffeebot_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "service": 5500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "petmind_r1_1",
+      "id": "petmind_r1_a",
       "startup_slug": "petmind",
       "round_number": 1,
-      "title": "Тест ошейника вслепую",
-      "short_description": "Блогер сравнивает обещанные 96% распознавания с дневником питомца.",
-      "result_headline": "PetMind: тест ошейника вслепую",
-      "attack_type": "product",
+      "title": "РАЗОБЛАЧИТЬ ЗАЯВЛЕННЫЕ «96%»",
+      "short_description": "Провести независимый тест PetMind и публично показать ошибки распознавания.",
+      "result_headline": "РАЗОБЛАЧИТЬ ЗАЯВЛЕННЫЕ «96%»",
+      "attack_type": "reputation",
       "severity": "weak",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "collars"
+        "collars",
+        "subscription"
       ],
-      "weakness_id": "pw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "pf1"
       ],
       "duration": "temporary",
-      "stack_group": "petmind_product",
-      "scene_type": "technology",
+      "stack_group": "petmind_a",
+      "scene_type": "reputation",
       "narrative": {
-        "attack": "Блогер сравнивает обещанные 96% распознавания с дневником питомца.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+        "attack": "Провести независимый тест PetMind и публично показать ошибки распознавания.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Покупатели сомневаются в точности ошейника и реже оформляют подписку."
+      },
+      "v2_effect": {
+        "group": "petmind_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 600,
+            "subscription": 800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -3,
+          "set_flags": [
+            "accuracy_doubted"
+          ]
+        }
       }
     },
     {
-      "id": "petmind_r1_2",
+      "id": "petmind_r1_b",
       "startup_slug": "petmind",
       "round_number": 1,
-      "title": "Подписка без прогулки",
-      "short_description": "Конкурент предлагает бесплатный журнал активности вместо платной аналитики.",
-      "result_headline": "PetMind: подписка без прогулки",
-      "attack_type": "demand",
+      "title": "ПЕРЕХВАТИТЬ ПРОИЗВОДСТВЕННЫЕ МОЩНОСТИ",
+      "short_description": "Законтрактовать свободные мощности единственного завода перед следующей партией PetMind.",
+      "result_headline": "ПЕРЕХВАТИТЬ ПРОИЗВОДСТВЕННЫЕ МОЩНОСТИ",
+      "attack_type": "supply",
       "severity": "weak",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "subscription"
+        "collars"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
@@ -386,77 +639,77 @@
         "pf3"
       ],
       "duration": "temporary",
-      "stack_group": "petmind_demand",
-      "scene_type": "demand",
+      "stack_group": "petmind_b",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Конкурент предлагает бесплатный журнал активности вместо платной аналитики.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+        "attack": "Законтрактовать свободные мощности единственного завода перед следующей партией PetMind.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Следующая партия ошейников задерживается, а компания несёт расходы на перестройку поставки."
+      },
+      "v2_effect": {
+        "group": "petmind_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 1000
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 12000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "factory_pressure"
+          ]
+        }
       }
     },
     {
-      "id": "petmind_r1_3",
+      "id": "petmind_r1_c",
       "startup_slug": "petmind",
       "round_number": 1,
-      "title": "Заводской стоп-лист",
-      "short_description": "Контрактный завод переносит выпуск партии ошейников на следующий слот.",
-      "result_headline": "PetMind: заводской стоп-лист",
-      "attack_type": "supply",
+      "title": "ОБЕСЦЕНИТЬ ПЛАТНУЮ ПОДПИСКУ",
+      "short_description": "Выпустить бесплатный сервис с функциями платной подписки PetMind.",
+      "result_headline": "ОБЕСЦЕНИТЬ ПЛАТНУЮ ПОДПИСКУ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
-      "target_stream_ids": [
-        "collars"
-      ],
-      "weakness_id": "pw2",
-      "weakness_match": "exact",
-      "evidence_fact_ids": [
-        "pf2"
-      ],
-      "duration": "persistent",
-      "stack_group": "petmind_supply",
-      "scene_type": "supply",
-      "narrative": {
-        "attack": "Контрактный завод переносит выпуск партии ошейников на следующий слот.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "petmind_r1_4",
-      "startup_slug": "petmind",
-      "round_number": 1,
-      "title": "Процент точности",
-      "short_description": "Сообщество владельцев требует независимую проверку заявленной точности.",
-      "result_headline": "PetMind: процент точности",
-      "attack_type": "reputation",
-      "severity": "medium",
-      "scale": "regional",
-      "feasibility": "established_in_state",
       "target_stream_ids": [
         "subscription"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
-        "pf1"
+        "pf2"
       ],
-      "duration": "persistent",
-      "stack_group": "petmind_reputation",
-      "scene_type": "reputation",
+      "duration": "temporary",
+      "stack_group": "petmind_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Сообщество владельцев требует независимую проверку заявленной точности.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+        "attack": "Выпустить бесплатный сервис с функциями платной подписки PetMind.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Часть пользователей перестаёт платить за подписку."
+      },
+      "v2_effect": {
+        "group": "petmind_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscription": 1200
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "free_alternative"
+          ]
+        }
       }
     },
     {
-      "id": "petmind_r2_1",
+      "id": "petmind_r1_d",
       "startup_slug": "petmind",
-      "round_number": 2,
-      "title": "Ошейник за полцены",
-      "short_description": "Маркетплейс выводит похожий трекер с бесплатной доставкой.",
-      "result_headline": "PetMind: ошейник за полцены",
+      "round_number": 1,
+      "title": "ВЫДАВИТЬ PETMIND ДЕШЁВЫМ ОШЕЙНИКОМ",
+      "short_description": "Вывести простой трекер значительно дешевле PetMind.",
+      "result_headline": "ВЫДАВИТЬ PETMIND ДЕШЁВЫМ ОШЕЙНИКОМ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
@@ -467,141 +720,247 @@
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
-        "pf3"
+        "pf1"
       ],
-      "duration": "persistent",
-      "stack_group": "petmind_competition",
+      "duration": "temporary",
+      "stack_group": "petmind_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Маркетплейс выводит похожий трекер с бесплатной доставкой.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+        "attack": "Вывести простой трекер значительно дешевле PetMind.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Продажи ошейников падают из-за дешёвого конкурента."
+      },
+      "v2_effect": {
+        "group": "petmind_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 1700
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "petmind_r2_2",
+      "id": "petmind_r2_a",
       "startup_slug": "petmind",
       "round_number": 2,
-      "title": "Эмоции на паузе",
-      "short_description": "Обзор показывает расхождение классификации настроения с наблюдением хозяина.",
-      "result_headline": "PetMind: эмоции на паузе",
-      "attack_type": "product",
+      "title": "РАЗОГНАТЬ ДОКАЗАННЫЕ ОШИБКИ",
+      "short_description": "Распространить результаты теста через профильные сообщества и обзоры.",
+      "result_headline": "РАЗОГНАТЬ ДОКАЗАННЫЕ ОШИБКИ",
+      "attack_type": "reputation",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "collars",
+        "subscription"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf3"
+      ],
+      "duration": "persistent",
+      "stack_group": "petmind_a",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Распространить результаты теста через профильные сообщества и обзоры.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Недоверие снижает продажи ошейников и подписки."
+      },
+      "v2_effect": {
+        "group": "petmind_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 1200,
+            "subscription": 1500
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "accuracy_doubted"
+          ],
+          "stream_loss_bps": {
+            "collars": 2600,
+            "subscription": 3200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -8,
+          "set_flags": [
+            "trust_crisis"
+          ]
+        }
+      }
+    },
+    {
+      "id": "petmind_r2_b",
+      "startup_slug": "petmind",
+      "round_number": 2,
+      "title": "СОРВАТЬ СЛЕДУЮЩУЮ ПАРТИЮ",
+      "short_description": "Перекупить производственные слоты, необходимые для новой партии PetMind.",
+      "result_headline": "СОРВАТЬ СЛЕДУЮЩУЮ ПАРТИЮ",
+      "attack_type": "supply",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "subscription"
+        "collars"
       ],
-      "weakness_id": "pw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "pf1"
       ],
       "duration": "persistent",
-      "stack_group": "petmind_product",
-      "scene_type": "technology",
+      "stack_group": "petmind_b",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Обзор показывает расхождение классификации настроения с наблюдением хозяина.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+        "attack": "Перекупить производственные слоты, необходимые для новой партии PetMind.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Дефицит ошейников срывает продажи и вызывает дополнительные расходы."
+      },
+      "v2_effect": {
+        "group": "petmind_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "factory_pressure"
+          ],
+          "stream_loss_bps": {
+            "collars": 4200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 25000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "stockout"
+          ]
+        }
       }
     },
     {
-      "id": "petmind_r2_3",
+      "id": "petmind_r2_c",
       "startup_slug": "petmind",
       "round_number": 2,
-      "title": "Единая линия сборки",
-      "short_description": "График подрядчика задерживает упаковку и отгрузку устройств.",
-      "result_headline": "PetMind: единая линия сборки",
-      "attack_type": "supply",
+      "title": "ПЕРЕМАНИТЬ ПОДПИСЧИКОВ",
+      "short_description": "Предложить пользователям PetMind перенос истории и бесплатный переход.",
+      "result_headline": "ПЕРЕМАНИТЬ ПОДПИСЧИКОВ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "collars"
+        "subscription"
       ],
-      "weakness_id": "pw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "pf2"
       ],
-      "duration": "temporary",
-      "stack_group": "petmind_supply",
-      "scene_type": "supply",
+      "duration": "persistent",
+      "stack_group": "petmind_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "График подрядчика задерживает упаковку и отгрузку устройств.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+        "attack": "Предложить пользователям PetMind перенос истории и бесплатный переход.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Платные подписчики уходят к конкуренту."
+      },
+      "v2_effect": {
+        "group": "petmind_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscription": 2000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "free_alternative"
+          ],
+          "stream_loss_bps": {
+            "subscription": 4200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "churn_wave"
+          ]
+        }
       }
     },
     {
-      "id": "petmind_r2_4",
+      "id": "petmind_r2_d",
       "startup_slug": "petmind",
       "round_number": 2,
-      "title": "Личный кабинет питомца",
-      "short_description": "Бесплатное приложение ведёт историю активности и напоминает о кормлении.",
-      "result_headline": "PetMind: личный кабинет питомца",
+      "title": "ЗАДУШИТЬ ПРОДАЖИ ЦЕНОВОЙ ВОЙНОЙ",
+      "short_description": "Снизить цену конкурирующего ошейника и расширить продажи.",
+      "result_headline": "ЗАДУШИТЬ ПРОДАЖИ ЦЕНОВОЙ ВОЙНОЙ",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "subscription"
+        "collars"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "pf3"
       ],
-      "duration": "structural",
-      "stack_group": "petmind_competition",
+      "duration": "persistent",
+      "stack_group": "petmind_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Бесплатное приложение ведёт историю активности и напоминает о кормлении.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+        "attack": "Снизить цену конкурирующего ошейника и расширить продажи.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "PetMind теряет покупателей ошейников."
+      },
+      "v2_effect": {
+        "group": "petmind_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 2800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "petmind_r3_1",
+      "id": "petmind_r3_a",
       "startup_slug": "petmind",
       "round_number": 3,
-      "title": "Проверка на прогулке",
-      "short_description": "Покупатели публикуют бытовой тест распознавания эмоций.",
-      "result_headline": "PetMind: проверка на прогулке",
-      "attack_type": "product",
+      "title": "СОРВАТЬ ВЕТЕРИНАРНЫЕ РЕКОМЕНДАЦИИ",
+      "short_description": "Передать ветеринарным сетям доказательства ошибок PetMind и предложить альтернативу.",
+      "result_headline": "СОРВАТЬ ВЕТЕРИНАРНЫЕ РЕКОМЕНДАЦИИ",
+      "attack_type": "reputation",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "collars"
-      ],
-      "weakness_id": "pw1",
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
-        "pf1"
-      ],
-      "duration": "persistent",
-      "stack_group": "petmind_product",
-      "scene_type": "technology",
-      "narrative": {
-        "attack": "Покупатели публикуют бытовой тест распознавания эмоций.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "petmind_r3_2",
-      "startup_slug": "petmind",
-      "round_number": 3,
-      "title": "Ветеринарный FAQ",
-      "short_description": "Клиника просит раскрыть ограничения подписки до рекомендации сервиса.",
-      "result_headline": "PetMind: ветеринарный faq",
-      "attack_type": "reputation",
-      "severity": "medium",
-      "scale": "company_wide",
-      "feasibility": "established_in_state",
-      "target_stream_ids": [
+        "collars",
         "subscription"
       ],
       "weakness_id": null,
@@ -609,55 +968,160 @@
       "evidence_fact_ids": [
         "pf1"
       ],
-      "duration": "persistent",
-      "stack_group": "petmind_reputation",
+      "duration": "structural",
+      "stack_group": "petmind_a",
       "scene_type": "reputation",
       "narrative": {
-        "attack": "Клиника просит раскрыть ограничения подписки до рекомендации сервиса.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+        "attack": "Передать ветеринарным сетям доказательства ошибок PetMind и предложить альтернативу.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Потеря рекомендаций снижает продажи и подписку."
+      },
+      "v2_effect": {
+        "group": "petmind_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 1600,
+            "subscription": 2000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "trust_crisis"
+          ],
+          "stream_loss_bps": {
+            "collars": 4300,
+            "subscription": 5400
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -12,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "petmind_r3_3",
+      "id": "petmind_r3_b",
       "startup_slug": "petmind",
       "round_number": 3,
-      "title": "Очередь на производство",
-      "short_description": "Завод отдаёт приоритет крупному заказчику перед партией ошейников.",
-      "result_headline": "PetMind: очередь на производство",
-      "attack_type": "supply",
+      "title": "ЗАБРАТЬ ПОКУПАТЕЛЕЙ ВО ВРЕМЯ ДЕФИЦИТА",
+      "short_description": "Предложить ожидающим ошейники PetMind немедленную поставку своего устройства.",
+      "result_headline": "ЗАБРАТЬ ПОКУПАТЕЛЕЙ ВО ВРЕМЯ ДЕФИЦИТА",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "collars"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf1"
+      ],
+      "duration": "structural",
+      "stack_group": "petmind_b",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Предложить ожидающим ошейники PetMind немедленную поставку своего устройства.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Покупатели переходят к конкуренту; восстановление завода не возвращает их автоматически."
+      },
+      "v2_effect": {
+        "group": "petmind_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 2000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "stockout"
+          ],
+          "stream_loss_bps": {
+            "collars": 6800
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 12000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
+      }
+    },
+    {
+      "id": "petmind_r3_c",
+      "startup_slug": "petmind",
+      "round_number": 3,
+      "title": "ДОБИТЬ ПОДПИСКУ БЕСПЛАТНЫМ АНАЛОГОМ",
+      "short_description": "Перевести пользователей на бесплатный аналог с сохранением их данных.",
+      "result_headline": "ДОБИТЬ ПОДПИСКУ БЕСПЛАТНЫМ АНАЛОГОМ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "collars"
+        "subscription"
       ],
-      "weakness_id": "pw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "pf2"
       ],
       "duration": "structural",
-      "stack_group": "petmind_supply",
-      "scene_type": "supply",
+      "stack_group": "petmind_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Завод отдаёт приоритет крупному заказчику перед партией ошейников.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+        "attack": "Перевести пользователей на бесплатный аналог с сохранением их данных.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Массовый уход подписчиков снижает и спрос на ошейники."
+      },
+      "v2_effect": {
+        "group": "petmind_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscription": 2400
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "churn_wave"
+          ],
+          "stream_loss_bps": {
+            "subscription": 9000,
+            "collars": 5500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "petmind_r3_4",
+      "id": "petmind_r3_d",
       "startup_slug": "petmind",
       "round_number": 3,
-      "title": "Дневник вместо тарифа",
-      "short_description": "Владельцы переходят на бесплатные напоминания и ручные заметки.",
-      "result_headline": "PetMind: дневник вместо тарифа",
-      "attack_type": "demand",
+      "title": "ПЕРЕХВАТИТЬ РЫНОК КОМПЛЕКТОМ БЕЗ АБОНПЛАТЫ",
+      "short_description": "Продать конкурентный трекер с сервисом без ежемесячной платы.",
+      "result_headline": "ПЕРЕХВАТИТЬ РЫНОК КОМПЛЕКТОМ БЕЗ АБОНПЛАТЫ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
+        "collars",
         "subscription"
       ],
       "weakness_id": null,
@@ -665,23 +1129,36 @@
       "evidence_fact_ids": [
         "pf3"
       ],
-      "duration": "temporary",
-      "stack_group": "petmind_demand",
-      "scene_type": "demand",
+      "duration": "structural",
+      "stack_group": "petmind_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Владельцы переходят на бесплатные напоминания и ручные заметки.",
-        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
-        "result": "PetMind: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+        "attack": "Продать конкурентный трекер с сервисом без ежемесячной платы.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "PetMind теряет продажи ошейников и подписки."
+      },
+      "v2_effect": {
+        "group": "petmind_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "collars": 2600,
+            "subscription": 2400
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "foodrover_r1_1",
+      "id": "foodrover_r1_a",
       "startup_slug": "foodrover",
       "round_number": 1,
-      "title": "Район без роботов",
-      "short_description": "Конкурент запускает доставку в тех же трёх пилотных районах.",
-      "result_headline": "FoodRover: район без роботов",
-      "attack_type": "competition",
+      "title": "ЗАПУСТИТЬ ПРОВЕРКУ МАРШРУТОВ",
+      "short_description": "Подать обоснованное обращение о безопасности маршрутов FoodRover.",
+      "result_headline": "ЗАПУСТИТЬ ПРОВЕРКУ МАРШРУТОВ",
+      "attack_type": "supply",
       "severity": "weak",
       "scale": "local",
       "feasibility": "plausible",
@@ -694,133 +1171,474 @@
         "fr1"
       ],
       "duration": "temporary",
-      "stack_group": "foodrover_competition",
-      "scene_type": "competition",
+      "stack_group": "foodrover_a",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Конкурент запускает доставку в тех же трёх пилотных районах.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+        "attack": "Подать обоснованное обращение о безопасности маршрутов FoodRover.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Проверка замедляет доставку и ухудшает доверие."
+      },
+      "v2_effect": {
+        "group": "foodrover_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -2,
+          "set_flags": [
+            "route_scrutiny"
+          ]
+        }
       }
     },
     {
-      "id": "foodrover_r1_2",
+      "id": "foodrover_r1_b",
       "startup_slug": "foodrover",
       "round_number": 1,
-      "title": "Аккумуляторный дефицит",
-      "short_description": "Поставщик переносит батареи, от которых зависит график замен роботов.",
-      "result_headline": "FoodRover: аккумуляторный дефицит",
+      "title": "СКУПИТЬ ДОСТУПНЫЕ БАТАРЕИ",
+      "short_description": "Выкупить доступные сменные аккумуляторы перед закупкой FoodRover.",
+      "result_headline": "СКУПИТЬ ДОСТУПНЫЕ БАТАРЕИ",
       "attack_type": "supply",
       "severity": "weak",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "delivery"
+        "delivery",
+        "maintenance"
       ],
-      "weakness_id": "fw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fr2"
       ],
       "duration": "temporary",
-      "stack_group": "foodrover_supply",
+      "stack_group": "foodrover_b",
       "scene_type": "supply",
       "narrative": {
-        "attack": "Поставщик переносит батареи, от которых зависит график замен роботов.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+        "attack": "Выкупить доступные сменные аккумуляторы перед закупкой FoodRover.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Роботы простаивают, обслуживание дорожает."
+      },
+      "v2_effect": {
+        "group": "foodrover_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 800,
+            "maintenance": 500
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 15000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "battery_pressure"
+          ]
+        }
       }
     },
     {
-      "id": "foodrover_r1_3",
+      "id": "foodrover_r1_c",
       "startup_slug": "foodrover",
       "round_number": 1,
-      "title": "Бордюрный маршрут",
-      "short_description": "Город перекрывает удобный проход на одном из пилотных участков.",
-      "result_headline": "FoodRover: бордюрный маршрут",
-      "attack_type": "technology",
+      "title": "ПЕРЕМАНИТЬ РЕСТОРАНЫ ДЕШЁВЫМИ КУРЬЕРАМИ",
+      "short_description": "Предложить ресторанам более дешёвую альтернативную доставку.",
+      "result_headline": "ПЕРЕМАНИТЬ РЕСТОРАНЫ ДЕШЁВЫМИ КУРЬЕРАМИ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
         "delivery"
       ],
-      "weakness_id": "fw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fr1"
       ],
-      "duration": "persistent",
-      "stack_group": "foodrover_technology",
-      "scene_type": "technology",
+      "duration": "temporary",
+      "stack_group": "foodrover_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Город перекрывает удобный проход на одном из пилотных участков.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+        "attack": "Предложить ресторанам более дешёвую альтернативную доставку.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Часть заказов уходит от FoodRover."
+      },
+      "v2_effect": {
+        "group": "foodrover_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 1200
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "competitor_trial"
+          ]
+        }
       }
     },
     {
-      "id": "foodrover_r1_4",
+      "id": "foodrover_r1_d",
       "startup_slug": "foodrover",
       "round_number": 1,
-      "title": "Сервис по SLA",
-      "short_description": "Партнёр просит подтвердить сроки ремонта перед продлением контракта.",
-      "result_headline": "FoodRover: сервис по sla",
-      "attack_type": "technology",
+      "title": "ПЕРЕМАНИТЬ СЕРВИСНЫХ КЛИЕНТОВ",
+      "short_description": "Предложить владельцам роботов конкурирующий сервис.",
+      "result_headline": "ПЕРЕМАНИТЬ СЕРВИСНЫХ КЛИЕНТОВ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "maintenance"
       ],
-      "weakness_id": "fw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr3"
+      ],
+      "duration": "temporary",
+      "stack_group": "foodrover_d",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Предложить владельцам роботов конкурирующий сервис.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "FoodRover теряет сервисную выручку."
+      },
+      "v2_effect": {
+        "group": "foodrover_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "maintenance": 1500
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
+      }
+    },
+    {
+      "id": "foodrover_r2_a",
+      "startup_slug": "foodrover",
+      "round_number": 2,
+      "title": "ДОБИТЬСЯ ОГРАНИЧЕНИЙ НА КЛЮЧЕВЫХ МАРШРУТАХ",
+      "short_description": "Предоставить регулятору данные проверки и добиться ограничений маршрутов.",
+      "result_headline": "ДОБИТЬСЯ ОГРАНИЧЕНИЙ НА КЛЮЧЕВЫХ МАРШРУТАХ",
+      "attack_type": "supply",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr2"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_a",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Предоставить регулятору данные проверки и добиться ограничений маршрутов.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Доставка замедляется и требует расходов на обходные пути."
+      },
+      "v2_effect": {
+        "group": "foodrover_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "route_scrutiny"
+          ],
+          "stream_loss_bps": {
+            "delivery": 3800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": -3,
+          "set_flags": [
+            "route_restricted"
+          ]
+        }
+      }
+    },
+    {
+      "id": "foodrover_r2_b",
+      "startup_slug": "foodrover",
+      "round_number": 2,
+      "title": "ПЕРЕХВАТИТЬ ПОСТАВКУ АККУМУЛЯТОРОВ",
+      "short_description": "Законтрактовать остаток аккумуляторов у поставщика FoodRover.",
+      "result_headline": "ПЕРЕХВАТИТЬ ПОСТАВКУ АККУМУЛЯТОРОВ",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "delivery",
+        "maintenance"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr1"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_b",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Законтрактовать остаток аккумуляторов у поставщика FoodRover.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Доставка и обслуживание страдают от дефицита."
+      },
+      "v2_effect": {
+        "group": "foodrover_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 1800,
+            "maintenance": 1500
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 15000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "battery_pressure"
+          ],
+          "stream_loss_bps": {
+            "delivery": 4200,
+            "maintenance": 3200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 35000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "battery_backlog"
+          ]
+        }
+      }
+    },
+    {
+      "id": "foodrover_r2_c",
+      "startup_slug": "foodrover",
+      "round_number": 2,
+      "title": "УВЕСТИ РЕСТОРАНЫ С FOODROVER",
+      "short_description": "Предложить ресторанам полный переход на конкурирующую доставку.",
+      "result_headline": "УВЕСТИ РЕСТОРАНЫ С FOODROVER",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr1"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_c",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Предложить ресторанам полный переход на конкурирующую доставку.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "FoodRover теряет ресторанные заказы."
+      },
+      "v2_effect": {
+        "group": "foodrover_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 2000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "competitor_trial"
+          ],
+          "stream_loss_bps": {
+            "delivery": 4200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "restaurant_switch"
+          ]
+        }
+      }
+    },
+    {
+      "id": "foodrover_r2_d",
+      "startup_slug": "foodrover",
+      "round_number": 2,
+      "title": "ЗАБРАТЬ СЕРВИС ГАРАНТИЕЙ 24 ЧАСА",
+      "short_description": "Предложить сервисным клиентам гарантию ремонта за сутки.",
+      "result_headline": "ЗАБРАТЬ СЕРВИС ГАРАНТИЕЙ 24 ЧАСА",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "maintenance"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fr3"
       ],
       "duration": "persistent",
-      "stack_group": "foodrover_technology",
-      "scene_type": "technology",
+      "stack_group": "foodrover_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Партнёр просит подтвердить сроки ремонта перед продлением контракта.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Сервисные контракты на роботов» получает отдельную строку в отчёте."
+        "attack": "Предложить сервисным клиентам гарантию ремонта за сутки.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Сервисные контракты уходят к конкуренту."
+      },
+      "v2_effect": {
+        "group": "foodrover_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "maintenance": 2500
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "foodrover_r2_1",
+      "id": "foodrover_r3_a",
       "startup_slug": "foodrover",
-      "round_number": 2,
-      "title": "Батареи в сезон",
-      "short_description": "Рестораны одновременно записывают парк на замену аккумуляторов.",
-      "result_headline": "FoodRover: батареи в сезон",
+      "round_number": 3,
+      "title": "ЗАКРЫТЬ FOODROVER ДОСТУП К КЛЮЧЕВОМУ РАЙОНУ",
+      "short_description": "Добиться ограничения доступа роботов в самый важный район.",
+      "result_headline": "ЗАКРЫТЬ FOODROVER ДОСТУП К КЛЮЧЕВОМУ РАЙОНУ",
       "attack_type": "supply",
-      "severity": "medium",
+      "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "maintenance"
+        "delivery"
       ],
-      "weakness_id": "fw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
-        "fr2"
+        "fr1"
       ],
-      "duration": "persistent",
-      "stack_group": "foodrover_supply",
+      "duration": "structural",
+      "stack_group": "foodrover_a",
       "scene_type": "supply",
       "narrative": {
-        "attack": "Рестораны одновременно записывают парк на замену аккумуляторов.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Сервисные контракты на роботов» получает отдельную строку в отчёте."
+        "attack": "Добиться ограничения доступа роботов в самый важный район.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Район становится недоступным для доставок FoodRover."
+      },
+      "v2_effect": {
+        "group": "foodrover_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 2400
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "route_restricted"
+          ],
+          "stream_loss_bps": {
+            "delivery": 7400
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 25000000,
+          "reputation_delta": -4,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "foodrover_r2_2",
+      "id": "foodrover_r3_b",
       "startup_slug": "foodrover",
-      "round_number": 2,
-      "title": "Карта пилотного района",
-      "short_description": "Конкурент обещает покрытие соседнего квартала ресторанам.",
-      "result_headline": "FoodRover: карта пилотного района",
+      "round_number": 3,
+      "title": "ЗАБРАТЬ РЕСТОРАНЫ НА ФОНЕ ПРОСТОЕВ",
+      "short_description": "Предложить ресторанам надёжную доставку, пока роботы FoodRover простаивают.",
+      "result_headline": "ЗАБРАТЬ РЕСТОРАНЫ НА ФОНЕ ПРОСТОЕВ",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "delivery",
+        "maintenance"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr2"
+      ],
+      "duration": "structural",
+      "stack_group": "foodrover_b",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Предложить ресторанам надёжную доставку, пока роботы FoodRover простаивают.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Рестораны уходят; новые аккумуляторы не возвращают их автоматически."
+      },
+      "v2_effect": {
+        "group": "foodrover_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 2600,
+            "maintenance": 2000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "battery_backlog"
+          ],
+          "stream_loss_bps": {
+            "delivery": 7200,
+            "maintenance": 5500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 50000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
+      }
+    },
+    {
+      "id": "foodrover_r3_c",
+      "startup_slug": "foodrover",
+      "round_number": 3,
+      "title": "ЗАБЛОКИРОВАТЬ ВОЗВРАТ РЕСТОРАНОВ",
+      "short_description": "Подписать с перешедшими ресторанами долгосрочные эксклюзивные договоры.",
+      "result_headline": "ЗАБЛОКИРОВАТЬ ВОЗВРАТ РЕСТОРАНОВ",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
@@ -831,198 +1649,95 @@
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
-        "fr1"
-      ],
-      "duration": "persistent",
-      "stack_group": "foodrover_competition",
-      "scene_type": "competition",
-      "narrative": {
-        "attack": "Конкурент обещает покрытие соседнего квартала ресторанам.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "foodrover_r2_3",
-      "startup_slug": "foodrover",
-      "round_number": 2,
-      "title": "Навигация после перекрытия",
-      "short_description": "Объезд увеличивает время пути между рестораном и точкой выдачи.",
-      "result_headline": "FoodRover: навигация после перекрытия",
-      "attack_type": "technology",
-      "severity": "medium",
-      "scale": "company_wide",
-      "feasibility": "plausible",
-      "target_stream_ids": [
-        "delivery"
-      ],
-      "weakness_id": "fw2",
-      "weakness_match": "exact",
-      "evidence_fact_ids": [
-        "fr1"
-      ],
-      "duration": "temporary",
-      "stack_group": "foodrover_technology",
-      "scene_type": "technology",
-      "narrative": {
-        "attack": "Объезд увеличивает время пути между рестораном и точкой выдачи.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "foodrover_r2_4",
-      "startup_slug": "foodrover",
-      "round_number": 2,
-      "title": "Ремонтный слот",
-      "short_description": "Партнёр резервирует сервисные мощности под собственный парк.",
-      "result_headline": "FoodRover: ремонтный слот",
-      "attack_type": "supply",
-      "severity": "strong",
-      "scale": "regional",
-      "feasibility": "established_in_state",
-      "target_stream_ids": [
-        "maintenance"
-      ],
-      "weakness_id": "fw1",
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
-        "fr3"
+        "fr2"
       ],
       "duration": "structural",
-      "stack_group": "foodrover_supply",
-      "scene_type": "supply",
+      "stack_group": "foodrover_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Партнёр резервирует сервисные мощности под собственный парк.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Сервисные контракты на роботов» получает отдельную строку в отчёте."
+        "attack": "Подписать с перешедшими ресторанами долгосрочные эксклюзивные договоры.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "FoodRover не может вернуть ресторанные заказы."
+      },
+      "v2_effect": {
+        "group": "foodrover_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "delivery": 3000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "restaurant_switch"
+          ],
+          "stream_loss_bps": {
+            "delivery": 8000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "foodrover_r3_1",
+      "id": "foodrover_r3_d",
       "startup_slug": "foodrover",
       "round_number": 3,
-      "title": "Доставка с человеком",
-      "short_description": "Ресторанная сеть временно возвращает часть заказов курьерам.",
-      "result_headline": "FoodRover: доставка с человеком",
+      "title": "ПЕРЕХВАТИТЬ СЕРВИСНЫЕ КОНТРАКТЫ",
+      "short_description": "Заключить эксклюзивные договоры с сервисными клиентами FoodRover.",
+      "result_headline": "ПЕРЕХВАТИТЬ СЕРВИСНЫЕ КОНТРАКТЫ",
       "attack_type": "competition",
       "severity": "strong",
-      "scale": "regional",
-      "feasibility": "established_in_state",
-      "target_stream_ids": [
-        "delivery"
-      ],
-      "weakness_id": null,
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
-        "fr1"
-      ],
-      "duration": "persistent",
-      "stack_group": "foodrover_competition",
-      "scene_type": "competition",
-      "narrative": {
-        "attack": "Ресторанная сеть временно возвращает часть заказов курьерам.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "foodrover_r3_2",
-      "startup_slug": "foodrover",
-      "round_number": 3,
-      "title": "Батарейный регламент",
-      "short_description": "В отраслевом канале обсуждают частоту обслуживания аккумуляторов.",
-      "result_headline": "FoodRover: батарейный регламент",
-      "attack_type": "reputation",
-      "severity": "medium",
       "scale": "company_wide",
-      "feasibility": "established_in_state",
+      "feasibility": "plausible",
       "target_stream_ids": [
         "maintenance"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
-        "fr2"
-      ],
-      "duration": "persistent",
-      "stack_group": "foodrover_reputation",
-      "scene_type": "reputation",
-      "narrative": {
-        "attack": "В отраслевом канале обсуждают частоту обслуживания аккумуляторов.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Сервисные контракты на роботов» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "foodrover_r3_3",
-      "startup_slug": "foodrover",
-      "round_number": 3,
-      "title": "Запасной комплект",
-      "short_description": "Дистрибьютор меняет порядок выдачи редких батарей.",
-      "result_headline": "FoodRover: запасной комплект",
-      "attack_type": "supply",
-      "severity": "strong",
-      "scale": "local",
-      "feasibility": "plausible",
-      "target_stream_ids": [
-        "delivery"
-      ],
-      "weakness_id": "fw1",
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
-        "fr2"
-      ],
-      "duration": "structural",
-      "stack_group": "foodrover_supply",
-      "scene_type": "supply",
-      "narrative": {
-        "attack": "Дистрибьютор меняет порядок выдачи редких батарей.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "foodrover_r3_4",
-      "startup_slug": "foodrover",
-      "round_number": 3,
-      "title": "Геозона на ремонте",
-      "short_description": "Муниципальные работы закрывают привычный коридор пилотного маршрута.",
-      "result_headline": "FoodRover: геозона на ремонте",
-      "attack_type": "technology",
-      "severity": "strong",
-      "scale": "company_wide",
-      "feasibility": "plausible",
-      "target_stream_ids": [
-        "delivery"
-      ],
-      "weakness_id": "fw2",
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
         "fr1"
       ],
-      "duration": "temporary",
-      "stack_group": "foodrover_technology",
-      "scene_type": "technology",
+      "duration": "structural",
+      "stack_group": "foodrover_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Муниципальные работы закрывают привычный коридор пилотного маршрута.",
-        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
-        "result": "FoodRover: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+        "attack": "Заключить эксклюзивные договоры с сервисными клиентами FoodRover.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Сервисная выручка надолго уходит к конкуренту."
+      },
+      "v2_effect": {
+        "group": "foodrover_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "maintenance": 4000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "studygenie_r1_1",
+      "id": "studygenie_r1_a",
       "startup_slug": "studygenie",
       "round_number": 1,
-      "title": "Экзамен без скидки",
-      "short_description": "Подготовительный сервис запускает сезонный тариф перед экзаменационной неделей.",
-      "result_headline": "StudyGenie: экзамен без скидки",
-      "attack_type": "competition",
+      "title": "НАЙТИ И ОПУБЛИКОВАТЬ ОШИБКИ",
+      "short_description": "Проверить ответы StudyGenie и публично показать подтверждённые ошибки.",
+      "result_headline": "НАЙТИ И ОПУБЛИКОВАТЬ ОШИБКИ",
+      "attack_type": "reputation",
       "severity": "weak",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "subscriptions"
+        "subscriptions",
+        "schools"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
@@ -1030,78 +1745,123 @@
         "sg1"
       ],
       "duration": "temporary",
-      "stack_group": "studygenie_competition",
-      "scene_type": "competition",
+      "stack_group": "studygenie_a",
+      "scene_type": "reputation",
       "narrative": {
-        "attack": "Подготовительный сервис запускает сезонный тариф перед экзаменационной неделей.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Подписки учеников» получает отдельную строку в отчёте."
+        "attack": "Проверить ответы StudyGenie и публично показать подтверждённые ошибки.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Подписчики и школы теряют доверие."
+      },
+      "v2_effect": {
+        "group": "studygenie_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 900,
+            "schools": 700
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -3,
+          "set_flags": [
+            "quality_doubt"
+          ]
+        }
       }
     },
     {
-      "id": "studygenie_r1_2",
+      "id": "studygenie_r1_b",
       "startup_slug": "studygenie",
       "round_number": 1,
-      "title": "Проверка ответа",
-      "short_description": "Ученики выкладывают ошибочный разбор задачи и обсуждают объяснения.",
-      "result_headline": "StudyGenie: проверка ответа",
-      "attack_type": "reputation",
+      "title": "ЗАБРАТЬ РЕЗЕРВ API-МОЩНОСТИ",
+      "short_description": "Законтрактовать доступную приоритетную квоту внешнего AI-провайдера.",
+      "result_headline": "ЗАБРАТЬ РЕЗЕРВ API-МОЩНОСТИ",
+      "attack_type": "technology",
       "severity": "weak",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "subscriptions"
+        "subscriptions",
+        "schools"
       ],
-      "weakness_id": "sw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sg2"
       ],
       "duration": "temporary",
-      "stack_group": "studygenie_reputation",
-      "scene_type": "reputation",
+      "stack_group": "studygenie_b",
+      "scene_type": "technology",
       "narrative": {
-        "attack": "Ученики выкладывают ошибочный разбор задачи и обсуждают объяснения.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Подписки учеников» получает отдельную строку в отчёте."
+        "attack": "Законтрактовать доступную приоритетную квоту внешнего AI-провайдера.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "В экзаменационный сезон StudyGenie испытывает перебои и расходы."
+      },
+      "v2_effect": {
+        "group": "studygenie_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 800,
+            "schools": 500
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "api_pressure"
+          ]
+        }
       }
     },
     {
-      "id": "studygenie_r1_3",
+      "id": "studygenie_r1_c",
       "startup_slug": "studygenie",
       "round_number": 1,
-      "title": "API на техобслуживании",
-      "short_description": "Внешний языковой сервис назначает работы на вечерний пик.",
-      "result_headline": "StudyGenie: api на техобслуживании",
-      "attack_type": "technology",
+      "title": "ОТТЯНУТЬ УЧЕНИКОВ БЕСПЛАТНОЙ ПОДГОТОВКОЙ",
+      "short_description": "Запустить бесплатную подготовку с переносом прогресса учеников.",
+      "result_headline": "ОТТЯНУТЬ УЧЕНИКОВ БЕСПЛАТНОЙ ПОДГОТОВКОЙ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
         "subscriptions"
       ],
-      "weakness_id": "sw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sg3"
       ],
-      "duration": "persistent",
-      "stack_group": "studygenie_technology",
-      "scene_type": "technology",
+      "duration": "temporary",
+      "stack_group": "studygenie_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Внешний языковой сервис назначает работы на вечерний пик.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Подписки учеников» получает отдельную строку в отчёте."
+        "attack": "Запустить бесплатную подготовку с переносом прогресса учеников.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Часть учеников отменяет подписку StudyGenie."
+      },
+      "v2_effect": {
+        "group": "studygenie_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 1200
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "exam_trial"
+          ]
+        }
       }
     },
     {
-      "id": "studygenie_r1_4",
+      "id": "studygenie_r1_d",
       "startup_slug": "studygenie",
       "round_number": 1,
-      "title": "Лицензия в расписании",
-      "short_description": "Школа переносит решение о продлении договора на следующий семестр.",
-      "result_headline": "StudyGenie: лицензия в расписании",
-      "attack_type": "demand",
+      "title": "ЗАЙТИ В ШКОЛЫ БЕСПЛАТНЫМ ПИЛОТОМ",
+      "short_description": "Предложить школам бесплатный пилот конкурирующего сервиса.",
+      "result_headline": "ЗАЙТИ В ШКОЛЫ БЕСПЛАТНЫМ ПИЛОТОМ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
@@ -1113,28 +1873,41 @@
       "evidence_fact_ids": [
         "sg2"
       ],
-      "duration": "persistent",
-      "stack_group": "studygenie_demand",
-      "scene_type": "demand",
+      "duration": "temporary",
+      "stack_group": "studygenie_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Школа переносит решение о продлении договора на следующий семестр.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Лицензии для школ» получает отдельную строку в отчёте."
+        "attack": "Предложить школам бесплатный пилот конкурирующего сервиса.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "StudyGenie теряет школьные продажи."
+      },
+      "v2_effect": {
+        "group": "studygenie_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "schools": 1200
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "studygenie_r2_1",
+      "id": "studygenie_r2_a",
       "startup_slug": "studygenie",
       "round_number": 2,
-      "title": "Бенчмарк объяснений",
-      "short_description": "Конкурент сравнивает ответы сервиса с бесплатной платформой.",
-      "result_headline": "StudyGenie: бенчмарк объяснений",
-      "attack_type": "competition",
+      "title": "ДОКАЗАТЬ, ЧТО ОШИБКИ СИСТЕМНЫЕ",
+      "short_description": "Расширить тестирование и опубликовать повторяющиеся ошибки StudyGenie.",
+      "result_headline": "ДОКАЗАТЬ, ЧТО ОШИБКИ СИСТЕМНЫЕ",
+      "attack_type": "reputation",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "subscriptions"
+        "subscriptions",
+        "schools"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
@@ -1142,83 +1915,207 @@
         "sg1"
       ],
       "duration": "persistent",
-      "stack_group": "studygenie_competition",
-      "scene_type": "competition",
+      "stack_group": "studygenie_a",
+      "scene_type": "reputation",
       "narrative": {
-        "attack": "Конкурент сравнивает ответы сервиса с бесплатной платформой.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Подписки учеников» получает отдельную строку в отчёте."
+        "attack": "Расширить тестирование и опубликовать повторяющиеся ошибки StudyGenie.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Подписчики и школы сокращают закупки."
+      },
+      "v2_effect": {
+        "group": "studygenie_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 1200,
+            "schools": 1000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "quality_doubt"
+          ],
+          "stream_loss_bps": {
+            "subscriptions": 3000,
+            "schools": 2800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -7,
+          "set_flags": [
+            "trust_crisis"
+          ]
+        }
       }
     },
     {
-      "id": "studygenie_r2_2",
+      "id": "studygenie_r2_b",
       "startup_slug": "studygenie",
       "round_number": 2,
-      "title": "Демо для методсовета",
-      "short_description": "Школьный совет перепроверяет примеры до обсуждения лицензии.",
-      "result_headline": "StudyGenie: демо для методсовета",
-      "attack_type": "reputation",
+      "title": "ОСТАВИТЬ STUDYGENIE БЕЗ API-РЕЗЕРВА",
+      "short_description": "Перехватить доступную резервную квоту перед экзаменами.",
+      "result_headline": "ОСТАВИТЬ STUDYGENIE БЕЗ API-РЕЗЕРВА",
+      "attack_type": "technology",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
+        "subscriptions",
         "schools"
       ],
-      "weakness_id": "sw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "sg2"
       ],
       "duration": "persistent",
-      "stack_group": "studygenie_reputation",
-      "scene_type": "reputation",
+      "stack_group": "studygenie_b",
+      "scene_type": "technology",
       "narrative": {
-        "attack": "Школьный совет перепроверяет примеры до обсуждения лицензии.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Лицензии для школ» получает отдельную строку в отчёте."
+        "attack": "Перехватить доступную резервную квоту перед экзаменами.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Перебои снижают подписки и школьные продажи."
+      },
+      "v2_effect": {
+        "group": "studygenie_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 1200,
+            "schools": 800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "api_pressure"
+          ],
+          "stream_loss_bps": {
+            "subscriptions": 3800,
+            "schools": 3000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 30000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "api_bottleneck"
+          ]
+        }
       }
     },
     {
-      "id": "studygenie_r2_3",
+      "id": "studygenie_r2_c",
       "startup_slug": "studygenie",
       "round_number": 2,
-      "title": "Лимит провайдера",
-      "short_description": "Сторонний сервис снижает пропускную способность во время подготовки.",
-      "result_headline": "StudyGenie: лимит провайдера",
-      "attack_type": "technology",
+      "title": "ПЕРЕМАНИТЬ УЧЕНИКОВ БЕЗ ПОТЕРИ ПРОГРЕССА",
+      "short_description": "Предложить ученикам перенос их истории в конкурирующий сервис.",
+      "result_headline": "ПЕРЕМАНИТЬ УЧЕНИКОВ БЕЗ ПОТЕРИ ПРОГРЕССА",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
         "subscriptions"
       ],
-      "weakness_id": "sw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sg3"
       ],
-      "duration": "temporary",
-      "stack_group": "studygenie_technology",
-      "scene_type": "technology",
+      "duration": "persistent",
+      "stack_group": "studygenie_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Сторонний сервис снижает пропускную способность во время подготовки.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Подписки учеников» получает отдельную строку в отчёте."
+        "attack": "Предложить ученикам перенос их истории в конкурирующий сервис.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "StudyGenie теряет подписчиков."
+      },
+      "v2_effect": {
+        "group": "studygenie_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 1600
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "exam_trial"
+          ],
+          "stream_loss_bps": {
+            "subscriptions": 4000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "cohort_churn"
+          ]
+        }
       }
     },
     {
-      "id": "studygenie_r2_4",
+      "id": "studygenie_r2_d",
       "startup_slug": "studygenie",
       "round_number": 2,
-      "title": "Сезонный пробник",
-      "short_description": "Бесплатный марафон конкурента отбирает вечерние занятия учеников.",
-      "result_headline": "StudyGenie: сезонный пробник",
+      "title": "ПЕРЕМАНИТЬ МЕТОДСОВЕТЫ",
+      "short_description": "Предложить методическим советам конкурирующий школьный продукт.",
+      "result_headline": "ПЕРЕМАНИТЬ МЕТОДСОВЕТЫ",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "subscriptions"
+        "schools"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg1"
+      ],
+      "duration": "persistent",
+      "stack_group": "studygenie_d",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Предложить методическим советам конкурирующий школьный продукт.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "StudyGenie теряет школьные лицензии."
+      },
+      "v2_effect": {
+        "group": "studygenie_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "schools": 2200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
+      }
+    },
+    {
+      "id": "studygenie_r3_a",
+      "startup_slug": "studygenie",
+      "round_number": 3,
+      "title": "СОРВАТЬ ПРОДЛЕНИЕ ШКОЛЬНЫХ ЛИЦЕНЗИЙ",
+      "short_description": "Передать школам доказательства ошибок и предложить замену StudyGenie.",
+      "result_headline": "СОРВАТЬ ПРОДЛЕНИЕ ШКОЛЬНЫХ ЛИЦЕНЗИЙ",
+      "attack_type": "reputation",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscriptions",
+        "schools"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
@@ -1226,105 +2123,155 @@
         "sg1"
       ],
       "duration": "structural",
-      "stack_group": "studygenie_competition",
-      "scene_type": "competition",
+      "stack_group": "studygenie_a",
+      "scene_type": "reputation",
       "narrative": {
-        "attack": "Бесплатный марафон конкурента отбирает вечерние занятия учеников.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Подписки учеников» получает отдельную строку в отчёте."
+        "attack": "Передать школам доказательства ошибок и предложить замену StudyGenie.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Школы отказываются от продления, подписки тоже снижаются."
+      },
+      "v2_effect": {
+        "group": "studygenie_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 1400,
+            "schools": 2200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "trust_crisis"
+          ],
+          "stream_loss_bps": {
+            "subscriptions": 4800,
+            "schools": 7200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -10,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "studygenie_r3_1",
+      "id": "studygenie_r3_b",
       "startup_slug": "studygenie",
       "round_number": 3,
-      "title": "Продление после каникул",
-      "short_description": "Ученики откладывают оплату до следующего экзаменационного цикла.",
-      "result_headline": "StudyGenie: продление после каникул",
-      "attack_type": "demand",
-      "severity": "strong",
-      "scale": "regional",
-      "feasibility": "established_in_state",
-      "target_stream_ids": [
-        "subscriptions"
-      ],
-      "weakness_id": null,
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
-        "sg1"
-      ],
-      "duration": "persistent",
-      "stack_group": "studygenie_demand",
-      "scene_type": "demand",
-      "narrative": {
-        "attack": "Ученики откладывают оплату до следующего экзаменационного цикла.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Подписки учеников» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "studygenie_r3_2",
-      "startup_slug": "studygenie",
-      "round_number": 3,
-      "title": "Пилот в одном классе",
-      "short_description": "Школа замораживает расширение до внутренней проверки ответов.",
-      "result_headline": "StudyGenie: пилот в одном классе",
-      "attack_type": "reputation",
+      "title": "УВЕСТИ ПОЛЬЗОВАТЕЛЕЙ ВО ВРЕМЯ СБОЕВ",
+      "short_description": "Предложить пользователям StudyGenie стабильную альтернативу во время перебоев.",
+      "result_headline": "УВЕСТИ ПОЛЬЗОВАТЕЛЕЙ ВО ВРЕМЯ СБОЕВ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "established_in_state",
       "target_stream_ids": [
+        "subscriptions",
         "schools"
       ],
-      "weakness_id": "sw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sg2"
       ],
-      "duration": "persistent",
-      "stack_group": "studygenie_reputation",
-      "scene_type": "reputation",
+      "duration": "structural",
+      "stack_group": "studygenie_b",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Школа замораживает расширение до внутренней проверки ответов.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Лицензии для школ» получает отдельную строку в отчёте."
+        "attack": "Предложить пользователям StudyGenie стабильную альтернативу во время перебоев.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Пользователи уходят; восстановление квоты не возвращает их автоматически."
+      },
+      "v2_effect": {
+        "group": "studygenie_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 1800,
+            "schools": 1500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "api_bottleneck"
+          ],
+          "stream_loss_bps": {
+            "subscriptions": 7200,
+            "schools": 5500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 15000000,
+          "reputation_delta": -4,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
       }
     },
     {
-      "id": "studygenie_r3_3",
+      "id": "studygenie_r3_c",
       "startup_slug": "studygenie",
       "round_number": 3,
-      "title": "Совместимость кабинета",
-      "short_description": "Провайдер меняет формат ответа, требуя повторной проверки интеграции.",
-      "result_headline": "StudyGenie: совместимость кабинета",
-      "attack_type": "technology",
+      "title": "ДОБИТЬ УЧЕНИЧЕСКУЮ ПОДПИСКУ БЕСПЛАТНЫМ АНАЛОГОМ",
+      "short_description": "Перевести учеников на бесплатную альтернативу с сохранением прогресса.",
+      "result_headline": "ДОБИТЬ УЧЕНИЧЕСКУЮ ПОДПИСКУ БЕСПЛАТНЫМ АНАЛОГОМ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
         "subscriptions"
       ],
-      "weakness_id": "sw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "sg3"
       ],
       "duration": "structural",
-      "stack_group": "studygenie_technology",
-      "scene_type": "technology",
+      "stack_group": "studygenie_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Провайдер меняет формат ответа, требуя повторной проверки интеграции.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Подписки учеников» получает отдельную строку в отчёте."
+        "attack": "Перевести учеников на бесплатную альтернативу с сохранением прогресса.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Платные ученические подписки массово прекращаются."
+      },
+      "v2_effect": {
+        "group": "studygenie_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "subscriptions": 2400
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "cohort_churn"
+          ],
+          "stream_loss_bps": {
+            "subscriptions": 8800
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
-      "id": "studygenie_r3_4",
+      "id": "studygenie_r3_d",
       "startup_slug": "studygenie",
       "round_number": 3,
-      "title": "Учительский конспект",
-      "short_description": "Бесплатный набор материалов становится заметнее лицензии в рассылке.",
-      "result_headline": "StudyGenie: учительский конспект",
+      "title": "ЗАБРАТЬ ГОДОВЫЕ ЛИЦЕНЗИИ ШКОЛ",
+      "short_description": "Заключить годовые договоры со школами вместо StudyGenie.",
+      "result_headline": "ЗАБРАТЬ ГОДОВЫЕ ЛИЦЕНЗИИ ШКОЛ",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "company_wide",
@@ -1337,13 +2284,25 @@
       "evidence_fact_ids": [
         "sg2"
       ],
-      "duration": "temporary",
-      "stack_group": "studygenie_competition",
+      "duration": "structural",
+      "stack_group": "studygenie_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Бесплатный набор материалов становится заметнее лицензии в рассылке.",
-        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
-        "result": "StudyGenie: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Лицензии для школ» получает отдельную строку в отчёте."
+        "attack": "Заключить годовые договоры со школами вместо StudyGenie.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Школьные лицензии уходят конкуренту."
+      },
+      "v2_effect": {
+        "group": "studygenie_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "schools": 4000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
