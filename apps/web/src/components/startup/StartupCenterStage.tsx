@@ -23,36 +23,35 @@ export const StartupCenterStage: React.FC<StartupCenterStageProps> = ({
 
   return (
     <div className="bg-bg-card border border-border rounded-2xl p-5 sm:p-6 flex flex-col gap-4 shadow-xl">
-      {/* Target Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/60 pb-4">
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse" />
-            <span className="font-mono text-[11px] uppercase tracking-wider text-accent-lime font-bold">
-              ЦЕЛЬ НА МУШКЕ
-            </span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-display font-extrabold text-text-primary uppercase tracking-tight">
-            {startup.name}
-          </h1>
-          <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-            {startup.tagline}
-          </p>
-          <div className="mt-2 rounded-xl border border-border/70 bg-bg-surface/70 p-3">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-accent-amber">
-              ЧЕМ ЗАНИМАЕТСЯ СТАРТАП
-            </span>
-            <p className="mt-1 text-sm leading-relaxed text-text-primary">
-              {startup.description}
-            </p>
-          </div>
-        </div>
+      <div className="flex justify-end">
+        <span className="inline-flex items-center px-3 py-1.5 rounded-xl bg-bg-surface border border-accent-lime/30 font-mono text-xs font-bold text-accent-lime tracking-wider shadow-sm">
+          {roundMonthBadge}
+        </span>
+      </div>
 
-        <div className="self-start sm:self-center shrink-0">
-          <span className="inline-flex items-center px-3 py-1.5 rounded-xl bg-bg-surface border border-accent-lime/30 font-mono text-xs font-bold text-accent-lime tracking-wider shadow-sm">
-            {roundMonthBadge}
+      {/* Target Header Bar */}
+      <div className="flex flex-col gap-1 border-b border-border/60 pb-4">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse" />
+          <span className="font-mono text-[11px] uppercase tracking-wider text-accent-lime font-bold">
+            ЦЕЛЬ НА МУШКЕ
           </span>
         </div>
+        <h1 className="text-2xl sm:text-3xl font-display font-extrabold text-text-primary uppercase tracking-tight">
+          {startup.name}
+        </h1>
+        <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
+          {startup.tagline}
+        </p>
+      </div>
+
+      <div className="rounded-xl border border-border/70 bg-bg-surface/70 p-3 sm:p-4">
+        <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-accent-amber">
+          ЧЕМ ЗАНИМАЕТСЯ СТАРТАП
+        </span>
+        <p className="mt-1 text-sm leading-relaxed text-text-primary max-w-none">
+          {startup.description}
+        </p>
       </div>
 
       {/* Large CGI Hero Render */}

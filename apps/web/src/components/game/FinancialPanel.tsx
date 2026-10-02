@@ -8,15 +8,15 @@ export const FinancialPanel: React.FC<{ state: GameState }> = ({ state }) => {
   const runwayColor = runway < 3 ? 'text-accent-red' : runway < 6 ? 'text-accent-amber' : 'text-accent-lime';
 
   return (
-    <div className="bg-bg-card border border-border rounded-xl p-5 grid grid-cols-1 gap-4 md:grid-cols-4 md:items-center md:gap-5 xl:flex xl:flex-col xl:gap-6">
-      <div className="md:col-span-1">
+    <div className="bg-bg-card border border-border rounded-xl p-5 grid grid-cols-1 gap-5 md:grid-cols-4 md:items-center md:gap-5 xl:flex xl:flex-col xl:gap-6">
+      <div className="md:col-span-1 min-w-0">
         <div className="text-xs text-text-secondary font-mono mb-1">ОСТАТОК СРЕДСТВ</div>
-        <div className="text-2xl md:text-xl xl:text-3xl font-mono text-text-primary">
+        <div className="text-2xl md:text-xl xl:text-3xl font-mono text-text-primary tabular-nums whitespace-nowrap">
           <CashDisplay kopeks={state.cash_kopeks} />
         </div>
       </div>
       
-      <div className="md:col-span-2 grid grid-cols-2 gap-4">
+      <div className="md:col-span-2 grid grid-cols-2 gap-4 min-w-0">
         <div>
           <div className="text-xs text-text-secondary font-mono mb-1">RUNWAY</div>
           <div className={`text-xl font-mono ${runwayColor}`}>
@@ -25,14 +25,14 @@ export const FinancialPanel: React.FC<{ state: GameState }> = ({ state }) => {
         </div>
         <div>
           <div className="text-xs text-text-secondary font-mono mb-1">BURN RATE</div>
-          <div className="text-sm font-mono text-text-primary">
+          <div className="text-sm font-mono text-text-primary tabular-nums whitespace-nowrap">
             <CashDisplay kopeks={state.monthly_fixed_cost_kopeks} /> /мес
           </div>
         </div>
       </div>
 
-      <div className="md:col-span-1">
-        <div className="flex justify-between items-end mb-2">
+      <div className="md:col-span-1 min-w-0">
+        <div className="flex flex-wrap justify-between items-end gap-x-3 gap-y-1 mb-2">
           <div className="text-xs text-text-secondary font-mono">РЕПУТАЦИЯ</div>
           <div className="text-sm font-mono text-text-primary">{state.reputation}/100</div>
         </div>
