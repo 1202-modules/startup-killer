@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 export const WelcomeView: React.FC = () => {
   const { existingSessionId } = useBootstrap();
-  const { createSession, isCreating } = useSession();
+  const { createSession, isCreating, session } = useSession();
   const navigate = useNavigate();
   const [nickname, setNickname] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -60,7 +60,7 @@ export const WelcomeView: React.FC = () => {
             <span>ОПЕРАЦИЯ: ЛИКВИДАЦИЯ</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight uppercase leading-tight mb-3">
-            Убей <span className="text-accent-lime drop-shadow-[0_0_20px_rgba(185,245,107,0.35)]">Стартап</span>
+            Be <span className="text-accent-lime drop-shadow-[0_0_20px_rgba(185,245,107,0.35)]">Startup</span>
           </h1>
           <p className="text-text-secondary text-sm leading-relaxed max-w-sm">
             Три раунда, чтобы обрушить экономику случайного стартапа. Выбирайте готовые атаки и смотрите, как меняются финансы компании.
@@ -83,7 +83,23 @@ export const WelcomeView: React.FC = () => {
           </div>
         </div>
 
-        {existingSessionId ? (
+        {existingSessionId && session?.status === 'completed' ? (
+          <div className="flex flex-col gap-4 p-4 rounded-xl bg-accent-lime/5 border border-accent-lime/25">
+            <div className="flex items-center gap-2 text-accent-lime font-mono text-xs">
+              <span className="w-2 h-2 rounded-full bg-accent-lime" />
+              <span>ПАРТИЯ ЗАВЕРШЕНА</span>
+            </div>
+            <p className="text-xs text-text-secondary leading-relaxed">
+              Результат сохранён в общем рейтинге.
+            </p>
+            <Link
+              to="/leaderboard"
+              className="w-full py-3.5 bg-accent-lime text-center text-bg-primary font-display font-bold uppercase tracking-wider rounded-xl hover:brightness-110 transition-all"
+            >
+              Открыть рейтинг →
+            </Link>
+          </div>
+        ) : existingSessionId ? (
           <div className="flex flex-col gap-4 p-4 rounded-xl bg-accent-amber/10 border border-accent-amber/30">
             <div className="flex items-center gap-2 text-accent-amber font-mono text-xs">
               <span className="w-2 h-2 rounded-full bg-accent-amber animate-pulse" />

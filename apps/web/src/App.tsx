@@ -32,6 +32,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<RootGuard />} />
+        <Route path="/home" element={<WelcomeView />} />
         <Route path="/leaderboard" element={<LeaderboardView />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

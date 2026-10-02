@@ -126,7 +126,7 @@ export const GameView: React.FC = () => {
   return (
     <div className="relative">
       {showingScene && roundResult?.event?.scene_type && (
-        <SceneRenderer type={roundResult.event.scene_type} onComplete={handleSceneComplete} />
+        <SceneRenderer type={roundResult.event.scene_type} result={roundResult} onComplete={handleSceneComplete} />
       )}
       <GameLayout
         center={(

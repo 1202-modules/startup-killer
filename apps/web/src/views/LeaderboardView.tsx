@@ -11,7 +11,7 @@ export const LeaderboardView: React.FC = () => {
     <div className="min-h-[100dvh] p-8 max-w-4xl mx-auto flex flex-col gap-8">
       <div className="flex justify-between items-center">
         <h1 className="text-4xl font-display font-bold text-text-primary">Таблица лидеров</h1>
-        <Link to="/" className="text-accent-lime hover:underline font-mono text-sm">На главную</Link>
+        <Link to="/home" className="text-accent-lime hover:underline font-mono text-sm">На главную</Link>
       </div>
 
       <div className="bg-bg-card border border-border rounded-xl overflow-hidden">

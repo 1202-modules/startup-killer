@@ -37,7 +37,7 @@ const DEFENSE_TITLES: Record<string, string> = {
   lower_deposit: 'СНИЖЕНИЕ ЗАЛОГА', partner_commission_cut: 'СНИЖЕНИЕ КОМИССИИ',
 };
 
-const STREAM_TITLES: Record<string, string> = {
+export const STREAM_TITLES: Record<string, string> = {
   collars: 'Ошейники', subscription: 'Подписка', kiosks: 'Кофейные точки',
   service: 'Корпоративный сервис', delivery: 'Доставка', maintenance: 'Обслуживание',
   subscriptions: 'Подписки учеников', schools: 'Школьные лицензии',

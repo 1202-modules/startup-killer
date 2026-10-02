@@ -1,9 +1,11 @@
 import React from 'react';
-import { SceneType } from '../../api/types';
+import { SceneType, RoundResult } from '../../api/types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '../../stores/gameStore';
+import { CashDisplay } from '../ui/CashDisplay';
+import { STREAM_TITLES } from '../game/RoundResultView';
 
-const GenericScene = ({ color, title, onComplete }: any) => {
+const GenericScene = ({ color, title, result, onComplete }: { color: string; title: string; result?: RoundResult; onComplete: () => void }) => {
   const isReduced = useGameStore(s => s.isReducedMotion);
   React.useEffect(() => {
     if (isReduced) onComplete();
@@ -25,11 +27,24 @@ const GenericScene = ({ color, title, onComplete }: any) => {
       >
         {title}
       </motion.h3>
+      {result && <>
+        <p className="mt-3 max-w-xl text-sm text-white/90">{result.event.narrative}</p>
+        <div className="mt-4 flex flex-wrap justify-center gap-2 font-mono text-xs font-bold text-white">
+          {Object.entries(result.impact?.affected_streams || {}).slice(0, 2).map(([stream, bps]) => (
+            <span key={stream} className="rounded-lg border border-white/25 bg-black/20 px-3 py-2">
+              {STREAM_TITLES[stream] || stream.replace(/_/g, ' ')} −{new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 1 }).format(bps / 100)}%
+            </span>
+          ))}
+          <span className="rounded-lg border border-white/25 bg-black/20 px-3 py-2">
+            Выручка <CashDisplay kopeks={result.deltas.monthly_revenue_kopeks} isChange />/мес
+          </span>
+        </div>
+      </>}
     </motion.div>
   );
 };
 
-export const SceneRenderer: React.FC<{ type: SceneType; onComplete: () => void }> = ({ type, onComplete }) => {
+export const SceneRenderer: React.FC<{ type: SceneType; result?: RoundResult; onComplete: () => void }> = ({ type, result, onComplete }) => {
   const skip = useGameStore(s => s.skipAnimations);
 
   React.useEffect(() => {
@@ -58,7 +73,7 @@ export const SceneRenderer: React.FC<{ type: SceneType; onComplete: () => void }
 
   return (
     <AnimatePresence>
-      <GenericScene color={config.color} title={config.title} onComplete={onComplete} />
+      <GenericScene color={config.color} title={config.title} result={result} onComplete={onComplete} />
     </AnimatePresence>
   );
 };
