@@ -25,8 +25,9 @@ export const FinancialPanel: React.FC<{ state: GameState }> = ({ state }) => {
         </div>
         <div>
           <div className="text-xs text-text-secondary font-mono mb-1">BURN RATE</div>
-          <div className="text-sm font-mono text-text-primary tabular-nums whitespace-nowrap">
-            <CashDisplay kopeks={state.monthly_fixed_cost_kopeks} /> /мес
+          <div className="text-sm font-mono leading-tight text-text-primary tabular-nums">
+            <CashDisplay kopeks={state.monthly_fixed_cost_kopeks} className="block break-words" />
+            <span className="mt-1 block text-xs text-text-secondary">/мес</span>
           </div>
         </div>
       </div>
