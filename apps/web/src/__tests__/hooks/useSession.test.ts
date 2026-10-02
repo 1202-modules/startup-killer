@@ -40,6 +40,13 @@ describe('useSession', () => {
     expect(api.getSession).not.toHaveBeenCalled();
   });
 
+  it('reports a failed session lookup instead of treating it as no session', async () => {
+    (api.getMySession as any).mockRejectedValueOnce(new Error('Server unavailable'));
+    const { result } = renderHook(() => useSession(), { wrapper });
+    await waitFor(() => expect(result.current.isLoading).toBe(false));
+    expect(result.current.error).toBeTruthy();
+  });
+
   it('fetches full session when session_id is returned from me/session', async () => {
     const mockSession = {
       session_id: 'sess-123',

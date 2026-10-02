@@ -16,7 +16,6 @@ import { useRound } from '../hooks/useRound';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '../api/endpoints';
-import { v4 as uuidv4 } from 'uuid';
 
 export const GameView: React.FC = () => {
   const { session, isLoading, isFetching } = useSession();
@@ -54,7 +53,7 @@ export const GameView: React.FC = () => {
   const continueMutation = useMutation({
     mutationFn: () => {
       if (!session || !currentRoundId) throw new Error('Отсутствует ID сессии или раунда');
-      return api.continueGame(session.session_id, currentRoundId, uuidv4());
+      return api.continueGame(session.session_id, currentRoundId, crypto.randomUUID());
     },
     onSuccess: () => {
       setPhase('READY');

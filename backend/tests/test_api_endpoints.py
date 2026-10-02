@@ -217,7 +217,10 @@ def test_create_session_success_and_reuse_idempotency(client, db_engine):
         db.commit()
 
     assert client.get("/api/v1/bootstrap").json()["existing_session_id"] is None
-    assert client.get("/api/v1/me/session").json() == {"session_id": None, "status": None}
+    assert client.get("/api/v1/me/session").json() == {
+        "session_id": session_id,
+        "status": "completed",
+    }
     r_new = client.post(
         "/api/v1/sessions",
         headers={"X-CSRF-Token": csrf_token, "Idempotency-Key": str(uuid.uuid4())},

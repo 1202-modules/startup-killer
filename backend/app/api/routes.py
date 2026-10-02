@@ -237,7 +237,12 @@ def get_me_session(
     if not installation:
         return SessionMeResponse(session_id=None, status=None)
 
-    session = _active_session(db, installation.id)
+    session = db.scalar(
+        select(GameSession)
+        .where(GameSession.browser_installation_id == installation.id)
+        .order_by(GameSession.created_at.desc())
+        .limit(1)
+    )
     if not session:
         return SessionMeResponse(session_id=None, status=None)
 

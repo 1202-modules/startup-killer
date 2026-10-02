@@ -9,6 +9,7 @@ export const WelcomeView: React.FC = () => {
   const navigate = useNavigate();
   const [nickname, setNickname] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [showTelegramGate, setShowTelegramGate] = useState(true);
 
   const isValid = nickname.trim().length >= 2 && nickname.trim().length <= 24;
 
@@ -21,7 +22,7 @@ export const WelcomeView: React.FC = () => {
         navigate('/');
       } catch (err: any) {
         console.error('Error creating session', err);
-        setErrorMsg(err?.response?.data?.message || 'Ошибка подключения к серверу. Попробуйте снова.');
+        setErrorMsg(err?.data?.error?.message || 'Ошибка подключения к серверу. Попробуйте снова.');
       }
     }
   };
@@ -41,18 +42,55 @@ export const WelcomeView: React.FC = () => {
           <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse" />
           <span>СИСТЕМА САБОТАЖА v1.0</span>
         </div>
-        <div className="flex items-center gap-4 text-xs font-mono">
+        {!showTelegramGate && (
           <Link
             to="/leaderboard"
-            className="text-text-secondary hover:text-accent-lime transition-colors flex items-center gap-1.5"
+            className="text-xs font-mono text-text-secondary hover:text-accent-lime transition-colors flex items-center gap-1.5"
           >
             <span>🏆</span>
             <span>Рейтинг</span>
           </Link>
-        </div>
+        )}
       </header>
 
-      {/* Main Terminal Card */}
+      {showTelegramGate ? (
+        <main className="relative isolate max-w-lg w-full overflow-hidden bg-bg-card border border-border rounded-2xl shadow-2xl z-10 my-auto">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+            <span className="absolute -top-14 -left-12 h-36 w-44 rounded-[2rem] bg-gradient-to-br from-[#ffd6b5] via-[#f47a3c] to-[#d84d1e] opacity-90" />
+            <span className="absolute -top-16 -right-10 h-36 w-40 rounded-[2rem] bg-gradient-to-br from-[#ffb17e] via-[#ec6930] to-[#bd3f18] opacity-90" />
+            <span className="absolute -bottom-20 -left-12 h-36 w-44 rounded-[2rem] bg-gradient-to-br from-[#ef6b31] via-[#e86a32] to-[#ffd2ad] opacity-90" />
+            <span className="absolute -bottom-20 -right-14 h-36 w-48 rounded-[2rem] bg-gradient-to-br from-[#d94d1e] via-[#ef793e] to-[#ffd8bc] opacity-90" />
+          </div>
+          <div className="relative m-3 sm:m-4 rounded-xl bg-bg-primary/95 px-5 py-7 sm:px-8 sm:py-8 text-center flex flex-col items-center gap-5">
+            <div>
+              <p className="text-xs font-mono uppercase tracking-[0.18em] text-[#f38a56] mb-3">Связь с операционным штабом</p>
+              <h1 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-text-primary">Сначала — Telegram</h1>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-text-secondary">
+                Отсканируйте QR-код, чтобы открыть бота. Когда будете готовы, нажмите «Продолжить».
+              </p>
+            </div>
+
+            <div className="rounded-[1.35rem] bg-white p-3 shadow-[0_0_34px_rgba(239,103,48,0.24)]">
+              <img
+                src="/assets/telegram/platypus-bot-qr.png"
+                alt="QR-код для открытия Telegram-бота platypusorder_bot"
+                width="430"
+                height="430"
+                className="block h-60 w-60 sm:h-64 sm:w-64"
+              />
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowTelegramGate(false)}
+              className="w-full rounded-xl bg-[#f07a3f] px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wider text-[#171411] transition-all duration-200 hover:brightness-110 active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffc09b]"
+            >
+              Продолжить <span aria-hidden="true" className="ml-1">→</span>
+            </button>
+          </div>
+        </main>
+      ) : (
+      /* Main Terminal Card */
       <main className="max-w-lg w-full bg-bg-card/90 backdrop-blur-md border border-border p-6 sm:p-8 rounded-2xl flex flex-col gap-6 shadow-2xl z-10 my-auto">
         <div className="text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bg-surface border border-border text-xs font-mono text-accent-lime mb-3">
@@ -151,6 +189,7 @@ export const WelcomeView: React.FC = () => {
           </form>
         )}
       </main>
+      )}
 
       {/* Footer info */}
       <footer className="w-full max-w-4xl text-center py-4 text-xs font-mono text-text-secondary/50 z-10">

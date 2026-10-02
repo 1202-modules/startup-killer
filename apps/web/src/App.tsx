@@ -6,8 +6,8 @@ import { useBootstrap } from './hooks/useBootstrap';
 import { useSession } from './hooks/useSession';
 
 const RootGuard = () => {
-  const { existingSessionId, isLoading: bootLoading } = useBootstrap();
-  const { session, isLoading: sessionLoading } = useSession();
+  const { existingSessionId, isLoading: bootLoading, error: bootError } = useBootstrap();
+  const { session, isLoading: sessionLoading, error: sessionError } = useSession();
 
   if (bootLoading || (existingSessionId && sessionLoading)) {
     return (
@@ -16,6 +16,15 @@ const RootGuard = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-accent-lime animate-pulse" />
           <span>Инициализация терминала...</span>
         </div>
+      </div>
+    );
+  }
+
+  if (bootError || sessionError) {
+    return (
+      <div className="min-h-screen bg-bg-primary flex flex-col items-center justify-center gap-4 text-text-primary">
+        <p role="alert">Не удалось загрузить игру. Проверьте подключение и повторите попытку.</p>
+        <button type="button" onClick={() => window.location.reload()} className="text-accent-lime underline">Повторить</button>
       </div>
     );
   }

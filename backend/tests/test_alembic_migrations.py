@@ -40,6 +40,8 @@ def test_alembic_migration_upgrade_and_downgrade(temp_alembic_db):
     engine = create_engine(db_url)
     inspector = inspect(engine)
     tables = set(inspector.get_table_names())
+    version_column = inspector.get_columns("alembic_version")[0]
+    assert version_column["type"].length >= len("0002_deterministic_attack_choices")
     
     expected_tables = {
         "startup_templates", "startup_template_versions", "browser_installations",

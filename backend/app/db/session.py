@@ -1,8 +1,10 @@
 from contextlib import asynccontextmanager, contextmanager
+from sqlite3 import Connection as SQLiteConnection
 from typing import AsyncGenerator, Generator
 
 from sqlalchemy import create_engine, event
 from sqlalchemy.engine import Engine
+from sqlalchemy.dialects.sqlite.aiosqlite import AsyncAdapt_aiosqlite_connection
 from sqlalchemy.ext.asyncio import (
     AsyncEngine,
     AsyncSession,
@@ -23,12 +25,10 @@ class Base(DeclarativeBase):
 @event.listens_for(Engine, "connect")
 def set_sqlite_pragma(dbapi_connection, connection_record):
     # Only execute pragma on sqlite engines
-    if hasattr(dbapi_connection, "cursor"):
+    if isinstance(dbapi_connection, (SQLiteConnection, AsyncAdapt_aiosqlite_connection)):
         cursor = dbapi_connection.cursor()
         try:
             cursor.execute("PRAGMA foreign_keys=ON")
-        except Exception:
-            pass
         finally:
             cursor.close()
 

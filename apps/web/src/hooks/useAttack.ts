@@ -1,7 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { api } from '../api/endpoints';
 import { useGameStore } from '../stores/gameStore';
-import { v4 as uuidv4 } from 'uuid';
 
 export const useAttack = (sessionId: string) => {
   const setPhase = useGameStore(s => s.setPhase);
@@ -9,7 +8,7 @@ export const useAttack = (sessionId: string) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (choiceId: string) => api.submitChoice(sessionId, choiceId, uuidv4()),
+    mutationFn: (choiceId: string) => api.submitChoice(sessionId, choiceId, crypto.randomUUID()),
     onMutate: () => setPhase('SUBMITTING'),
     onSuccess: result => {
       if (result.round_id) {

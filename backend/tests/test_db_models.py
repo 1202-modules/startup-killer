@@ -189,7 +189,7 @@ def test_create_full_game_hierarchy(db_session):
     assert session.ledgers[0].id == ledger_m1.id
 
 
-def test_unique_constraint_browser_installation_session(db_session):
+def test_browser_installation_can_keep_completed_sessions(db_session):
     seed_startups(db_session)
     template = db_session.scalar(select(StartupTemplate).where(StartupTemplate.slug == "petmind"))
 
@@ -209,7 +209,8 @@ def test_unique_constraint_browser_installation_session(db_session):
     db_session.add(s1)
     db_session.commit()
 
-    # Session 2 for the same browser installation must fail
+    # A completed game remains in history while a new one starts.
+    s1.status = SessionStatus.completed
     s2 = GameSession(
         browser_installation_id=installation.id,
         startup_template_id=template.id,
@@ -219,9 +220,10 @@ def test_unique_constraint_browser_installation_session(db_session):
         state={},
     )
     db_session.add(s2)
-    with pytest.raises(IntegrityError):
-        db_session.commit()
-    db_session.rollback()
+    db_session.commit()
+    assert db_session.query(GameSession).filter_by(browser_installation_id=installation.id).count() == 2
+    assert db_session.get(GameSession, s1.id).status == SessionStatus.completed
+    assert db_session.get(GameSession, s2.id) is not None
 
 
 def test_unique_constraint_game_round_number(db_session):

@@ -14,6 +14,9 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     bind = op.get_bind()
+    # This revision ID exceeds Alembic's default VARCHAR(32).
+    with op.batch_alter_table("alembic_version") as batch:
+        batch.alter_column("version_num", existing_type=sa.String(32), type_=sa.String(64), existing_nullable=False)
     root = Path(__file__).resolve().parents[3]
     catalog = json.loads((root / "data" / "attack_choices.json").read_text(encoding="utf-8"))
     choices_by_slug = {}
