@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generation_policy",
+    "canonical_style",
+    "subject_prompts",
+    "variants",
+    "assets"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "generation_policy": {
+      "const": "offline_antigravity_tool_only"
+    },
+    "canonical_style": {
+      "const": "assets/prompts/STYLE_MASTER.md"
+    },
+    "subject_prompts": {
+      "const": "assets/prompts/STARTUP_RENDERS.md"
+    },
+    "variants": {
+      "type": "object",
+      "required": [
+        "desktop",
+        "mobile",
+        "thumb"
+      ]
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "slug",
+          "asset_key",
+          "master_aspect",
+          "files",
+          "status"
+        ],
+        "properties": {
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+$"
+          },
+          "asset_key": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+$"
+          },
+          "master_aspect": {
+            "const": "16:10"
+          },
+          "files": {
+            "type": "object",
+            "required": [
+              "desktop",
+              "mobile",
+              "thumb"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "desktop": {
+                "type": "string",
+                "pattern": "^/assets/startups/"
+              },
+              "mobile": {
+                "type": "string",
+                "pattern": "^/assets/startups/"
+              },
+              "thumb": {
+                "type": "string",
+                "pattern": "^/assets/startups/"
+              }
+            }
+          },
+          "status": {
+            "enum": [
+              "pending_generation",
+              "proof_pending_approval",
+              "approved",
+              "ready"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

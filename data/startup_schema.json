@@ -1,0 +1,621 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://startup-killer.local/schemas/startup_schema_v9.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "startups"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "startups": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "slug",
+          "version",
+          "name",
+          "industry",
+          "asset_key",
+          "public_profile",
+          "private_profile",
+          "finance_config",
+          "baseline_series",
+          "baseline_cash_m9_kopeks",
+          "engine_version"
+        ],
+        "properties": {
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "industry": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "asset_key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "public_profile": {
+            "type": "object",
+            "required": [
+              "tagline",
+              "description",
+              "facts",
+              "strengths"
+            ],
+            "properties": {
+              "tagline": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "description": {
+                "type": "string",
+                "minLength": 10
+              },
+              "facts": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 5,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "text"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "text": {
+                      "type": "string",
+                      "minLength": 10,
+                      "maxLength": 300
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "strengths": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "private_profile": {
+            "type": "object",
+            "required": [
+              "weaknesses",
+              "allowed_defenses",
+              "pivot_compatible",
+              "production_partner_alternative"
+            ],
+            "properties": {
+              "weaknesses": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "description",
+                    "attack_type"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 5,
+                      "maxLength": 250
+                    },
+                    "attack_type": {
+                      "type": "string",
+                      "enum": [
+                        "competition",
+                        "reputation",
+                        "supply",
+                        "product",
+                        "demand",
+                        "cost",
+                        "technology",
+                        "finance",
+                        "absurd"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "allowed_defenses": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "cost_cut",
+                    "pr",
+                    "supplier_switch",
+                    "pivot"
+                  ]
+                }
+              },
+              "pivot_compatible": {
+                "type": "boolean"
+              },
+              "production_partner_alternative": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          "finance_config": {
+            "type": "object",
+            "required": [
+              "initial_cash_kopeks",
+              "initial_fixed_cost_kopeks",
+              "initial_reputation",
+              "revenue_streams"
+            ],
+            "properties": {
+              "initial_cash_kopeks": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "initial_fixed_cost_kopeks": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "initial_reputation": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "revenue_streams": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "name",
+                    "weight_bps",
+                    "initial_monthly_revenue_kopeks",
+                    "variable_cost_bps",
+                    "monthly_growth_bps"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    },
+                    "weight_bps": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 10000
+                    },
+                    "initial_monthly_revenue_kopeks": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "variable_cost_bps": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 10000
+                    },
+                    "monthly_growth_bps": {
+                      "type": "integer",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "baseline_series": {
+            "type": "array",
+            "minItems": 10,
+            "maxItems": 10,
+            "prefixItems": [
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 0
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 1
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 2
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 3
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 4
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 5
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 6
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 7
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 8
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "month",
+                  "revenue_kopeks",
+                  "variable_cost_kopeks",
+                  "fixed_cost_kopeks",
+                  "profit_kopeks",
+                  "closing_cash_kopeks"
+                ],
+                "properties": {
+                  "month": {
+                    "const": 9
+                  },
+                  "revenue_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "variable_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "fixed_cost_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "profit_kopeks": {
+                    "type": "integer"
+                  },
+                  "closing_cash_kopeks": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              }
+            ],
+            "items": false
+          },
+          "baseline_cash_m9_kopeks": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "engine_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

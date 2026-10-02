@@ -1,0 +1,3366 @@
+{
+  "catalog_version": "1.0.0",
+  "choices_per_round": 4,
+  "choices": [
+    {
+      "id": "coffeebot_r1_1",
+      "startup_slug": "coffeebot",
+      "round_number": 1,
+      "title": "Кампусный ценовой пресс",
+      "short_description": "Соседняя кофейня продаёт американо дешевле робота у главного корпуса.",
+      "result_headline": "CoffeeBot: кампусный ценовой пресс",
+      "attack_type": "competition",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "kiosks"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf1"
+      ],
+      "duration": "temporary",
+      "stack_group": "coffeebot_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Соседняя кофейня продаёт американо дешевле робота у главного корпуса.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r1_2",
+      "startup_slug": "coffeebot",
+      "round_number": 1,
+      "title": "Очередь без скидки",
+      "short_description": "Студенческий кофе-поинт раздаёт бонусы за повторный визит в часы пик.",
+      "result_headline": "CoffeeBot: очередь без скидки",
+      "attack_type": "competition",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "kiosks"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf1"
+      ],
+      "duration": "temporary",
+      "stack_group": "coffeebot_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Студенческий кофе-поинт раздаёт бонусы за повторный визит в часы пик.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r1_3",
+      "startup_slug": "coffeebot",
+      "round_number": 1,
+      "title": "Ремонт по подписке наоборот",
+      "short_description": "Сервисный конкурент предлагает офисам фиксированное обслуживание кофемашин.",
+      "result_headline": "CoffeeBot: ремонт по подписке наоборот",
+      "attack_type": "technology",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "service"
+      ],
+      "weakness_id": "cw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "cf2"
+      ],
+      "duration": "persistent",
+      "stack_group": "coffeebot_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Сервисный конкурент предлагает офисам фиксированное обслуживание кофемашин.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r1_4",
+      "startup_slug": "coffeebot",
+      "round_number": 1,
+      "title": "Кофе до пары",
+      "short_description": "Университет переносит перерыв, и утренний поток проходит мимо автоматов.",
+      "result_headline": "CoffeeBot: кофе до пары",
+      "attack_type": "demand",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "kiosks"
+      ],
+      "weakness_id": "cw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "cf1"
+      ],
+      "duration": "persistent",
+      "stack_group": "coffeebot_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Университет переносит перерыв, и утренний поток проходит мимо автоматов.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r2_1",
+      "startup_slug": "coffeebot",
+      "round_number": 2,
+      "title": "Сиропный ребрендинг",
+      "short_description": "Сеть кофеен копирует сезонное меню и запускает кампанию в кампусе.",
+      "result_headline": "CoffeeBot: сиропный ребрендинг",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "kiosks"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf1"
+      ],
+      "duration": "persistent",
+      "stack_group": "coffeebot_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Сеть кофеен копирует сезонное меню и запускает кампанию в кампусе.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r2_2",
+      "startup_slug": "coffeebot",
+      "round_number": 2,
+      "title": "Запчасти с дедлайном",
+      "short_description": "Поставка насосов задерживается перед плановым обслуживанием точек.",
+      "result_headline": "CoffeeBot: запчасти с дедлайном",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "service"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf2"
+      ],
+      "duration": "persistent",
+      "stack_group": "coffeebot_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Поставка насосов задерживается перед плановым обслуживанием точек.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r2_3",
+      "startup_slug": "coffeebot",
+      "round_number": 2,
+      "title": "Гарантия на нервы",
+      "short_description": "Обзор показывает очередь ремонтов у офисных кофемашин.",
+      "result_headline": "CoffeeBot: гарантия на нервы",
+      "attack_type": "technology",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "service"
+      ],
+      "weakness_id": "cw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "cf2"
+      ],
+      "duration": "temporary",
+      "stack_group": "coffeebot_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Обзор показывает очередь ремонтов у офисных кофемашин.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r2_4",
+      "startup_slug": "coffeebot",
+      "round_number": 2,
+      "title": "Кофе после каникул",
+      "short_description": "Кампус меняет расписание, поэтому привычные часы покупок смещаются.",
+      "result_headline": "CoffeeBot: кофе после каникул",
+      "attack_type": "demand",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "kiosks"
+      ],
+      "weakness_id": "cw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf1"
+      ],
+      "duration": "structural",
+      "stack_group": "coffeebot_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Кампус меняет расписание, поэтому привычные часы покупок смещаются.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r3_1",
+      "startup_slug": "coffeebot",
+      "round_number": 3,
+      "title": "Тендер на капучино",
+      "short_description": "Офисный оператор проводит повторный конкурс на кофе для сотрудников.",
+      "result_headline": "CoffeeBot: тендер на капучино",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "service"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf3"
+      ],
+      "duration": "persistent",
+      "stack_group": "coffeebot_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Офисный оператор проводит повторный конкурс на кофе для сотрудников.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r3_2",
+      "startup_slug": "coffeebot",
+      "round_number": 3,
+      "title": "Кофейный аудит",
+      "short_description": "Корпоративный клиент просит отдельно подтвердить стоимость обслуживания точек.",
+      "result_headline": "CoffeeBot: кофейный аудит",
+      "attack_type": "finance",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "service"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf3"
+      ],
+      "duration": "persistent",
+      "stack_group": "coffeebot_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Корпоративный клиент просит отдельно подтвердить стоимость обслуживания точек.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Обслуживание корпоративных точек» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r3_3",
+      "startup_slug": "coffeebot",
+      "round_number": 3,
+      "title": "Датчик простоя",
+      "short_description": "Мониторинг конкурента публично сравнивает время ремонта автоматов.",
+      "result_headline": "CoffeeBot: датчик простоя",
+      "attack_type": "technology",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "kiosks"
+      ],
+      "weakness_id": "cw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf2"
+      ],
+      "duration": "structural",
+      "stack_group": "coffeebot_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Мониторинг конкурента публично сравнивает время ремонта автоматов.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "coffeebot_r3_4",
+      "startup_slug": "coffeebot",
+      "round_number": 3,
+      "title": "Смена меню в холле",
+      "short_description": "Кампусный оператор продвигает локальную кофейню в студенческом приложении.",
+      "result_headline": "CoffeeBot: смена меню в холле",
+      "attack_type": "demand",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "kiosks"
+      ],
+      "weakness_id": "cw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "cf1"
+      ],
+      "duration": "temporary",
+      "stack_group": "coffeebot_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Кампусный оператор продвигает локальную кофейню в студенческом приложении.",
+        "company_response": "Операционный директор CoffeeBot пересчитывает график точек и заказывает ещё один планёрочный кофе.",
+        "result": "CoffeeBot: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Продажи кофе через роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r1_1",
+      "startup_slug": "petmind",
+      "round_number": 1,
+      "title": "Тест ошейника вслепую",
+      "short_description": "Блогер сравнивает обещанные 96% распознавания с дневником питомца.",
+      "result_headline": "PetMind: тест ошейника вслепую",
+      "attack_type": "product",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "collars"
+      ],
+      "weakness_id": "pw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "pf1"
+      ],
+      "duration": "temporary",
+      "stack_group": "petmind_product",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Блогер сравнивает обещанные 96% распознавания с дневником питомца.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r1_2",
+      "startup_slug": "petmind",
+      "round_number": 1,
+      "title": "Подписка без прогулки",
+      "short_description": "Конкурент предлагает бесплатный журнал активности вместо платной аналитики.",
+      "result_headline": "PetMind: подписка без прогулки",
+      "attack_type": "demand",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscription"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf3"
+      ],
+      "duration": "temporary",
+      "stack_group": "petmind_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Конкурент предлагает бесплатный журнал активности вместо платной аналитики.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r1_3",
+      "startup_slug": "petmind",
+      "round_number": 1,
+      "title": "Заводской стоп-лист",
+      "short_description": "Контрактный завод переносит выпуск партии ошейников на следующий слот.",
+      "result_headline": "PetMind: заводской стоп-лист",
+      "attack_type": "supply",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "collars"
+      ],
+      "weakness_id": "pw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "pf2"
+      ],
+      "duration": "persistent",
+      "stack_group": "petmind_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Контрактный завод переносит выпуск партии ошейников на следующий слот.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r1_4",
+      "startup_slug": "petmind",
+      "round_number": 1,
+      "title": "Процент точности",
+      "short_description": "Сообщество владельцев требует независимую проверку заявленной точности.",
+      "result_headline": "PetMind: процент точности",
+      "attack_type": "reputation",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscription"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf1"
+      ],
+      "duration": "persistent",
+      "stack_group": "petmind_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Сообщество владельцев требует независимую проверку заявленной точности.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r2_1",
+      "startup_slug": "petmind",
+      "round_number": 2,
+      "title": "Ошейник за полцены",
+      "short_description": "Маркетплейс выводит похожий трекер с бесплатной доставкой.",
+      "result_headline": "PetMind: ошейник за полцены",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "collars"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf3"
+      ],
+      "duration": "persistent",
+      "stack_group": "petmind_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Маркетплейс выводит похожий трекер с бесплатной доставкой.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r2_2",
+      "startup_slug": "petmind",
+      "round_number": 2,
+      "title": "Эмоции на паузе",
+      "short_description": "Обзор показывает расхождение классификации настроения с наблюдением хозяина.",
+      "result_headline": "PetMind: эмоции на паузе",
+      "attack_type": "product",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "subscription"
+      ],
+      "weakness_id": "pw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf1"
+      ],
+      "duration": "persistent",
+      "stack_group": "petmind_product",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Обзор показывает расхождение классификации настроения с наблюдением хозяина.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r2_3",
+      "startup_slug": "petmind",
+      "round_number": 2,
+      "title": "Единая линия сборки",
+      "short_description": "График подрядчика задерживает упаковку и отгрузку устройств.",
+      "result_headline": "PetMind: единая линия сборки",
+      "attack_type": "supply",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "collars"
+      ],
+      "weakness_id": "pw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "pf2"
+      ],
+      "duration": "temporary",
+      "stack_group": "petmind_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "График подрядчика задерживает упаковку и отгрузку устройств.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r2_4",
+      "startup_slug": "petmind",
+      "round_number": 2,
+      "title": "Личный кабинет питомца",
+      "short_description": "Бесплатное приложение ведёт историю активности и напоминает о кормлении.",
+      "result_headline": "PetMind: личный кабинет питомца",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscription"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf3"
+      ],
+      "duration": "structural",
+      "stack_group": "petmind_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Бесплатное приложение ведёт историю активности и напоминает о кормлении.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r3_1",
+      "startup_slug": "petmind",
+      "round_number": 3,
+      "title": "Проверка на прогулке",
+      "short_description": "Покупатели публикуют бытовой тест распознавания эмоций.",
+      "result_headline": "PetMind: проверка на прогулке",
+      "attack_type": "product",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "collars"
+      ],
+      "weakness_id": "pw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf1"
+      ],
+      "duration": "persistent",
+      "stack_group": "petmind_product",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Покупатели публикуют бытовой тест распознавания эмоций.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r3_2",
+      "startup_slug": "petmind",
+      "round_number": 3,
+      "title": "Ветеринарный FAQ",
+      "short_description": "Клиника просит раскрыть ограничения подписки до рекомендации сервиса.",
+      "result_headline": "PetMind: ветеринарный faq",
+      "attack_type": "reputation",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscription"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf1"
+      ],
+      "duration": "persistent",
+      "stack_group": "petmind_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Клиника просит раскрыть ограничения подписки до рекомендации сервиса.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r3_3",
+      "startup_slug": "petmind",
+      "round_number": 3,
+      "title": "Очередь на производство",
+      "short_description": "Завод отдаёт приоритет крупному заказчику перед партией ошейников.",
+      "result_headline": "PetMind: очередь на производство",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "collars"
+      ],
+      "weakness_id": "pw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf2"
+      ],
+      "duration": "structural",
+      "stack_group": "petmind_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Завод отдаёт приоритет крупному заказчику перед партией ошейников.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа умных ошейников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "petmind_r3_4",
+      "startup_slug": "petmind",
+      "round_number": 3,
+      "title": "Дневник вместо тарифа",
+      "short_description": "Владельцы переходят на бесплатные напоминания и ручные заметки.",
+      "result_headline": "PetMind: дневник вместо тарифа",
+      "attack_type": "demand",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "subscription"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "pf3"
+      ],
+      "duration": "temporary",
+      "stack_group": "petmind_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Владельцы переходят на бесплатные напоминания и ручные заметки.",
+        "company_response": "Команда PetMind собирает QA-отчёт для владельцев и переносит обещание точности на следующий слайд.",
+        "result": "PetMind: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «ИИ-подписка» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r1_1",
+      "startup_slug": "foodrover",
+      "round_number": 1,
+      "title": "Район без роботов",
+      "short_description": "Конкурент запускает доставку в тех же трёх пилотных районах.",
+      "result_headline": "FoodRover: район без роботов",
+      "attack_type": "competition",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr1"
+      ],
+      "duration": "temporary",
+      "stack_group": "foodrover_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент запускает доставку в тех же трёх пилотных районах.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r1_2",
+      "startup_slug": "foodrover",
+      "round_number": 1,
+      "title": "Аккумуляторный дефицит",
+      "short_description": "Поставщик переносит батареи, от которых зависит график замен роботов.",
+      "result_headline": "FoodRover: аккумуляторный дефицит",
+      "attack_type": "supply",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": "fw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fr2"
+      ],
+      "duration": "temporary",
+      "stack_group": "foodrover_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Поставщик переносит батареи, от которых зависит график замен роботов.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r1_3",
+      "startup_slug": "foodrover",
+      "round_number": 1,
+      "title": "Бордюрный маршрут",
+      "short_description": "Город перекрывает удобный проход на одном из пилотных участков.",
+      "result_headline": "FoodRover: бордюрный маршрут",
+      "attack_type": "technology",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": "fw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fr1"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Город перекрывает удобный проход на одном из пилотных участков.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r1_4",
+      "startup_slug": "foodrover",
+      "round_number": 1,
+      "title": "Сервис по SLA",
+      "short_description": "Партнёр просит подтвердить сроки ремонта перед продлением контракта.",
+      "result_headline": "FoodRover: сервис по sla",
+      "attack_type": "technology",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "maintenance"
+      ],
+      "weakness_id": "fw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fr3"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Партнёр просит подтвердить сроки ремонта перед продлением контракта.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Сервисные контракты на роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r2_1",
+      "startup_slug": "foodrover",
+      "round_number": 2,
+      "title": "Батареи в сезон",
+      "short_description": "Рестораны одновременно записывают парк на замену аккумуляторов.",
+      "result_headline": "FoodRover: батареи в сезон",
+      "attack_type": "supply",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "maintenance"
+      ],
+      "weakness_id": "fw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fr2"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Рестораны одновременно записывают парк на замену аккумуляторов.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Сервисные контракты на роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r2_2",
+      "startup_slug": "foodrover",
+      "round_number": 2,
+      "title": "Карта пилотного района",
+      "short_description": "Конкурент обещает покрытие соседнего квартала ресторанам.",
+      "result_headline": "FoodRover: карта пилотного района",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr1"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент обещает покрытие соседнего квартала ресторанам.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r2_3",
+      "startup_slug": "foodrover",
+      "round_number": 2,
+      "title": "Навигация после перекрытия",
+      "short_description": "Объезд увеличивает время пути между рестораном и точкой выдачи.",
+      "result_headline": "FoodRover: навигация после перекрытия",
+      "attack_type": "technology",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": "fw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fr1"
+      ],
+      "duration": "temporary",
+      "stack_group": "foodrover_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Объезд увеличивает время пути между рестораном и точкой выдачи.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r2_4",
+      "startup_slug": "foodrover",
+      "round_number": 2,
+      "title": "Ремонтный слот",
+      "short_description": "Партнёр резервирует сервисные мощности под собственный парк.",
+      "result_headline": "FoodRover: ремонтный слот",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "maintenance"
+      ],
+      "weakness_id": "fw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr3"
+      ],
+      "duration": "structural",
+      "stack_group": "foodrover_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Партнёр резервирует сервисные мощности под собственный парк.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Сервисные контракты на роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r3_1",
+      "startup_slug": "foodrover",
+      "round_number": 3,
+      "title": "Доставка с человеком",
+      "short_description": "Ресторанная сеть временно возвращает часть заказов курьерам.",
+      "result_headline": "FoodRover: доставка с человеком",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr1"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Ресторанная сеть временно возвращает часть заказов курьерам.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r3_2",
+      "startup_slug": "foodrover",
+      "round_number": 3,
+      "title": "Батарейный регламент",
+      "short_description": "В отраслевом канале обсуждают частоту обслуживания аккумуляторов.",
+      "result_headline": "FoodRover: батарейный регламент",
+      "attack_type": "reputation",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "maintenance"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr2"
+      ],
+      "duration": "persistent",
+      "stack_group": "foodrover_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "В отраслевом канале обсуждают частоту обслуживания аккумуляторов.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Сервисные контракты на роботов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r3_3",
+      "startup_slug": "foodrover",
+      "round_number": 3,
+      "title": "Запасной комплект",
+      "short_description": "Дистрибьютор меняет порядок выдачи редких батарей.",
+      "result_headline": "FoodRover: запасной комплект",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": "fw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr2"
+      ],
+      "duration": "structural",
+      "stack_group": "foodrover_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Дистрибьютор меняет порядок выдачи редких батарей.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "foodrover_r3_4",
+      "startup_slug": "foodrover",
+      "round_number": 3,
+      "title": "Геозона на ремонте",
+      "short_description": "Муниципальные работы закрывают привычный коридор пилотного маршрута.",
+      "result_headline": "FoodRover: геозона на ремонте",
+      "attack_type": "technology",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "delivery"
+      ],
+      "weakness_id": "fw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fr1"
+      ],
+      "duration": "temporary",
+      "stack_group": "foodrover_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Муниципальные работы закрывают привычный коридор пилотного маршрута.",
+        "company_response": "Операционный штаб FoodRover переставляет роботов на карте и созывает встречу о покрытии.",
+        "result": "FoodRover: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Доставка для ресторанов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r1_1",
+      "startup_slug": "studygenie",
+      "round_number": 1,
+      "title": "Экзамен без скидки",
+      "short_description": "Подготовительный сервис запускает сезонный тариф перед экзаменационной неделей.",
+      "result_headline": "StudyGenie: экзамен без скидки",
+      "attack_type": "competition",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "subscriptions"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg1"
+      ],
+      "duration": "temporary",
+      "stack_group": "studygenie_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Подготовительный сервис запускает сезонный тариф перед экзаменационной неделей.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Подписки учеников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r1_2",
+      "startup_slug": "studygenie",
+      "round_number": 1,
+      "title": "Проверка ответа",
+      "short_description": "Ученики выкладывают ошибочный разбор задачи и обсуждают объяснения.",
+      "result_headline": "StudyGenie: проверка ответа",
+      "attack_type": "reputation",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscriptions"
+      ],
+      "weakness_id": "sw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sg2"
+      ],
+      "duration": "temporary",
+      "stack_group": "studygenie_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Ученики выкладывают ошибочный разбор задачи и обсуждают объяснения.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Подписки учеников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r1_3",
+      "startup_slug": "studygenie",
+      "round_number": 1,
+      "title": "API на техобслуживании",
+      "short_description": "Внешний языковой сервис назначает работы на вечерний пик.",
+      "result_headline": "StudyGenie: api на техобслуживании",
+      "attack_type": "technology",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "subscriptions"
+      ],
+      "weakness_id": "sw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sg3"
+      ],
+      "duration": "persistent",
+      "stack_group": "studygenie_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Внешний языковой сервис назначает работы на вечерний пик.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Подписки учеников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r1_4",
+      "startup_slug": "studygenie",
+      "round_number": 1,
+      "title": "Лицензия в расписании",
+      "short_description": "Школа переносит решение о продлении договора на следующий семестр.",
+      "result_headline": "StudyGenie: лицензия в расписании",
+      "attack_type": "demand",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "schools"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg2"
+      ],
+      "duration": "persistent",
+      "stack_group": "studygenie_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Школа переносит решение о продлении договора на следующий семестр.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Лицензии для школ» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r2_1",
+      "startup_slug": "studygenie",
+      "round_number": 2,
+      "title": "Бенчмарк объяснений",
+      "short_description": "Конкурент сравнивает ответы сервиса с бесплатной платформой.",
+      "result_headline": "StudyGenie: бенчмарк объяснений",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscriptions"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg1"
+      ],
+      "duration": "persistent",
+      "stack_group": "studygenie_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент сравнивает ответы сервиса с бесплатной платформой.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Подписки учеников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r2_2",
+      "startup_slug": "studygenie",
+      "round_number": 2,
+      "title": "Демо для методсовета",
+      "short_description": "Школьный совет перепроверяет примеры до обсуждения лицензии.",
+      "result_headline": "StudyGenie: демо для методсовета",
+      "attack_type": "reputation",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "schools"
+      ],
+      "weakness_id": "sw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg2"
+      ],
+      "duration": "persistent",
+      "stack_group": "studygenie_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Школьный совет перепроверяет примеры до обсуждения лицензии.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Лицензии для школ» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r2_3",
+      "startup_slug": "studygenie",
+      "round_number": 2,
+      "title": "Лимит провайдера",
+      "short_description": "Сторонний сервис снижает пропускную способность во время подготовки.",
+      "result_headline": "StudyGenie: лимит провайдера",
+      "attack_type": "technology",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "subscriptions"
+      ],
+      "weakness_id": "sw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sg3"
+      ],
+      "duration": "temporary",
+      "stack_group": "studygenie_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Сторонний сервис снижает пропускную способность во время подготовки.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Подписки учеников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r2_4",
+      "startup_slug": "studygenie",
+      "round_number": 2,
+      "title": "Сезонный пробник",
+      "short_description": "Бесплатный марафон конкурента отбирает вечерние занятия учеников.",
+      "result_headline": "StudyGenie: сезонный пробник",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscriptions"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg1"
+      ],
+      "duration": "structural",
+      "stack_group": "studygenie_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Бесплатный марафон конкурента отбирает вечерние занятия учеников.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Подписки учеников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r3_1",
+      "startup_slug": "studygenie",
+      "round_number": 3,
+      "title": "Продление после каникул",
+      "short_description": "Ученики откладывают оплату до следующего экзаменационного цикла.",
+      "result_headline": "StudyGenie: продление после каникул",
+      "attack_type": "demand",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "subscriptions"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg1"
+      ],
+      "duration": "persistent",
+      "stack_group": "studygenie_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Ученики откладывают оплату до следующего экзаменационного цикла.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Подписки учеников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r3_2",
+      "startup_slug": "studygenie",
+      "round_number": 3,
+      "title": "Пилот в одном классе",
+      "short_description": "Школа замораживает расширение до внутренней проверки ответов.",
+      "result_headline": "StudyGenie: пилот в одном классе",
+      "attack_type": "reputation",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "schools"
+      ],
+      "weakness_id": "sw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sg2"
+      ],
+      "duration": "persistent",
+      "stack_group": "studygenie_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Школа замораживает расширение до внутренней проверки ответов.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Лицензии для школ» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r3_3",
+      "startup_slug": "studygenie",
+      "round_number": 3,
+      "title": "Совместимость кабинета",
+      "short_description": "Провайдер меняет формат ответа, требуя повторной проверки интеграции.",
+      "result_headline": "StudyGenie: совместимость кабинета",
+      "attack_type": "technology",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "subscriptions"
+      ],
+      "weakness_id": "sw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg3"
+      ],
+      "duration": "structural",
+      "stack_group": "studygenie_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Провайдер меняет формат ответа, требуя повторной проверки интеграции.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Подписки учеников» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "studygenie_r3_4",
+      "startup_slug": "studygenie",
+      "round_number": 3,
+      "title": "Учительский конспект",
+      "short_description": "Бесплатный набор материалов становится заметнее лицензии в рассылке.",
+      "result_headline": "StudyGenie: учительский конспект",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "schools"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sg2"
+      ],
+      "duration": "temporary",
+      "stack_group": "studygenie_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Бесплатный набор материалов становится заметнее лицензии в рассылке.",
+        "company_response": "Редакция StudyGenie сверяет материалы с методистами и добавляет проверку в календарь.",
+        "result": "StudyGenie: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Лицензии для школ» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r1_1",
+      "startup_slug": "sleepwork",
+      "round_number": 1,
+      "title": "Офис на три дня",
+      "short_description": "Компания сокращает посещения и пересматривает аренду капсул отдыха.",
+      "result_headline": "SleepWork: офис на три дня",
+      "attack_type": "demand",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "leases"
+      ],
+      "weakness_id": "slw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sl1"
+      ],
+      "duration": "temporary",
+      "stack_group": "sleepwork_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Компания сокращает посещения и пересматривает аренду капсул отдыха.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r1_2",
+      "startup_slug": "sleepwork",
+      "round_number": 1,
+      "title": "Квадратный метр сна",
+      "short_description": "Бизнес-центр поднимает ставку за площадь под капсулами.",
+      "result_headline": "SleepWork: квадратный метр сна",
+      "attack_type": "cost",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "leases"
+      ],
+      "weakness_id": "slw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sl2"
+      ],
+      "duration": "temporary",
+      "stack_group": "sleepwork_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Бизнес-центр поднимает ставку за площадь под капсулами.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r1_3",
+      "startup_slug": "sleepwork",
+      "round_number": 1,
+      "title": "Wellness в коробке",
+      "short_description": "Консультант продаёт программу перерывов без оборудования.",
+      "result_headline": "SleepWork: wellness в коробке",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "wellness"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sl3"
+      ],
+      "duration": "persistent",
+      "stack_group": "sleepwork_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Консультант продаёт программу перерывов без оборудования.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r1_4",
+      "startup_slug": "sleepwork",
+      "round_number": 1,
+      "title": "Тендер на паузу",
+      "short_description": "Крупный работодатель переносит закупку капсул на следующий бюджет.",
+      "result_headline": "SleepWork: тендер на паузу",
+      "attack_type": "demand",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "leases"
+      ],
+      "weakness_id": "slw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sl1"
+      ],
+      "duration": "persistent",
+      "stack_group": "sleepwork_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Крупный работодатель переносит закупку капсул на следующий бюджет.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r2_1",
+      "startup_slug": "sleepwork",
+      "round_number": 2,
+      "title": "Перепланировка этажа",
+      "short_description": "Арендодатель сокращает площадь под зоны отдыха.",
+      "result_headline": "SleepWork: перепланировка этажа",
+      "attack_type": "cost",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "leases"
+      ],
+      "weakness_id": "slw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sl2"
+      ],
+      "duration": "persistent",
+      "stack_group": "sleepwork_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Арендодатель сокращает площадь под зоны отдыха.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r2_2",
+      "startup_slug": "sleepwork",
+      "round_number": 2,
+      "title": "Календарь присутствия",
+      "short_description": "Офис публикует более свободный график посещений сотрудников.",
+      "result_headline": "SleepWork: календарь присутствия",
+      "attack_type": "demand",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "wellness"
+      ],
+      "weakness_id": "slw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sl1"
+      ],
+      "duration": "persistent",
+      "stack_group": "sleepwork_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Офис публикует более свободный график посещений сотрудников.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r2_3",
+      "startup_slug": "sleepwork",
+      "round_number": 2,
+      "title": "Пакет без капсул",
+      "short_description": "Конкурент предлагает HR только wellness-программу и онлайн-материалы.",
+      "result_headline": "SleepWork: пакет без капсул",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "wellness"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sl3"
+      ],
+      "duration": "temporary",
+      "stack_group": "sleepwork_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент предлагает HR только wellness-программу и онлайн-материалы.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r2_4",
+      "startup_slug": "sleepwork",
+      "round_number": 2,
+      "title": "Смета вентиляции",
+      "short_description": "Управляющая компания требует работ перед расширением зоны капсул.",
+      "result_headline": "SleepWork: смета вентиляции",
+      "attack_type": "cost",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "leases"
+      ],
+      "weakness_id": "slw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sl2"
+      ],
+      "duration": "structural",
+      "stack_group": "sleepwork_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Управляющая компания требует работ перед расширением зоны капсул.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r3_1",
+      "startup_slug": "sleepwork",
+      "round_number": 3,
+      "title": "Комната тишины",
+      "short_description": "Офис открывает бесплатную комнату рядом с арендованными капсулами.",
+      "result_headline": "SleepWork: комната тишины",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "leases"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sl1"
+      ],
+      "duration": "persistent",
+      "stack_group": "sleepwork_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Офис открывает бесплатную комнату рядом с арендованными капсулами.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r3_2",
+      "startup_slug": "sleepwork",
+      "round_number": 3,
+      "title": "HR-перезапуск",
+      "short_description": "Покупатель пересматривает программу после смены руководителя.",
+      "result_headline": "SleepWork: hr-перезапуск",
+      "attack_type": "demand",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "wellness"
+      ],
+      "weakness_id": "slw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "sl3"
+      ],
+      "duration": "persistent",
+      "stack_group": "sleepwork_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Покупатель пересматривает программу после смены руководителя.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r3_3",
+      "startup_slug": "sleepwork",
+      "round_number": 3,
+      "title": "Площадь под митинги",
+      "short_description": "Бизнес-центр отдаёт часть зоны отдыха под переговорные.",
+      "result_headline": "SleepWork: площадь под митинги",
+      "attack_type": "cost",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "leases"
+      ],
+      "weakness_id": "slw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sl2"
+      ],
+      "duration": "structural",
+      "stack_group": "sleepwork_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Бизнес-центр отдаёт часть зоны отдыха под переговорные.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "sleepwork_r3_4",
+      "startup_slug": "sleepwork",
+      "round_number": 3,
+      "title": "Договор на привычку",
+      "short_description": "Работодатель просит подтвердить посещаемость до продления программы.",
+      "result_headline": "SleepWork: договор на привычку",
+      "attack_type": "demand",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "wellness"
+      ],
+      "weakness_id": "slw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sl3"
+      ],
+      "duration": "temporary",
+      "stack_group": "sleepwork_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Работодатель просит подтвердить посещаемость до продления программы.",
+        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
+        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r1_1",
+      "startup_slug": "fitmirror",
+      "round_number": 1,
+      "title": "Тренажёр дешевле зеркала",
+      "short_description": "Сеть спорттоваров запускает домашний комплект дешевле FitMirror.",
+      "result_headline": "FitMirror: тренажёр дешевле зеркала",
+      "attack_type": "competition",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "hardware"
+      ],
+      "weakness_id": "fmw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fm1"
+      ],
+      "duration": "temporary",
+      "stack_group": "fitmirror_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Сеть спорттоваров запускает домашний комплект дешевле FitMirror.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r1_2",
+      "startup_slug": "fitmirror",
+      "round_number": 1,
+      "title": "Программа без тарифа",
+      "short_description": "Мобильное приложение предлагает тренировки без зеркала.",
+      "result_headline": "FitMirror: программа без тарифа",
+      "attack_type": "product",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "coaching"
+      ],
+      "weakness_id": "fmw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fm2"
+      ],
+      "duration": "temporary",
+      "stack_group": "fitmirror_product",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Мобильное приложение предлагает тренировки без зеркала.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r1_3",
+      "startup_slug": "fitmirror",
+      "round_number": 1,
+      "title": "Сравнение в сторис",
+      "short_description": "Инфлюенсер сравнивает тренажёр с бесплатной программой телефона.",
+      "result_headline": "FitMirror: сравнение в сторис",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "hardware"
+      ],
+      "weakness_id": "fmw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fm3"
+      ],
+      "duration": "persistent",
+      "stack_group": "fitmirror_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Инфлюенсер сравнивает тренажёр с бесплатной программой телефона.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r1_4",
+      "startup_slug": "fitmirror",
+      "round_number": 1,
+      "title": "Первый месяц после покупки",
+      "short_description": "Пользователи сомневаются в продлении тренировочной подписки.",
+      "result_headline": "FitMirror: первый месяц после покупки",
+      "attack_type": "product",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "coaching"
+      ],
+      "weakness_id": "fmw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fm2"
+      ],
+      "duration": "persistent",
+      "stack_group": "fitmirror_product",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Пользователи сомневаются в продлении тренировочной подписки.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r2_1",
+      "startup_slug": "fitmirror",
+      "round_number": 2,
+      "title": "Рассрочка на железо",
+      "short_description": "Конкурент субсидирует покупку домашнего оборудования.",
+      "result_headline": "FitMirror: рассрочка на железо",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "hardware"
+      ],
+      "weakness_id": "fmw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fm1"
+      ],
+      "duration": "persistent",
+      "stack_group": "fitmirror_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент субсидирует покупку домашнего оборудования.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r2_2",
+      "startup_slug": "fitmirror",
+      "round_number": 2,
+      "title": "Тренер в приложении",
+      "short_description": "Мобильный сервис запускает персональные планы по низкой цене.",
+      "result_headline": "FitMirror: тренер в приложении",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "coaching"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fm3"
+      ],
+      "duration": "persistent",
+      "stack_group": "fitmirror_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Мобильный сервис запускает персональные планы по низкой цене.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r2_3",
+      "startup_slug": "fitmirror",
+      "round_number": 2,
+      "title": "Удержание без экрана",
+      "short_description": "Покупатели делятся программами, которыми пользуются без зеркала.",
+      "result_headline": "FitMirror: удержание без экрана",
+      "attack_type": "product",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "coaching"
+      ],
+      "weakness_id": "fmw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "fm2"
+      ],
+      "duration": "temporary",
+      "stack_group": "fitmirror_product",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Покупатели делятся программами, которыми пользуются без зеркала.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r2_4",
+      "startup_slug": "fitmirror",
+      "round_number": 2,
+      "title": "Демо в торговом зале",
+      "short_description": "Магазин выделяет лучшее место более дешёвому оборудованию.",
+      "result_headline": "FitMirror: демо в торговом зале",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "hardware"
+      ],
+      "weakness_id": "fmw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fm1"
+      ],
+      "duration": "structural",
+      "stack_group": "fitmirror_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Магазин выделяет лучшее место более дешёвому оборудованию.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r3_1",
+      "startup_slug": "fitmirror",
+      "round_number": 3,
+      "title": "Урок после распаковки",
+      "short_description": "Новые владельцы откладывают активацию подписки.",
+      "result_headline": "FitMirror: урок после распаковки",
+      "attack_type": "product",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "coaching"
+      ],
+      "weakness_id": "fmw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fm2"
+      ],
+      "duration": "persistent",
+      "stack_group": "fitmirror_product",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Новые владельцы откладывают активацию подписки.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r3_2",
+      "startup_slug": "fitmirror",
+      "round_number": 3,
+      "title": "Марафон без устройства",
+      "short_description": "Тренер проводит челлендж с ковриком и телефоном.",
+      "result_headline": "FitMirror: марафон без устройства",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "hardware"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fm3"
+      ],
+      "duration": "persistent",
+      "stack_group": "fitmirror_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Тренер проводит челлендж с ковриком и телефоном.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r3_3",
+      "startup_slug": "fitmirror",
+      "round_number": 3,
+      "title": "Стоимость владения",
+      "short_description": "Покупатели считают цену зеркала вместе с подпиской и аксессуарами.",
+      "result_headline": "FitMirror: стоимость владения",
+      "attack_type": "finance",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "hardware"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fm1"
+      ],
+      "duration": "structural",
+      "stack_group": "fitmirror_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Покупатели считают цену зеркала вместе с подпиской и аксессуарами.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "fitmirror_r3_4",
+      "startup_slug": "fitmirror",
+      "round_number": 3,
+      "title": "Архив тренировок",
+      "short_description": "Конкурент публикует бесплатную библиотеку домашних программ.",
+      "result_headline": "FitMirror: архив тренировок",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "coaching"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fm3"
+      ],
+      "duration": "temporary",
+      "stack_group": "fitmirror_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент публикует бесплатную библиотеку домашних программ.",
+        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
+        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r1_1",
+      "startup_slug": "cloudkitchen",
+      "round_number": 1,
+      "title": "Выдача агрегатора",
+      "short_description": "Платформа поднимает рестораны, которые оплачивают продвижение.",
+      "result_headline": "CloudKitchen: выдача агрегатора",
+      "attack_type": "competition",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "marketplace"
+      ],
+      "weakness_id": "ckw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ck1"
+      ],
+      "duration": "temporary",
+      "stack_group": "cloudkitchen_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Платформа поднимает рестораны, которые оплачивают продвижение.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r1_2",
+      "startup_slug": "cloudkitchen",
+      "round_number": 1,
+      "title": "Холодная логистика",
+      "short_description": "Поставщик меняет расписание продуктов для кухонь без залов.",
+      "result_headline": "CloudKitchen: холодная логистика",
+      "attack_type": "supply",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "marketplace"
+      ],
+      "weakness_id": "ckw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ck2"
+      ],
+      "duration": "temporary",
+      "stack_group": "cloudkitchen_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Поставщик меняет расписание продуктов для кухонь без залов.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r1_3",
+      "startup_slug": "cloudkitchen",
+      "round_number": 1,
+      "title": "Комиссия по меню",
+      "short_description": "Агрегатор вводит промо-комиссию на заметные позиции.",
+      "result_headline": "CloudKitchen: комиссия по меню",
+      "attack_type": "cost",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "marketplace"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ck1"
+      ],
+      "duration": "persistent",
+      "stack_group": "cloudkitchen_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Агрегатор вводит промо-комиссию на заметные позиции.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r1_4",
+      "startup_slug": "cloudkitchen",
+      "round_number": 1,
+      "title": "Обед в офисе",
+      "short_description": "Корпоративный клиент переносит переговоры о питании на квартал.",
+      "result_headline": "CloudKitchen: обед в офисе",
+      "attack_type": "demand",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "corporate"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ck3"
+      ],
+      "duration": "persistent",
+      "stack_group": "cloudkitchen_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Корпоративный клиент переносит переговоры о питании на квартал.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Корпоративное питание» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r2_1",
+      "startup_slug": "cloudkitchen",
+      "round_number": 2,
+      "title": "Рейтинг соседней кухни",
+      "short_description": "Конкурент покупает размещение рядом с популярными блюдами.",
+      "result_headline": "CloudKitchen: рейтинг соседней кухни",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "marketplace"
+      ],
+      "weakness_id": "ckw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ck1"
+      ],
+      "duration": "persistent",
+      "stack_group": "cloudkitchen_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент покупает размещение рядом с популярными блюдами.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r2_2",
+      "startup_slug": "cloudkitchen",
+      "round_number": 2,
+      "title": "Поставка на рассвете",
+      "short_description": "Партнёр меняет окно приёмки скоропортящихся продуктов.",
+      "result_headline": "CloudKitchen: поставка на рассвете",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "marketplace"
+      ],
+      "weakness_id": "ckw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ck2"
+      ],
+      "duration": "persistent",
+      "stack_group": "cloudkitchen_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Партнёр меняет окно приёмки скоропортящихся продуктов.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r2_3",
+      "startup_slug": "cloudkitchen",
+      "round_number": 2,
+      "title": "Комбо за баллы",
+      "short_description": "Купоны агрегатора снижают видимость органических заказов.",
+      "result_headline": "CloudKitchen: комбо за баллы",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "marketplace"
+      ],
+      "weakness_id": "ckw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ck1"
+      ],
+      "duration": "temporary",
+      "stack_group": "cloudkitchen_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Купоны агрегатора снижают видимость органических заказов.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r2_4",
+      "startup_slug": "cloudkitchen",
+      "round_number": 2,
+      "title": "Кейтеринг без зала",
+      "short_description": "Офис выбирает поставщика с гибким меню встреч.",
+      "result_headline": "CloudKitchen: кейтеринг без зала",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "corporate"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ck3"
+      ],
+      "duration": "structural",
+      "stack_group": "cloudkitchen_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Офис выбирает поставщика с гибким меню встреч.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Корпоративное питание» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r3_1",
+      "startup_slug": "cloudkitchen",
+      "round_number": 3,
+      "title": "Холодильник под аудитом",
+      "short_description": "Партнёр проверяет график и температуру поставок.",
+      "result_headline": "CloudKitchen: холодильник под аудитом",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "marketplace"
+      ],
+      "weakness_id": "ckw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ck2"
+      ],
+      "duration": "persistent",
+      "stack_group": "cloudkitchen_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Партнёр проверяет график и температуру поставок.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r3_2",
+      "startup_slug": "cloudkitchen",
+      "round_number": 3,
+      "title": "Фото на первой строке",
+      "short_description": "Соседняя кухня обновляет карточки и получает больше переходов.",
+      "result_headline": "CloudKitchen: фото на первой строке",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "marketplace"
+      ],
+      "weakness_id": "ckw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ck1"
+      ],
+      "duration": "persistent",
+      "stack_group": "cloudkitchen_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Соседняя кухня обновляет карточки и получает больше переходов.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r3_3",
+      "startup_slug": "cloudkitchen",
+      "round_number": 3,
+      "title": "Планирование закупок",
+      "short_description": "Поставщик требует заранее подтверждать объём ингредиентов.",
+      "result_headline": "CloudKitchen: планирование закупок",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "corporate"
+      ],
+      "weakness_id": "ckw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ck2"
+      ],
+      "duration": "structural",
+      "stack_group": "cloudkitchen_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Поставщик требует заранее подтверждать объём ингредиентов.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Корпоративное питание» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "cloudkitchen_r3_4",
+      "startup_slug": "cloudkitchen",
+      "round_number": 3,
+      "title": "Корпоративная дегустация",
+      "short_description": "Работодатель тестирует внутреннюю столовую перед продлением питания.",
+      "result_headline": "CloudKitchen: корпоративная дегустация",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "corporate"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ck3"
+      ],
+      "duration": "temporary",
+      "stack_group": "cloudkitchen_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Работодатель тестирует внутреннюю столовую перед продлением питания.",
+        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
+        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Корпоративное питание» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r1_1",
+      "startup_slug": "agrodrone",
+      "round_number": 1,
+      "title": "Сезонный платёж позже",
+      "short_description": "Хозяйство сдвигает покупку дронов к началу полевых работ.",
+      "result_headline": "AgroDrone: сезонный платёж позже",
+      "attack_type": "finance",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "equipment"
+      ],
+      "weakness_id": "adw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ad1"
+      ],
+      "duration": "temporary",
+      "stack_group": "agrodrone_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Хозяйство сдвигает покупку дронов к началу полевых работ.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r1_2",
+      "startup_slug": "agrodrone",
+      "round_number": 1,
+      "title": "Модуль без поставки",
+      "short_description": "Дистрибьютор задерживает специализированный датчик.",
+      "result_headline": "AgroDrone: модуль без поставки",
+      "attack_type": "supply",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "equipment"
+      ],
+      "weakness_id": "adw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ad3"
+      ],
+      "duration": "temporary",
+      "stack_group": "agrodrone_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Дистрибьютор задерживает специализированный датчик.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r1_3",
+      "startup_slug": "agrodrone",
+      "round_number": 1,
+      "title": "Дрон на демонстрации",
+      "short_description": "Конкурент проводит показ оборудования перед региональной закупкой.",
+      "result_headline": "AgroDrone: дрон на демонстрации",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "equipment"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad1"
+      ],
+      "duration": "persistent",
+      "stack_group": "agrodrone_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент проводит показ оборудования перед региональной закупкой.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r1_4",
+      "startup_slug": "agrodrone",
+      "round_number": 1,
+      "title": "Отчёт по полю вручную",
+      "short_description": "Сервис предлагает сезонный анализ без покупки дрона.",
+      "result_headline": "AgroDrone: отчёт по полю вручную",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "analysis"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad2"
+      ],
+      "duration": "persistent",
+      "stack_group": "agrodrone_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Сервис предлагает сезонный анализ без покупки дрона.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r2_1",
+      "startup_slug": "agrodrone",
+      "round_number": 2,
+      "title": "Комплектующие по записи",
+      "short_description": "Заказы редких контроллеров принимают по длинному графику.",
+      "result_headline": "AgroDrone: комплектующие по записи",
+      "attack_type": "supply",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "analysis"
+      ],
+      "weakness_id": "adw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ad3"
+      ],
+      "duration": "persistent",
+      "stack_group": "agrodrone_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Заказы редких контроллеров принимают по длинному графику.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r2_2",
+      "startup_slug": "agrodrone",
+      "round_number": 2,
+      "title": "Окно посевной",
+      "short_description": "Погода переносит решения хозяйств о покупке техники.",
+      "result_headline": "AgroDrone: окно посевной",
+      "attack_type": "finance",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "equipment"
+      ],
+      "weakness_id": "adw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad1"
+      ],
+      "duration": "persistent",
+      "stack_group": "agrodrone_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Погода переносит решения хозяйств о покупке техники.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r2_3",
+      "startup_slug": "agrodrone",
+      "round_number": 2,
+      "title": "Аналитика в закупке",
+      "short_description": "Хозяйство включает сезонные отчёты в тендер оборудования.",
+      "result_headline": "AgroDrone: аналитика в закупке",
+      "attack_type": "demand",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "analysis"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad2"
+      ],
+      "duration": "temporary",
+      "stack_group": "agrodrone_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Хозяйство включает сезонные отчёты в тендер оборудования.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r2_4",
+      "startup_slug": "agrodrone",
+      "round_number": 2,
+      "title": "Касса до уборки",
+      "short_description": "Покупатель откладывает оплату до завершения урожайного цикла.",
+      "result_headline": "AgroDrone: касса до уборки",
+      "attack_type": "finance",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "equipment"
+      ],
+      "weakness_id": "adw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad1"
+      ],
+      "duration": "structural",
+      "stack_group": "agrodrone_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Покупатель откладывает оплату до завершения урожайного цикла.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r3_1",
+      "startup_slug": "agrodrone",
+      "round_number": 3,
+      "title": "Запасной контроллер",
+      "short_description": "Производитель объявляет дефицит детали для специализированных дронов.",
+      "result_headline": "AgroDrone: запасной контроллер",
+      "attack_type": "supply",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "equipment"
+      ],
+      "weakness_id": "adw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad3"
+      ],
+      "duration": "persistent",
+      "stack_group": "agrodrone_supply",
+      "scene_type": "supply",
+      "narrative": {
+        "attack": "Производитель объявляет дефицит детали для специализированных дронов.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r3_2",
+      "startup_slug": "agrodrone",
+      "round_number": 3,
+      "title": "Спутниковый отчёт",
+      "short_description": "Платформа мониторинга снижает порог входа в анализ поля.",
+      "result_headline": "AgroDrone: спутниковый отчёт",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "analysis"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad2"
+      ],
+      "duration": "persistent",
+      "stack_group": "agrodrone_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Платформа мониторинга снижает порог входа в анализ поля.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r3_3",
+      "startup_slug": "agrodrone",
+      "round_number": 3,
+      "title": "Полевой сервис на паузе",
+      "short_description": "Хозяйства откладывают обновление аналитики до следующего сезона.",
+      "result_headline": "AgroDrone: полевой сервис на паузе",
+      "attack_type": "demand",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "analysis"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad1"
+      ],
+      "duration": "structural",
+      "stack_group": "agrodrone_demand",
+      "scene_type": "demand",
+      "narrative": {
+        "attack": "Хозяйства откладывают обновление аналитики до следующего сезона.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "agrodrone_r3_4",
+      "startup_slug": "agrodrone",
+      "round_number": 3,
+      "title": "Аванс за оборудование",
+      "short_description": "Дилер переносит оплату партии дронов на сезонный график.",
+      "result_headline": "AgroDrone: аванс за оборудование",
+      "attack_type": "finance",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "equipment"
+      ],
+      "weakness_id": "adw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ad1"
+      ],
+      "duration": "temporary",
+      "stack_group": "agrodrone_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Дилер переносит оплату партии дронов на сезонный график.",
+        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
+        "result": "AgroDrone: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r1_1",
+      "startup_slug": "moodads",
+      "round_number": 1,
+      "title": "Кампания о приватности",
+      "short_description": "Бренд спрашивает рекламодателей о сборе эмоциональных сигналов.",
+      "result_headline": "MoodAds: кампания о приватности",
+      "attack_type": "reputation",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "saas"
+      ],
+      "weakness_id": "maw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ma1"
+      ],
+      "duration": "temporary",
+      "stack_group": "moodads_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Бренд спрашивает рекламодателей о сборе эмоциональных сигналов.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r1_2",
+      "startup_slug": "moodads",
+      "round_number": 1,
+      "title": "Поток данных ограничен",
+      "short_description": "Площадка меняет доступ к данным для аналитических партнёров.",
+      "result_headline": "MoodAds: поток данных ограничен",
+      "attack_type": "technology",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "analytics"
+      ],
+      "weakness_id": "maw2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ma3"
+      ],
+      "duration": "temporary",
+      "stack_group": "moodads_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Площадка меняет доступ к данным для аналитических партнёров.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r1_3",
+      "startup_slug": "moodads",
+      "round_number": 1,
+      "title": "Отчёт без настроения",
+      "short_description": "Конкурент продаёт аналитику конверсии без эмоциональных сигналов.",
+      "result_headline": "MoodAds: отчёт без настроения",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "saas"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma2"
+      ],
+      "duration": "persistent",
+      "stack_group": "moodads_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент продаёт аналитику конверсии без эмоциональных сигналов.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r1_4",
+      "startup_slug": "moodads",
+      "round_number": 1,
+      "title": "Внутренняя аналитика клиента",
+      "short_description": "Рекламодатель переносит отчёты в собственную BI-команду.",
+      "result_headline": "MoodAds: внутренняя аналитика клиента",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "analytics"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma2"
+      ],
+      "duration": "persistent",
+      "stack_group": "moodads_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Рекламодатель переносит отчёты в собственную BI-команду.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r2_1",
+      "startup_slug": "moodads",
+      "round_number": 2,
+      "title": "Запрос на удаление",
+      "short_description": "Клиент требует описать обработку чувствительных коммерческих сигналов.",
+      "result_headline": "MoodAds: запрос на удаление",
+      "attack_type": "reputation",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "analytics"
+      ],
+      "weakness_id": "maw1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "ma3"
+      ],
+      "duration": "persistent",
+      "stack_group": "moodads_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Клиент требует описать обработку чувствительных коммерческих сигналов.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r2_2",
+      "startup_slug": "moodads",
+      "round_number": 2,
+      "title": "Правила площадки",
+      "short_description": "Партнёр ограничивает источник рекламных данных до проверки доступа.",
+      "result_headline": "MoodAds: правила площадки",
+      "attack_type": "technology",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "saas"
+      ],
+      "weakness_id": "maw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma3"
+      ],
+      "duration": "persistent",
+      "stack_group": "moodads_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Партнёр ограничивает источник рекламных данных до проверки доступа.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r2_3",
+      "startup_slug": "moodads",
+      "round_number": 2,
+      "title": "Реклама без профиля",
+      "short_description": "Агентство тестирует контекстные сегменты вместо поведенческих признаков.",
+      "result_headline": "MoodAds: реклама без профиля",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "saas"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma1"
+      ],
+      "duration": "temporary",
+      "stack_group": "moodads_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Агентство тестирует контекстные сегменты вместо поведенческих признаков.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r2_4",
+      "startup_slug": "moodads",
+      "round_number": 2,
+      "title": "Независимый аудит",
+      "short_description": "Покупатель включает privacy-review перед продлением лицензии.",
+      "result_headline": "MoodAds: независимый аудит",
+      "attack_type": "reputation",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "analytics"
+      ],
+      "weakness_id": "maw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma3"
+      ],
+      "duration": "structural",
+      "stack_group": "moodads_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Покупатель включает privacy-review перед продлением лицензии.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r3_1",
+      "startup_slug": "moodads",
+      "round_number": 3,
+      "title": "Окно доступа закрыто",
+      "short_description": "Площадка сокращает срок жизни доступа к аналитическим данным.",
+      "result_headline": "MoodAds: окно доступа закрыто",
+      "attack_type": "technology",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "analytics"
+      ],
+      "weakness_id": "maw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma3"
+      ],
+      "duration": "persistent",
+      "stack_group": "moodads_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Площадка сокращает срок жизни доступа к аналитическим данным.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r3_2",
+      "startup_slug": "moodads",
+      "round_number": 3,
+      "title": "Конверсия в презентации",
+      "short_description": "Конкурент публикует кейс роста на альтернативной платформе.",
+      "result_headline": "MoodAds: конверсия в презентации",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "saas"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma2"
+      ],
+      "duration": "persistent",
+      "stack_group": "moodads_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент публикует кейс роста на альтернативной платформе.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r3_3",
+      "startup_slug": "moodads",
+      "round_number": 3,
+      "title": "Политика сегментов",
+      "short_description": "Рекламодатель исключает чувствительные аудитории из новой кампании.",
+      "result_headline": "MoodAds: политика сегментов",
+      "attack_type": "reputation",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "saas"
+      ],
+      "weakness_id": "maw1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma1"
+      ],
+      "duration": "structural",
+      "stack_group": "moodads_reputation",
+      "scene_type": "reputation",
+      "narrative": {
+        "attack": "Рекламодатель исключает чувствительные аудитории из новой кампании.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "moodads_r3_4",
+      "startup_slug": "moodads",
+      "round_number": 3,
+      "title": "Агрегированные отчёты",
+      "short_description": "Площадка переводит статистику в более крупные срезы.",
+      "result_headline": "MoodAds: агрегированные отчёты",
+      "attack_type": "technology",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "analytics"
+      ],
+      "weakness_id": "maw2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "ma3"
+      ],
+      "duration": "temporary",
+      "stack_group": "moodads_technology",
+      "scene_type": "technology",
+      "narrative": {
+        "attack": "Площадка переводит статистику в более крупные срезы.",
+        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
+        "result": "MoodAds: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r1_1",
+      "startup_slug": "renteverything",
+      "round_number": 1,
+      "title": "Износ без залога",
+      "short_description": "Вещи возвращаются позже и требуют дополнительного ремонта.",
+      "result_headline": "RentEverything: износ без залога",
+      "attack_type": "cost",
+      "severity": "weak",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "rental"
+      ],
+      "weakness_id": "rew1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "re3"
+      ],
+      "duration": "temporary",
+      "stack_group": "renteverything_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Вещи возвращаются позже и требуют дополнительного ремонта.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r1_2",
+      "startup_slug": "renteverything",
+      "round_number": 1,
+      "title": "Возврат по спорному чеку",
+      "short_description": "Покупатели оспаривают списания после аренды.",
+      "result_headline": "RentEverything: возврат по спорному чеку",
+      "attack_type": "finance",
+      "severity": "weak",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "commission"
+      ],
+      "weakness_id": "rew2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "re3"
+      ],
+      "duration": "temporary",
+      "stack_group": "renteverything_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Покупатели оспаривают списания после аренды.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r1_3",
+      "startup_slug": "renteverything",
+      "round_number": 1,
+      "title": "Партнёрский каталог",
+      "short_description": "Конкурент подключает владельцев вещей вне собственного фонда.",
+      "result_headline": "RentEverything: партнёрский каталог",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "commission"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "re2"
+      ],
+      "duration": "persistent",
+      "stack_group": "renteverything_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Конкурент подключает владельцев вещей вне собственного фонда.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r1_4",
+      "startup_slug": "renteverything",
+      "round_number": 1,
+      "title": "Прокат на выходные",
+      "short_description": "Локальный сервис снижает цену на вещи из собственного фонда.",
+      "result_headline": "RentEverything: прокат на выходные",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "rental"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "re1"
+      ],
+      "duration": "persistent",
+      "stack_group": "renteverything_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Локальный сервис снижает цену на вещи из собственного фонда.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r2_1",
+      "startup_slug": "renteverything",
+      "round_number": 2,
+      "title": "Ремонт перед сезоном",
+      "short_description": "Мастерские повышают цену восстановления часто арендуемых вещей.",
+      "result_headline": "RentEverything: ремонт перед сезоном",
+      "attack_type": "cost",
+      "severity": "medium",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "rental"
+      ],
+      "weakness_id": "rew1",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "re3"
+      ],
+      "duration": "persistent",
+      "stack_group": "renteverything_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Мастерские повышают цену восстановления часто арендуемых вещей.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r2_2",
+      "startup_slug": "renteverything",
+      "round_number": 2,
+      "title": "Проверка комплектации",
+      "short_description": "Клиенты чаще сообщают о неполных возвратах после аренды.",
+      "result_headline": "RentEverything: проверка комплектации",
+      "attack_type": "finance",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "rental"
+      ],
+      "weakness_id": "rew2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "re3"
+      ],
+      "duration": "persistent",
+      "stack_group": "renteverything_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Клиенты чаще сообщают о неполных возвратах после аренды.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r2_3",
+      "startup_slug": "renteverything",
+      "round_number": 2,
+      "title": "Партнёр задержал выплату",
+      "short_description": "Владелец каталога требует сверить комиссию по заказам.",
+      "result_headline": "RentEverything: партнёр задержал выплату",
+      "attack_type": "finance",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "commission"
+      ],
+      "weakness_id": "rew2",
+      "weakness_match": "exact",
+      "evidence_fact_ids": [
+        "re2"
+      ],
+      "duration": "temporary",
+      "stack_group": "renteverything_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Владелец каталога требует сверить комиссию по заказам.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r2_4",
+      "startup_slug": "renteverything",
+      "round_number": 2,
+      "title": "Амортизация на витрине",
+      "short_description": "Покупатели сравнивают аренду с остаточной стоимостью вещи.",
+      "result_headline": "RentEverything: амортизация на витрине",
+      "attack_type": "cost",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "rental"
+      ],
+      "weakness_id": "rew1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "re1"
+      ],
+      "duration": "structural",
+      "stack_group": "renteverything_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Покупатели сравнивают аренду с остаточной стоимостью вещи.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r3_1",
+      "startup_slug": "renteverything",
+      "round_number": 3,
+      "title": "Залог у конкурента ниже",
+      "short_description": "Маркетплейс снижает обеспечительный платёж для партнёрских товаров.",
+      "result_headline": "RentEverything: залог у конкурента ниже",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "commission"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "re2"
+      ],
+      "duration": "persistent",
+      "stack_group": "renteverything_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Маркетплейс снижает обеспечительный платёж для партнёрских товаров.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r3_2",
+      "startup_slug": "renteverything",
+      "round_number": 3,
+      "title": "Самовывоз вместо доставки",
+      "short_description": "Соседний прокат выдаёт популярные товары рядом с жилыми кварталами.",
+      "result_headline": "RentEverything: самовывоз вместо доставки",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "rental"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "re1"
+      ],
+      "duration": "persistent",
+      "stack_group": "renteverything_competition",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Соседний прокат выдаёт популярные товары рядом с жилыми кварталами.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r3_3",
+      "startup_slug": "renteverything",
+      "round_number": 3,
+      "title": "Спор о состоянии",
+      "short_description": "Пользователь публикует фото спорного возврата и требует пересмотра.",
+      "result_headline": "RentEverything: спор о состоянии",
+      "attack_type": "finance",
+      "severity": "strong",
+      "scale": "local",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "commission"
+      ],
+      "weakness_id": "rew2",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "re3"
+      ],
+      "duration": "structural",
+      "stack_group": "renteverything_finance",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Пользователь публикует фото спорного возврата и требует пересмотра.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+      }
+    },
+    {
+      "id": "renteverything_r3_4",
+      "startup_slug": "renteverything",
+      "round_number": 3,
+      "title": "Фонд на техосмотре",
+      "short_description": "Часть каталога уходит на проверку после интенсивной аренды.",
+      "result_headline": "RentEverything: фонд на техосмотре",
+      "attack_type": "cost",
+      "severity": "strong",
+      "scale": "company_wide",
+      "feasibility": "plausible",
+      "target_stream_ids": [
+        "rental"
+      ],
+      "weakness_id": "rew1",
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "re3"
+      ],
+      "duration": "temporary",
+      "stack_group": "renteverything_cost",
+      "scene_type": "finance",
+      "narrative": {
+        "attack": "Часть каталога уходит на проверку после интенсивной аренды.",
+        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
+        "result": "RentEverything: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+      }
+    }
+  ]
+}

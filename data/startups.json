@@ -1,0 +1,1545 @@
+{
+  "schema_version": 1,
+  "startups": [
+    {
+      "slug": "coffeebot",
+      "version": 1,
+      "name": "CoffeeBot",
+      "industry": "Food robotics",
+      "asset_key": "coffeebot",
+      "public_profile": {
+        "tagline": "Кофе без бариста. Проблемы — с людьми.",
+        "description": "Автоматизированные кофейни для кампусов и бизнес-центров.",
+        "facts": [
+          {
+            "id": "cf1",
+            "text": "Большая часть точек находится в университетах."
+          },
+          {
+            "id": "cf2",
+            "text": "Компании нужны регулярно обслуживаемые кофемашины."
+          },
+          {
+            "id": "cf3",
+            "text": "Второе направление — договоры на корпоративные точки."
+          }
+        ],
+        "strengths": [
+          "Корпоративные контракты сглаживают сезонность",
+          "Повторные покупки"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "cw1",
+            "description": "Высокая стоимость ремонта",
+            "attack_type": "technology"
+          },
+          {
+            "id": "cw2",
+            "description": "Зависимость от проходимости кампусов",
+            "attack_type": "demand"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": true
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 750000000,
+        "initial_fixed_cost_kopeks": 200000000,
+        "initial_reputation": 77,
+        "revenue_streams": [
+          {
+            "id": "kiosks",
+            "name": "Продажи кофе через роботов",
+            "weight_bps": 7800,
+            "initial_monthly_revenue_kopeks": 195000000,
+            "variable_cost_bps": 3500,
+            "monthly_growth_bps": 100
+          },
+          {
+            "id": "service",
+            "name": "Обслуживание корпоративных точек",
+            "weight_bps": 2200,
+            "initial_monthly_revenue_kopeks": 55000000,
+            "variable_cost_bps": 3500,
+            "monthly_growth_bps": 100
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 750000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 250000000,
+          "variable_cost_kopeks": 87500000,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -37500000,
+          "closing_cash_kopeks": 712500000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 252500000,
+          "variable_cost_kopeks": 88375000,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -35875000,
+          "closing_cash_kopeks": 676625000
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 255025000,
+          "variable_cost_kopeks": 89258750,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -34233750,
+          "closing_cash_kopeks": 642391250
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 257575250,
+          "variable_cost_kopeks": 90151337,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -32576087,
+          "closing_cash_kopeks": 609815163
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 260151003,
+          "variable_cost_kopeks": 91052851,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -30901848,
+          "closing_cash_kopeks": 578913315
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 262752513,
+          "variable_cost_kopeks": 91963380,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -29210867,
+          "closing_cash_kopeks": 549702448
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 265380037,
+          "variable_cost_kopeks": 92883013,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -27502976,
+          "closing_cash_kopeks": 522199472
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 268033838,
+          "variable_cost_kopeks": 93811843,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -25778005,
+          "closing_cash_kopeks": 496421467
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 270714177,
+          "variable_cost_kopeks": 94749962,
+          "fixed_cost_kopeks": 200000000,
+          "profit_kopeks": -24035785,
+          "closing_cash_kopeks": 472385682
+        }
+      ],
+      "baseline_cash_m9_kopeks": 472385682,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "petmind",
+      "version": 1,
+      "name": "PetMind",
+      "industry": "Pet AI",
+      "asset_key": "petmind",
+      "public_profile": {
+        "tagline": "Мы знаем, о чём думает ваш кот. Наверное.",
+        "description": "Умные ошейники и платная аналитика поведения домашних животных.",
+        "facts": [
+          {
+            "id": "pf1",
+            "text": "Компания публично заявляет о точности распознавания эмоций 96%."
+          },
+          {
+            "id": "pf2",
+            "text": "Устройства выпускаются на одном контрактном заводе."
+          },
+          {
+            "id": "pf3",
+            "text": "Есть около 2 000 активных подписчиков."
+          }
+        ],
+        "strengths": [
+          "Накопленные записи поведения",
+          "Подписная модель"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "pw1",
+            "description": "Точность эмоций не подтверждена независимым исследованием",
+            "attack_type": "product"
+          },
+          {
+            "id": "pw2",
+            "description": "Единственный производственный подрядчик",
+            "attack_type": "supply"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": true
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 800000000,
+        "initial_fixed_cost_kopeks": 208000000,
+        "initial_reputation": 76,
+        "revenue_streams": [
+          {
+            "id": "collars",
+            "name": "Продажа умных ошейников",
+            "weight_bps": 6000,
+            "initial_monthly_revenue_kopeks": 144000000,
+            "variable_cost_bps": 3000,
+            "monthly_growth_bps": 0
+          },
+          {
+            "id": "subscription",
+            "name": "ИИ-подписка",
+            "weight_bps": 4000,
+            "initial_monthly_revenue_kopeks": 96000000,
+            "variable_cost_bps": 3000,
+            "monthly_growth_bps": 0
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 800000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 760000000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 720000000
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 680000000
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 640000000
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 600000000
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 560000000
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 520000000
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 480000000
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 240000000,
+          "variable_cost_kopeks": 72000000,
+          "fixed_cost_kopeks": 208000000,
+          "profit_kopeks": -40000000,
+          "closing_cash_kopeks": 440000000
+        }
+      ],
+      "baseline_cash_m9_kopeks": 440000000,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "foodrover",
+      "version": 1,
+      "name": "FoodRover",
+      "industry": "Delivery robotics",
+      "asset_key": "foodrover",
+      "public_profile": {
+        "tagline": "Последний километр. Последняя батарейка.",
+        "description": "Автономные роботы для доставки еды в пределах города.",
+        "facts": [
+          {
+            "id": "fr1",
+            "text": "Компания работает в трёх пилотных районах."
+          },
+          {
+            "id": "fr2",
+            "text": "Роботы требуют регулярной замены аккумуляторов."
+          },
+          {
+            "id": "fr3",
+            "text": "Часть выручки идёт от обслуживания роботов партнёров."
+          }
+        ],
+        "strengths": [
+          "Существующие маршруты",
+          "B2B договоры"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "fw1",
+            "description": "Зависимость от аккумуляторов и ремонта",
+            "attack_type": "supply"
+          },
+          {
+            "id": "fw2",
+            "description": "Ограниченная география и городская инфраструктура",
+            "attack_type": "technology"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": true
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 850000000,
+        "initial_fixed_cost_kopeks": 240000000,
+        "initial_reputation": 72,
+        "revenue_streams": [
+          {
+            "id": "delivery",
+            "name": "Доставка для ресторанов",
+            "weight_bps": 8200,
+            "initial_monthly_revenue_kopeks": 278800000,
+            "variable_cost_bps": 4200,
+            "monthly_growth_bps": 100
+          },
+          {
+            "id": "maintenance",
+            "name": "Сервисные контракты на роботов",
+            "weight_bps": 1800,
+            "initial_monthly_revenue_kopeks": 61200000,
+            "variable_cost_bps": 4200,
+            "monthly_growth_bps": 100
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 850000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 340000000,
+          "variable_cost_kopeks": 142800000,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -42800000,
+          "closing_cash_kopeks": 807200000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 343400000,
+          "variable_cost_kopeks": 144228000,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -40828000,
+          "closing_cash_kopeks": 766372000
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 346834000,
+          "variable_cost_kopeks": 145670280,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -38836280,
+          "closing_cash_kopeks": 727535720
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 350302340,
+          "variable_cost_kopeks": 147126983,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -36824643,
+          "closing_cash_kopeks": 690711077
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 353805363,
+          "variable_cost_kopeks": 148598252,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -34792889,
+          "closing_cash_kopeks": 655918188
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 357343417,
+          "variable_cost_kopeks": 150084235,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -32740818,
+          "closing_cash_kopeks": 623177370
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 360916851,
+          "variable_cost_kopeks": 151585078,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -30668227,
+          "closing_cash_kopeks": 592509143
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 364526020,
+          "variable_cost_kopeks": 153100928,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -28574908,
+          "closing_cash_kopeks": 563934235
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 368171280,
+          "variable_cost_kopeks": 154631938,
+          "fixed_cost_kopeks": 240000000,
+          "profit_kopeks": -26460658,
+          "closing_cash_kopeks": 537473577
+        }
+      ],
+      "baseline_cash_m9_kopeks": 537473577,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "studygenie",
+      "version": 1,
+      "name": "StudyGenie",
+      "industry": "EdTech AI",
+      "asset_key": "studygenie",
+      "public_profile": {
+        "tagline": "Домашка сама себя не сделает. Почти.",
+        "description": "ИИ-репетитор для самостоятельной подготовки школьников и студентов.",
+        "facts": [
+          {
+            "id": "sg1",
+            "text": "Рост подписок зависит от экзаменационных сезонов."
+          },
+          {
+            "id": "sg2",
+            "text": "Есть первые корпоративные договоры со школами."
+          },
+          {
+            "id": "sg3",
+            "text": "Сервис использует сторонних провайдеров языковых моделей."
+          }
+        ],
+        "strengths": [
+          "Низкая себестоимость масштабирования",
+          "Школьные лицензии"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "sw1",
+            "description": "Зависимость от стороннего API",
+            "attack_type": "technology"
+          },
+          {
+            "id": "sw2",
+            "description": "Ошибки ответов влияют на доверие",
+            "attack_type": "reputation"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": false
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 500000000,
+        "initial_fixed_cost_kopeks": 155000000,
+        "initial_reputation": 68,
+        "revenue_streams": [
+          {
+            "id": "subscriptions",
+            "name": "Подписки учеников",
+            "weight_bps": 7200,
+            "initial_monthly_revenue_kopeks": 108000000,
+            "variable_cost_bps": 1400,
+            "monthly_growth_bps": 200
+          },
+          {
+            "id": "schools",
+            "name": "Лицензии для школ",
+            "weight_bps": 2800,
+            "initial_monthly_revenue_kopeks": 42000000,
+            "variable_cost_bps": 1400,
+            "monthly_growth_bps": 200
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 500000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 150000000,
+          "variable_cost_kopeks": 21000000,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -26000000,
+          "closing_cash_kopeks": 474000000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 153000000,
+          "variable_cost_kopeks": 21420000,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -23420000,
+          "closing_cash_kopeks": 450580000
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 156060000,
+          "variable_cost_kopeks": 21848400,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -20788400,
+          "closing_cash_kopeks": 429791600
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 159181200,
+          "variable_cost_kopeks": 22285368,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -18104168,
+          "closing_cash_kopeks": 411687432
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 162364824,
+          "variable_cost_kopeks": 22731075,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -15366251,
+          "closing_cash_kopeks": 396321181
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 165612121,
+          "variable_cost_kopeks": 23185697,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -12573576,
+          "closing_cash_kopeks": 383747605
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 168924363,
+          "variable_cost_kopeks": 23649411,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -9725048,
+          "closing_cash_kopeks": 374022557
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 172302850,
+          "variable_cost_kopeks": 24122399,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -6819549,
+          "closing_cash_kopeks": 367203008
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 175748907,
+          "variable_cost_kopeks": 24604847,
+          "fixed_cost_kopeks": 155000000,
+          "profit_kopeks": -3855940,
+          "closing_cash_kopeks": 363347068
+        }
+      ],
+      "baseline_cash_m9_kopeks": 363347068,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "sleepwork",
+      "version": 1,
+      "name": "SleepWork",
+      "industry": "Office wellness",
+      "asset_key": "sleepwork",
+      "public_profile": {
+        "tagline": "Ваш сотрудник спит. Мы выставляем счёт.",
+        "description": "Капсулы дневного сна по корпоративной подписке.",
+        "facts": [
+          {
+            "id": "sl1",
+            "text": "Основные покупатели — крупные офисы."
+          },
+          {
+            "id": "sl2",
+            "text": "Капсулы занимают значительную площадь."
+          },
+          {
+            "id": "sl3",
+            "text": "Дополнительный доход дают wellness-программы."
+          }
+        ],
+        "strengths": [
+          "Долгосрочные договоры",
+          "Корпоративные клиенты"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "slw1",
+            "description": "Высокая стоимость площади",
+            "attack_type": "cost"
+          },
+          {
+            "id": "slw2",
+            "description": "Удалённая работа сокращает аудиторию",
+            "attack_type": "demand"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": false
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 630000000,
+        "initial_fixed_cost_kopeks": 145000000,
+        "initial_reputation": 74,
+        "revenue_streams": [
+          {
+            "id": "leases",
+            "name": "Аренда капсул компаниям",
+            "weight_bps": 8000,
+            "initial_monthly_revenue_kopeks": 136000000,
+            "variable_cost_bps": 3200,
+            "monthly_growth_bps": 50
+          },
+          {
+            "id": "wellness",
+            "name": "Программы корпоративного здоровья",
+            "weight_bps": 2000,
+            "initial_monthly_revenue_kopeks": 34000000,
+            "variable_cost_bps": 3200,
+            "monthly_growth_bps": 50
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 630000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 170000000,
+          "variable_cost_kopeks": 54400000,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -29400000,
+          "closing_cash_kopeks": 600600000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 170850000,
+          "variable_cost_kopeks": 54672000,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -28822000,
+          "closing_cash_kopeks": 571778000
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 171704250,
+          "variable_cost_kopeks": 54945360,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -28241110,
+          "closing_cash_kopeks": 543536890
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 172562771,
+          "variable_cost_kopeks": 55220086,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -27657315,
+          "closing_cash_kopeks": 515879575
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 173425585,
+          "variable_cost_kopeks": 55496187,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -27070602,
+          "closing_cash_kopeks": 488808973
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 174292713,
+          "variable_cost_kopeks": 55773668,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -26480955,
+          "closing_cash_kopeks": 462328018
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 175164176,
+          "variable_cost_kopeks": 56052536,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -25888360,
+          "closing_cash_kopeks": 436439658
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 176039997,
+          "variable_cost_kopeks": 56332799,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -25292802,
+          "closing_cash_kopeks": 411146856
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 176920197,
+          "variable_cost_kopeks": 56614463,
+          "fixed_cost_kopeks": 145000000,
+          "profit_kopeks": -24694266,
+          "closing_cash_kopeks": 386452590
+        }
+      ],
+      "baseline_cash_m9_kopeks": 386452590,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "fitmirror",
+      "version": 1,
+      "name": "FitMirror",
+      "industry": "Fitness hardware",
+      "asset_key": "fitmirror",
+      "public_profile": {
+        "tagline": "Зеркало скажет правду. Иногда слишком громко.",
+        "description": "Умное домашнее зеркало с ИИ-тренером и подпиской.",
+        "facts": [
+          {
+            "id": "fm1",
+            "text": "Оборудование стоит заметно дороже обычного домашнего фитнеса."
+          },
+          {
+            "id": "fm2",
+            "text": "Тренировки доступны только с активированной подпиской."
+          },
+          {
+            "id": "fm3",
+            "text": "Пользователи сравнивают продукт с мобильными приложениями."
+          }
+        ],
+        "strengths": [
+          "Высокая средняя стоимость заказа",
+          "Собственное ПО"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "fmw1",
+            "description": "Дорогой физический продукт",
+            "attack_type": "competition"
+          },
+          {
+            "id": "fmw2",
+            "description": "Удержание подписчиков после покупки",
+            "attack_type": "product"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": false
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 850000000,
+        "initial_fixed_cost_kopeks": 210000000,
+        "initial_reputation": 79,
+        "revenue_streams": [
+          {
+            "id": "hardware",
+            "name": "Продажи фитнес-зеркал",
+            "weight_bps": 7400,
+            "initial_monthly_revenue_kopeks": 199800000,
+            "variable_cost_bps": 3700,
+            "monthly_growth_bps": 150
+          },
+          {
+            "id": "coaching",
+            "name": "ИИ-тренировки по подписке",
+            "weight_bps": 2600,
+            "initial_monthly_revenue_kopeks": 70200000,
+            "variable_cost_bps": 3700,
+            "monthly_growth_bps": 150
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 850000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 270000000,
+          "variable_cost_kopeks": 99900000,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -39900000,
+          "closing_cash_kopeks": 810100000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 274050000,
+          "variable_cost_kopeks": 101398500,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -37348500,
+          "closing_cash_kopeks": 772751500
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 278160750,
+          "variable_cost_kopeks": 102919477,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -34758727,
+          "closing_cash_kopeks": 737992773
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 282333161,
+          "variable_cost_kopeks": 104463269,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -32130108,
+          "closing_cash_kopeks": 705862665
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 286568158,
+          "variable_cost_kopeks": 106030219,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -29462061,
+          "closing_cash_kopeks": 676400604
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 290866681,
+          "variable_cost_kopeks": 107620672,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -26753991,
+          "closing_cash_kopeks": 649646613
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 295229681,
+          "variable_cost_kopeks": 109234982,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -24005301,
+          "closing_cash_kopeks": 625641312
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 299658127,
+          "variable_cost_kopeks": 110873507,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -21215380,
+          "closing_cash_kopeks": 604425932
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 304152999,
+          "variable_cost_kopeks": 112536610,
+          "fixed_cost_kopeks": 210000000,
+          "profit_kopeks": -18383611,
+          "closing_cash_kopeks": 586042321
+        }
+      ],
+      "baseline_cash_m9_kopeks": 586042321,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "cloudkitchen",
+      "version": 1,
+      "name": "CloudKitchen",
+      "industry": "Food delivery",
+      "asset_key": "cloudkitchen",
+      "public_profile": {
+        "tagline": "Ресторан существует. Столов нет.",
+        "description": "Сеть виртуальных ресторанов, продающих еду исключительно через доставку.",
+        "facts": [
+          {
+            "id": "ck1",
+            "text": "Большая часть заказов проходит через агрегаторы."
+          },
+          {
+            "id": "ck2",
+            "text": "Кухни работают без залов обслуживания."
+          },
+          {
+            "id": "ck3",
+            "text": "Есть небольшое корпоративное направление."
+          }
+        ],
+        "strengths": [
+          "Гибкая смена меню",
+          "Несколько брендов в одной кухне"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "ckw1",
+            "description": "Комиссии и выдача агрегаторов",
+            "attack_type": "competition"
+          },
+          {
+            "id": "ckw2",
+            "description": "Риски пищевой логистики",
+            "attack_type": "supply"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": false
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 550000000,
+        "initial_fixed_cost_kopeks": 185000000,
+        "initial_reputation": 73,
+        "revenue_streams": [
+          {
+            "id": "marketplace",
+            "name": "Заказы через агрегаторы",
+            "weight_bps": 8500,
+            "initial_monthly_revenue_kopeks": 272000000,
+            "variable_cost_bps": 4300,
+            "monthly_growth_bps": 50
+          },
+          {
+            "id": "corporate",
+            "name": "Корпоративное питание",
+            "weight_bps": 1500,
+            "initial_monthly_revenue_kopeks": 48000000,
+            "variable_cost_bps": 4300,
+            "monthly_growth_bps": 50
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 550000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 320000000,
+          "variable_cost_kopeks": 137600000,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": -2600000,
+          "closing_cash_kopeks": 547400000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 321600000,
+          "variable_cost_kopeks": 138288000,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": -1688000,
+          "closing_cash_kopeks": 545712000
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 323208000,
+          "variable_cost_kopeks": 138979440,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": -771440,
+          "closing_cash_kopeks": 544940560
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 324824040,
+          "variable_cost_kopeks": 139674338,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": 149702,
+          "closing_cash_kopeks": 545090262
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 326448160,
+          "variable_cost_kopeks": 140372708,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": 1075452,
+          "closing_cash_kopeks": 546165714
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 328080401,
+          "variable_cost_kopeks": 141074573,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": 2005828,
+          "closing_cash_kopeks": 548171542
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 329720803,
+          "variable_cost_kopeks": 141779946,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": 2940857,
+          "closing_cash_kopeks": 551112399
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 331369407,
+          "variable_cost_kopeks": 142488845,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": 3880562,
+          "closing_cash_kopeks": 554992961
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 333026254,
+          "variable_cost_kopeks": 143201289,
+          "fixed_cost_kopeks": 185000000,
+          "profit_kopeks": 4824965,
+          "closing_cash_kopeks": 559817926
+        }
+      ],
+      "baseline_cash_m9_kopeks": 559817926,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "agrodrone",
+      "version": 1,
+      "name": "AgroDrone",
+      "industry": "AgriTech",
+      "asset_key": "agrodrone",
+      "public_profile": {
+        "tagline": "Дроны знают поле лучше агронома. Иногда.",
+        "description": "Дроны для обследования посевов и точечного внесения препаратов.",
+        "facts": [
+          {
+            "id": "ad1",
+            "text": "Продажи оборудования зависят от сельскохозяйственного сезона."
+          },
+          {
+            "id": "ad2",
+            "text": "Сервисная аналитика приносит повторную выручку."
+          },
+          {
+            "id": "ad3",
+            "text": "Для техники нужны специализированные комплектующие."
+          }
+        ],
+        "strengths": [
+          "Повторный сервисный доход",
+          "Техническая экспертиза"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "adw1",
+            "description": "Сезонные кассовые разрывы",
+            "attack_type": "finance"
+          },
+          {
+            "id": "adw2",
+            "description": "Специализированные комплектующие",
+            "attack_type": "supply"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": true
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 700000000,
+        "initial_fixed_cost_kopeks": 212000000,
+        "initial_reputation": 81,
+        "revenue_streams": [
+          {
+            "id": "equipment",
+            "name": "Продажа агродронов",
+            "weight_bps": 6700,
+            "initial_monthly_revenue_kopeks": 164150000,
+            "variable_cost_bps": 2400,
+            "monthly_growth_bps": 20
+          },
+          {
+            "id": "analysis",
+            "name": "Аналитика полей и сервис",
+            "weight_bps": 3300,
+            "initial_monthly_revenue_kopeks": 80850000,
+            "variable_cost_bps": 2400,
+            "monthly_growth_bps": 20
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 700000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 245000000,
+          "variable_cost_kopeks": 58800000,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -25800000,
+          "closing_cash_kopeks": 674200000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 245490000,
+          "variable_cost_kopeks": 58917600,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -25427600,
+          "closing_cash_kopeks": 648772400
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 245980980,
+          "variable_cost_kopeks": 59035436,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -25054456,
+          "closing_cash_kopeks": 623717944
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 246472942,
+          "variable_cost_kopeks": 59153506,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -24680564,
+          "closing_cash_kopeks": 599037380
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 246965888,
+          "variable_cost_kopeks": 59271813,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -24305925,
+          "closing_cash_kopeks": 574731455
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 247459819,
+          "variable_cost_kopeks": 59390357,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -23930538,
+          "closing_cash_kopeks": 550800917
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 247954739,
+          "variable_cost_kopeks": 59509137,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -23554398,
+          "closing_cash_kopeks": 527246519
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 248450649,
+          "variable_cost_kopeks": 59628155,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -23177506,
+          "closing_cash_kopeks": 504069013
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 248947551,
+          "variable_cost_kopeks": 59747412,
+          "fixed_cost_kopeks": 212000000,
+          "profit_kopeks": -22799861,
+          "closing_cash_kopeks": 481269152
+        }
+      ],
+      "baseline_cash_m9_kopeks": 481269152,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "moodads",
+      "version": 1,
+      "name": "MoodAds",
+      "industry": "AdTech",
+      "asset_key": "moodads",
+      "public_profile": {
+        "tagline": "Ваша грусть — наша конверсия.",
+        "description": "Платформа персонализированной рекламы с анализом эмоциональных сигналов.",
+        "facts": [
+          {
+            "id": "ma1",
+            "text": "Платформа анализирует поведенческие и эмоциональные сигналы."
+          },
+          {
+            "id": "ma2",
+            "text": "Клиенты ценят рост конверсии."
+          },
+          {
+            "id": "ma3",
+            "text": "Компания хранит чувствительную коммерческую аналитику."
+          }
+        ],
+        "strengths": [
+          "B2B подписки",
+          "Высокая маржинальность ПО"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "maw1",
+            "description": "Недоверие к сбору данных",
+            "attack_type": "reputation"
+          },
+          {
+            "id": "maw2",
+            "description": "Зависимость от доступа к рекламным данным",
+            "attack_type": "technology"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": false
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 580000000,
+        "initial_fixed_cost_kopeks": 172000000,
+        "initial_reputation": 62,
+        "revenue_streams": [
+          {
+            "id": "saas",
+            "name": "Лицензия для рекламодателей",
+            "weight_bps": 7300,
+            "initial_monthly_revenue_kopeks": 138700000,
+            "variable_cost_bps": 1600,
+            "monthly_growth_bps": 150
+          },
+          {
+            "id": "analytics",
+            "name": "Отчёты и аналитические услуги",
+            "weight_bps": 2700,
+            "initial_monthly_revenue_kopeks": 51300000,
+            "variable_cost_bps": 1600,
+            "monthly_growth_bps": 150
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 580000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 190000000,
+          "variable_cost_kopeks": 30400000,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": -12400000,
+          "closing_cash_kopeks": 567600000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 192850000,
+          "variable_cost_kopeks": 30856000,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": -10006000,
+          "closing_cash_kopeks": 557594000
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 195742751,
+          "variable_cost_kopeks": 31318840,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": -7576089,
+          "closing_cash_kopeks": 550017911
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 198678892,
+          "variable_cost_kopeks": 31788623,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": -5109731,
+          "closing_cash_kopeks": 544908180
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 201659074,
+          "variable_cost_kopeks": 32265452,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": -2606378,
+          "closing_cash_kopeks": 542301802
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 204683960,
+          "variable_cost_kopeks": 32749434,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": -65474,
+          "closing_cash_kopeks": 542236328
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 207754220,
+          "variable_cost_kopeks": 33240675,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": 2513545,
+          "closing_cash_kopeks": 544749873
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 210870533,
+          "variable_cost_kopeks": 33739285,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": 5131248,
+          "closing_cash_kopeks": 549881121
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 214033592,
+          "variable_cost_kopeks": 34245375,
+          "fixed_cost_kopeks": 172000000,
+          "profit_kopeks": 7788217,
+          "closing_cash_kopeks": 557669338
+        }
+      ],
+      "baseline_cash_m9_kopeks": 557669338,
+      "engine_version": "economy-v1"
+    },
+    {
+      "slug": "renteverything",
+      "version": 1,
+      "name": "RentEverything",
+      "industry": "Rental marketplace",
+      "asset_key": "renteverything",
+      "public_profile": {
+        "tagline": "Зачем покупать, если можно потерять чужое?",
+        "description": "Подписка и маркетплейс краткосрочной аренды вещей.",
+        "facts": [
+          {
+            "id": "re1",
+            "text": "Компания сама владеет значительной частью арендуемых вещей."
+          },
+          {
+            "id": "re2",
+            "text": "Есть партнёрский маркетплейс с комиссией."
+          },
+          {
+            "id": "re3",
+            "text": "Износ и возвраты — важные операционные процессы."
+          }
+        ],
+        "strengths": [
+          "Партнёрский каталог",
+          "Повторные подписки"
+        ]
+      },
+      "private_profile": {
+        "weaknesses": [
+          {
+            "id": "rew1",
+            "description": "Износ и потери активов",
+            "attack_type": "cost"
+          },
+          {
+            "id": "rew2",
+            "description": "Мошеннические возвраты",
+            "attack_type": "finance"
+          }
+        ],
+        "allowed_defenses": [
+          "cost_cut",
+          "pr",
+          "supplier_switch",
+          "pivot"
+        ],
+        "pivot_compatible": true,
+        "production_partner_alternative": false
+      },
+      "finance_config": {
+        "initial_cash_kopeks": 720000000,
+        "initial_fixed_cost_kopeks": 205000000,
+        "initial_reputation": 70,
+        "revenue_streams": [
+          {
+            "id": "rental",
+            "name": "Аренда вещей из собственного фонда",
+            "weight_bps": 7100,
+            "initial_monthly_revenue_kopeks": 181050000,
+            "variable_cost_bps": 3100,
+            "monthly_growth_bps": 0
+          },
+          {
+            "id": "commission",
+            "name": "Комиссии сторонних владельцев",
+            "weight_bps": 2900,
+            "initial_monthly_revenue_kopeks": 73950000,
+            "variable_cost_bps": 3100,
+            "monthly_growth_bps": 0
+          }
+        ]
+      },
+      "baseline_series": [
+        {
+          "month": 0,
+          "closing_cash_kopeks": 720000000
+        },
+        {
+          "month": 1,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 690950000
+        },
+        {
+          "month": 2,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 661900000
+        },
+        {
+          "month": 3,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 632850000
+        },
+        {
+          "month": 4,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 603800000
+        },
+        {
+          "month": 5,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 574750000
+        },
+        {
+          "month": 6,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 545700000
+        },
+        {
+          "month": 7,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 516650000
+        },
+        {
+          "month": 8,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 487600000
+        },
+        {
+          "month": 9,
+          "revenue_kopeks": 255000000,
+          "variable_cost_kopeks": 79050000,
+          "fixed_cost_kopeks": 205000000,
+          "profit_kopeks": -29050000,
+          "closing_cash_kopeks": 458550000
+        }
+      ],
+      "baseline_cash_m9_kopeks": 458550000,
+      "engine_version": "economy-v1"
+    }
+  ]
+}

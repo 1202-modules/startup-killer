@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "generation_policy": "offline_antigravity_tool_only",
+  "canonical_style": "assets/prompts/STYLE_MASTER.md",
+  "subject_prompts": "assets/prompts/STARTUP_RENDERS.md",
+  "variants": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "max_kib": 350
+    },
+    "mobile": {
+      "width": 600,
+      "height": 750,
+      "max_kib": 200
+    },
+    "thumb": {
+      "width": 320,
+      "height": 320,
+      "max_kib": 50
+    }
+  },
+  "assets": [
+    {
+      "slug": "coffeebot",
+      "asset_key": "coffeebot",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/coffeebot/hero-desktop.webp",
+        "mobile": "/assets/startups/coffeebot/hero-mobile.webp",
+        "thumb": "/assets/startups/coffeebot/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "bbdeb436541485e9a8abfa5ed1e99f82701b783b88b333daa1381b4470cb9a11",
+        "mobile": "324037dd9bc60e4baa32766162bfc1218e110794b020ce85dfe7b4539869571a",
+        "thumb": "d3019a9e8618683482e27f929a46cc12b0e88699b964955a3e34c95a691a298e"
+      },
+      "sizes_kib": {
+        "desktop": 66.3,
+        "mobile": 47.5,
+        "thumb": 13.6
+      }
+    },
+    {
+      "slug": "petmind",
+      "asset_key": "petmind",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/petmind/hero-desktop.webp",
+        "mobile": "/assets/startups/petmind/hero-mobile.webp",
+        "thumb": "/assets/startups/petmind/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "40e5c975d611ac1a13dd88aada472b877c456dac6cfedc21a6170306475cb337",
+        "mobile": "0082c5c327decd99f7f180024e6f462dc48322736f0bb9f541b36de4763e3349",
+        "thumb": "654d576cd8a75b633196e6ad3f4be174f46b8a1dc889a43e07b4a2ee14cdf6be"
+      },
+      "sizes_kib": {
+        "desktop": 67.0,
+        "mobile": 58.7,
+        "thumb": 12.2
+      }
+    },
+    {
+      "slug": "foodrover",
+      "asset_key": "foodrover",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/foodrover/hero-desktop.webp",
+        "mobile": "/assets/startups/foodrover/hero-mobile.webp",
+        "thumb": "/assets/startups/foodrover/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "10c371a08b6a0d4d1267517a008bdc8ac3d3679dafae999f9d44d281f5a386bd",
+        "mobile": "a62c4ef913e3be0c4cd5b3765abc34e726eba36b82497a64a6caf4188bee1095",
+        "thumb": "497b3a8dd1e7249b3e5b2fd6a79cf3fc374eed9e5cbcf562c5192eb54b7f6809"
+      },
+      "sizes_kib": {
+        "desktop": 58.0,
+        "mobile": 38.6,
+        "thumb": 11.5
+      }
+    },
+    {
+      "slug": "studygenie",
+      "asset_key": "studygenie",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/studygenie/hero-desktop.webp",
+        "mobile": "/assets/startups/studygenie/hero-mobile.webp",
+        "thumb": "/assets/startups/studygenie/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "20fe7e426fe8be9507757a2ee2c0f2d854f945477c14cb0acb65eb0fe10fa030",
+        "mobile": "8e179346139e2b86c687b949e004cd237d052f57ac43200491029f1e44c0ea5d",
+        "thumb": "58048cfa28ae3a04d98c032049578c636793d259fe78aee6aa04611b30621013"
+      },
+      "sizes_kib": {
+        "desktop": 46.3,
+        "mobile": 30.1,
+        "thumb": 11.4
+      }
+    },
+    {
+      "slug": "sleepwork",
+      "asset_key": "sleepwork",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/sleepwork/hero-desktop.webp",
+        "mobile": "/assets/startups/sleepwork/hero-mobile.webp",
+        "thumb": "/assets/startups/sleepwork/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "583a06ee0e6f0fc423a8fe3411edb61238bc14de9411f7d74b9de6674295afec",
+        "mobile": "2a584d97241faabde5245ef9077fae7b6ddb6181bad3d2d29c970a37a0fcce35",
+        "thumb": "c062723cd682b7606a247dd0027f18e52fb4c2395d355d25770c0210cbc5bcde"
+      },
+      "sizes_kib": {
+        "desktop": 60.0,
+        "mobile": 41.0,
+        "thumb": 10.5
+      }
+    },
+    {
+      "slug": "fitmirror",
+      "asset_key": "fitmirror",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/fitmirror/hero-desktop.webp",
+        "mobile": "/assets/startups/fitmirror/hero-mobile.webp",
+        "thumb": "/assets/startups/fitmirror/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "f17d3938d18bf9d0bf9f0a5ea14fb224a1da3a4fa13cff127ef269d9beaa8d56",
+        "mobile": "bad562c5b5c6ca4ee8fdd58ddc1be60c7efc3cf9c4443b9e4fc4d60140b3bae6",
+        "thumb": "39c89d6070cfebae878e7103f20aaef51ab905f42378de4b6bbdc3894237e0d1"
+      },
+      "sizes_kib": {
+        "desktop": 47.8,
+        "mobile": 27.7,
+        "thumb": 9.6
+      }
+    },
+    {
+      "slug": "cloudkitchen",
+      "asset_key": "cloudkitchen",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/cloudkitchen/hero-desktop.webp",
+        "mobile": "/assets/startups/cloudkitchen/hero-mobile.webp",
+        "thumb": "/assets/startups/cloudkitchen/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "d0602c0ac8b9847e0add4e2c403c3ff9729b36edd2937ce8d7a3006856831ef8",
+        "mobile": "3a408e0303a9da06163acfecd9c03cab3551198c161566d41fecd4c88c8b836e",
+        "thumb": "f21aaebf9d1c8c84b3082f88362b13c9f4b5c95af2728cc6d79b7a33c29929e1"
+      },
+      "sizes_kib": {
+        "desktop": 53.7,
+        "mobile": 36.5,
+        "thumb": 11.0
+      }
+    },
+    {
+      "slug": "agrodrone",
+      "asset_key": "agrodrone",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/agrodrone/hero-desktop.webp",
+        "mobile": "/assets/startups/agrodrone/hero-mobile.webp",
+        "thumb": "/assets/startups/agrodrone/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "df29f4803a9acf69db368df5bd903135000512533ef2f38efdf9412012073a77",
+        "mobile": "74dd5f660a91780b6f31d45cb1e4e0b27e278d80775d36b382278398f9c97de7",
+        "thumb": "f5158cabb6cb6f2e4aa5ea6d58cf69738269a45b2ae1894ca5fff28a169ec955"
+      },
+      "sizes_kib": {
+        "desktop": 46.5,
+        "mobile": 29.3,
+        "thumb": 11.6
+      }
+    },
+    {
+      "slug": "moodads",
+      "asset_key": "moodads",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/moodads/hero-desktop.webp",
+        "mobile": "/assets/startups/moodads/hero-mobile.webp",
+        "thumb": "/assets/startups/moodads/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "b740da6ea8b0283353c8c60925c07f487225b3c76dc25007332bcff4190c5c7f",
+        "mobile": "e17fb9c9d67893aa366f230701ecdb8eaa03b9cab41d012e1cd2045530c579f7",
+        "thumb": "eca7633f385050222e24e54d1427baa88ae24f3d7fe992e93c34873b9cee8f6f"
+      },
+      "sizes_kib": {
+        "desktop": 26.9,
+        "mobile": 16.7,
+        "thumb": 5.7
+      }
+    },
+    {
+      "slug": "renteverything",
+      "asset_key": "renteverything",
+      "master_aspect": "16:10",
+      "files": {
+        "desktop": "/assets/startups/renteverything/hero-desktop.webp",
+        "mobile": "/assets/startups/renteverything/hero-mobile.webp",
+        "thumb": "/assets/startups/renteverything/thumb.webp"
+      },
+      "status": "verified",
+      "sha256": {
+        "desktop": "40184b469579196ab81a415b3963d266b7e3b1be60bb18ff9d9a40b6cf559433",
+        "mobile": "d0cef48943d5a0097473dafd2a7f5870a765df472e5ed1e8396f4c47cadbe4d4",
+        "thumb": "8be7cb8ba1af05d4a32d4413fc2882fa624851c5caa2263888476a2c62cd42d1"
+      },
+      "sizes_kib": {
+        "desktop": 26.9,
+        "mobile": 24.7,
+        "thumb": 7.3
+      }
+    }
+  ]
+}

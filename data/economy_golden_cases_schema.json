@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "currency",
+    "fixture_only_no_runtime_inputs",
+    "rounding",
+    "modes",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "currency": {
+      "const": "RUB_kopeks"
+    },
+    "fixture_only_no_runtime_inputs": {
+      "const": true
+    },
+    "rounding": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "modes": {
+      "type": "object",
+      "required": [
+        "baseline",
+        "weak_local_one_stream",
+        "structural_95pct_all_streams"
+      ],
+      "properties": {
+        "baseline": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "weak_local_one_stream": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "structural_95pct_all_streams": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      },
+      "additionalProperties": false
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 30,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "required": [
+          "startup_slug",
+          "mode",
+          "forced_defense",
+          "opening_cash_kopeks",
+          "monthly_ledger",
+          "closing_cash_kopeks",
+          "bankruptcy_month",
+          "score"
+        ],
+        "properties": {
+          "startup_slug": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "mode": {
+            "enum": [
+              "baseline",
+              "weak_local_one_stream",
+              "structural_95pct_all_streams"
+            ]
+          },
+          "forced_defense": {
+            "const": "none"
+          },
+          "opening_cash_kopeks": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "monthly_ledger": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 9,
+            "items": {
+              "type": "object",
+              "required": [
+                "month",
+                "streams",
+                "revenue_kopeks",
+                "variable_cost_kopeks",
+                "fixed_cost_kopeks",
+                "profit_kopeks",
+                "closing_cash_kopeks",
+                "unpaid_obligations_kopeks"
+              ],
+              "properties": {
+                "month": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9
+                },
+                "streams": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "baseline_revenue_kopeks",
+                      "shock_bps",
+                      "revenue_kopeks",
+                      "variable_cost_kopeks"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120
+                      },
+                      "baseline_revenue_kopeks": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "shock_bps": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 10000
+                      },
+                      "revenue_kopeks": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "variable_cost_kopeks": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "revenue_kopeks": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "variable_cost_kopeks": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "fixed_cost_kopeks": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "profit_kopeks": {
+                  "type": "integer"
+                },
+                "closing_cash_kopeks": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "unpaid_obligations_kopeks": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "closing_cash_kopeks": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "bankruptcy_month": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "score": {
+            "type": "object",
+            "required": [
+              "damage",
+              "solvency",
+              "early_bankruptcy",
+              "score"
+            ],
+            "properties": {
+              "damage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 700
+              },
+              "solvency": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 200
+              },
+              "early_bankruptcy": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "score": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
