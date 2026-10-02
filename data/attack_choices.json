@@ -1,5 +1,5 @@
 {
-  "catalog_version": "2.0.0-partial",
+  "catalog_version": "2.0.0",
   "choices_per_round": 4,
   "choices": [
     {
@@ -2309,239 +2309,390 @@
       "id": "sleepwork_r1_1",
       "startup_slug": "sleepwork",
       "round_number": 1,
-      "title": "Офис на три дня",
-      "short_description": "Компания сокращает посещения и пересматривает аренду капсул отдыха.",
-      "result_headline": "SleepWork: офис на три дня",
-      "attack_type": "demand",
+      "title": "ДОКАЗАТЬ HR, ЧТО КАПСУЛЫ ПРОСТАИВАЮТ",
+      "short_description": "Провести аудит загрузки и показать клиентам SleepWork, что при гибридной работе капсулы большую часть времени пустуют.",
+      "result_headline": "ДОКАЗАТЬ HR, ЧТО КАПСУЛЫ ПРОСТАИВАЮТ",
+      "attack_type": "competition",
       "severity": "weak",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
         "leases"
       ],
-      "weakness_id": "slw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl1"
       ],
       "duration": "temporary",
-      "stack_group": "sleepwork_demand",
-      "scene_type": "demand",
+      "stack_group": "sleepwork_a",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Компания сокращает посещения и пересматривает аренду капсул отдыха.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+        "attack": "Провести аудит загрузки и показать клиентам SleepWork, что при гибридной работе капсулы большую часть времени пустуют.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "HR сомневаются в загрузке и сокращают аренду капсул."
+      },
+      "v2_effect": {
+        "group": "sleepwork_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "utilization_exposed"
+          ]
+        }
       }
     },
     {
       "id": "sleepwork_r1_2",
       "startup_slug": "sleepwork",
       "round_number": 1,
-      "title": "Квадратный метр сна",
-      "short_description": "Бизнес-центр поднимает ставку за площадь под капсулами.",
-      "result_headline": "SleepWork: квадратный метр сна",
-      "attack_type": "cost",
+      "title": "ПОКАЗАТЬ ЦЕНУ КАЖДОГО МЕТРА ПОД КАПСУЛОЙ",
+      "short_description": "Посчитать стоимость занимаемой площади и показать HR, сколько офис платит за малоиспользуемую зону.",
+      "result_headline": "ПОКАЗАТЬ ЦЕНУ КАЖДОГО МЕТРА ПОД КАПСУЛОЙ",
+      "attack_type": "competition",
       "severity": "weak",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "leases"
       ],
-      "weakness_id": "slw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl2"
       ],
       "duration": "temporary",
-      "stack_group": "sleepwork_cost",
-      "scene_type": "finance",
+      "stack_group": "sleepwork_b",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Бизнес-центр поднимает ставку за площадь под капсулами.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+        "attack": "Посчитать стоимость занимаемой площади и показать HR, сколько офис платит за малоиспользуемую зону.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты видят низкую отдачу площади и пересматривают аренду."
+      },
+      "v2_effect": {
+        "group": "sleepwork_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 700
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "space_cost_exposed"
+          ]
+        }
       }
     },
     {
       "id": "sleepwork_r1_3",
       "startup_slug": "sleepwork",
       "round_number": 1,
-      "title": "Wellness в коробке",
-      "short_description": "Консультант продаёт программу перерывов без оборудования.",
-      "result_headline": "SleepWork: wellness в коробке",
+      "title": "ЗАПУСТИТЬ WELLNESS БЕЗ КАПСУЛ",
+      "short_description": "Предложить компаниям более дешёвую программу отдыха и восстановления без аренды оборудования.",
+      "result_headline": "ЗАПУСТИТЬ WELLNESS БЕЗ КАПСУЛ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "wellness"
+        "wellness",
+        "leases"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl3"
       ],
-      "duration": "persistent",
-      "stack_group": "sleepwork_competition",
+      "duration": "temporary",
+      "stack_group": "sleepwork_c",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Консультант продаёт программу перерывов без оборудования.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+        "attack": "Предложить компаниям более дешёвую программу отдыха и восстановления без аренды оборудования.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Компании сокращают аренду оборудования в пользу программы без капсул."
+      },
+      "v2_effect": {
+        "group": "sleepwork_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "wellness": 1800,
+            "leases": 400
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "no_hardware_trial"
+          ]
+        }
       }
     },
     {
       "id": "sleepwork_r1_4",
       "startup_slug": "sleepwork",
       "round_number": 1,
-      "title": "Тендер на паузу",
-      "short_description": "Крупный работодатель переносит закупку капсул на следующий бюджет.",
-      "result_headline": "SleepWork: тендер на паузу",
-      "attack_type": "demand",
+      "title": "СДАТЬ КАПСУЛЫ ДЕШЕВЛЕ",
+      "short_description": "Вывести прямой аналог с меньшей ежемесячной арендой.",
+      "result_headline": "СДАТЬ КАПСУЛЫ ДЕШЕВЛЕ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "leases"
       ],
-      "weakness_id": "slw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl1"
       ],
-      "duration": "persistent",
-      "stack_group": "sleepwork_demand",
-      "scene_type": "demand",
+      "duration": "temporary",
+      "stack_group": "sleepwork_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Крупный работодатель переносит закупку капсул на следующий бюджет.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+        "attack": "Вывести прямой аналог с меньшей ежемесячной арендой.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "SleepWork теряет клиентов из-за более дешёвой аренды."
+      },
+      "v2_effect": {
+        "group": "sleepwork_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 1000
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "sleepwork_r2_1",
       "startup_slug": "sleepwork",
       "round_number": 2,
-      "title": "Перепланировка этажа",
-      "short_description": "Арендодатель сокращает площадь под зоны отдыха.",
-      "result_headline": "SleepWork: перепланировка этажа",
-      "attack_type": "cost",
+      "title": "СОРВАТЬ ПРОДЛЕНИЯ АРЕНДЫ",
+      "short_description": "Использовать данные низкой загрузки перед продлением договоров и убедить HR отказаться от части капсул.",
+      "result_headline": "СОРВАТЬ ПРОДЛЕНИЯ АРЕНДЫ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "leases"
       ],
-      "weakness_id": "slw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl2"
       ],
       "duration": "persistent",
-      "stack_group": "sleepwork_cost",
-      "scene_type": "finance",
+      "stack_group": "sleepwork_a",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Арендодатель сокращает площадь под зоны отдыха.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+        "attack": "Использовать данные низкой загрузки перед продлением договоров и убедить HR отказаться от части капсул.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Продления сокращаются, а wellness-бюджеты тоже пересматриваются."
+      },
+      "v2_effect": {
+        "group": "sleepwork_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 1600
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "utilization_exposed"
+          ],
+          "stream_loss_bps": {
+            "leases": 3600,
+            "wellness": 1200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "renewal_risk"
+          ]
+        }
       }
     },
     {
       "id": "sleepwork_r2_2",
       "startup_slug": "sleepwork",
       "round_number": 2,
-      "title": "Календарь присутствия",
-      "short_description": "Офис публикует более свободный график посещений сотрудников.",
-      "result_headline": "SleepWork: календарь присутствия",
-      "attack_type": "demand",
+      "title": "ПЕРЕМАНИТЬ ПЛОЩАДЬ ПОД БОЛЕЕ ВЫГОДНЫЕ ОФИСНЫЕ ЗОНЫ",
+      "short_description": "Предложить компаниям заменить зоны с капсулами переговорными и рабочими местами с более понятной отдачей.",
+      "result_headline": "ПЕРЕМАНИТЬ ПЛОЩАДЬ ПОД БОЛЕЕ ВЫГОДНЫЕ ОФИСНЫЕ ЗОНЫ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "wellness"
+        "leases"
       ],
-      "weakness_id": "slw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl1"
       ],
       "duration": "persistent",
-      "stack_group": "sleepwork_demand",
-      "scene_type": "demand",
+      "stack_group": "sleepwork_b",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Офис публикует более свободный график посещений сотрудников.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+        "attack": "Предложить компаниям заменить зоны с капсулами переговорными и рабочими местами с более понятной отдачей.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Площади под капсулы перераспределяются; SleepWork несёт расходы."
+      },
+      "v2_effect": {
+        "group": "sleepwork_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "space_cost_exposed"
+          ],
+          "stream_loss_bps": {
+            "leases": 4000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 25000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "space_reallocation"
+          ]
+        }
       }
     },
     {
       "id": "sleepwork_r2_3",
       "startup_slug": "sleepwork",
       "round_number": 2,
-      "title": "Пакет без капсул",
-      "short_description": "Конкурент предлагает HR только wellness-программу и онлайн-материалы.",
-      "result_headline": "SleepWork: пакет без капсул",
+      "title": "ПЕРЕМАНИТЬ HR НА WELLNESS БЕЗ ОБОРУДОВАНИЯ",
+      "short_description": "Дать компаниям миграцию на более дешёвую wellness-программу и убрать необходимость арендовать капсулы.",
+      "result_headline": "ПЕРЕМАНИТЬ HR НА WELLNESS БЕЗ ОБОРУДОВАНИЯ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "wellness"
+        "wellness",
+        "leases"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl3"
       ],
-      "duration": "temporary",
-      "stack_group": "sleepwork_competition",
+      "duration": "persistent",
+      "stack_group": "sleepwork_c",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Конкурент предлагает HR только wellness-программу и онлайн-материалы.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+        "attack": "Дать компаниям миграцию на более дешёвую wellness-программу и убрать необходимость арендовать капсулы.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты уходят в wellness без оборудования."
+      },
+      "v2_effect": {
+        "group": "sleepwork_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "wellness": 3000,
+            "leases": 1000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "no_hardware_trial"
+          ],
+          "stream_loss_bps": {
+            "wellness": 5500,
+            "leases": 2800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "wellness_switch"
+          ]
+        }
       }
     },
     {
       "id": "sleepwork_r2_4",
       "startup_slug": "sleepwork",
       "round_number": 2,
-      "title": "Смета вентиляции",
-      "short_description": "Управляющая компания требует работ перед расширением зоны капсул.",
-      "result_headline": "SleepWork: смета вентиляции",
-      "attack_type": "cost",
-      "severity": "strong",
-      "scale": "regional",
-      "feasibility": "established_in_state",
-      "target_stream_ids": [
-        "leases"
-      ],
-      "weakness_id": "slw1",
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
-        "sl2"
-      ],
-      "duration": "structural",
-      "stack_group": "sleepwork_cost",
-      "scene_type": "finance",
-      "narrative": {
-        "attack": "Управляющая компания требует работ перед расширением зоны капсул.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "sleepwork_r3_1",
-      "startup_slug": "sleepwork",
-      "round_number": 3,
-      "title": "Комната тишины",
-      "short_description": "Офис открывает бесплатную комнату рядом с арендованными капсулами.",
-      "result_headline": "SleepWork: комната тишины",
+      "title": "ПЕРЕМАНИТЬ КРУПНЫХ АРЕНДАТОРОВ",
+      "short_description": "Дать крупным офисам скидку за переход на капсулы конкурента.",
+      "result_headline": "ПЕРЕМАНИТЬ КРУПНЫХ АРЕНДАТОРОВ",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "leases"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "sl2"
+      ],
+      "duration": "persistent",
+      "stack_group": "sleepwork_d",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Дать крупным офисам скидку за переход на капсулы конкурента.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Крупные арендаторы сокращают договоры SleepWork."
+      },
+      "v2_effect": {
+        "group": "sleepwork_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
+      }
+    },
+    {
+      "id": "sleepwork_r3_1",
+      "startup_slug": "sleepwork",
+      "round_number": 3,
+      "title": "ПЕРЕНАПРАВИТЬ WELLNESS-БЮДЖЕТ ИЗ КАПСУЛ В ЛЬГОТЫ ДЛЯ УДАЛЁНЩИКОВ",
+      "short_description": "Предложить HR направить wellness-бюджет на домашний спорт, терапию и другие льготы вместо аренды SleepWork.",
+      "result_headline": "ПЕРЕНАПРАВИТЬ WELLNESS-БЮДЖЕТ ИЗ КАПСУЛ В ЛЬГОТЫ ДЛЯ УДАЛЁНЩИКОВ",
+      "attack_type": "competition",
+      "severity": "strong",
+      "scale": "regional",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "leases",
+        "wellness"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
@@ -2549,105 +2700,195 @@
         "sl1"
       ],
       "duration": "persistent",
-      "stack_group": "sleepwork_competition",
+      "stack_group": "sleepwork_a",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Офис открывает бесплатную комнату рядом с арендованными капсулами.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+        "attack": "Предложить HR направить wellness-бюджет на домашний спорт, терапию и другие льготы вместо аренды SleepWork.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Корпоративный бюджет уходит из капсул в льготы для удалёнщиков."
+      },
+      "v2_effect": {
+        "group": "sleepwork_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 1600,
+            "wellness": 1000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "renewal_risk"
+          ],
+          "stream_loss_bps": {
+            "leases": 7800,
+            "wellness": 4500
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "sleepwork_r3_2",
       "startup_slug": "sleepwork",
       "round_number": 3,
-      "title": "HR-перезапуск",
-      "short_description": "Покупатель пересматривает программу после смены руководителя.",
-      "result_headline": "SleepWork: hr-перезапуск",
-      "attack_type": "demand",
+      "title": "ВЫТЕСНИТЬ КАПСУЛЫ ИЗ КЛЮЧЕВЫХ ОФИСОВ",
+      "short_description": "Закрепить перепланировку офисов и добиться расторжения договоров SleepWork на основных площадках.",
+      "result_headline": "ВЫТЕСНИТЬ КАПСУЛЫ ИЗ КЛЮЧЕВЫХ ОФИСОВ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "wellness"
+        "leases"
       ],
-      "weakness_id": "slw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl3"
       ],
       "duration": "persistent",
-      "stack_group": "sleepwork_demand",
-      "scene_type": "demand",
+      "stack_group": "sleepwork_b",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Покупатель пересматривает программу после смены руководителя.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+        "attack": "Закрепить перепланировку офисов и добиться расторжения договоров SleepWork на основных площадках.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Ключевые договоры отменяются; это потерянные контракты."
+      },
+      "v2_effect": {
+        "group": "sleepwork_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 5000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "space_reallocation"
+          ],
+          "stream_loss_bps": {
+            "leases": 9000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 40000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
       }
     },
     {
       "id": "sleepwork_r3_3",
       "startup_slug": "sleepwork",
       "round_number": 3,
-      "title": "Площадь под митинги",
-      "short_description": "Бизнес-центр отдаёт часть зоны отдыха под переговорные.",
-      "result_headline": "SleepWork: площадь под митинги",
-      "attack_type": "cost",
+      "title": "ЗАБРАТЬ WELLNESS-БЮДЖЕТ ЦЕЛИКОМ",
+      "short_description": "Подписать компании на полноценную wellness-программу конкурента и одновременно убрать потребность в капсулах SleepWork.",
+      "result_headline": "ЗАБРАТЬ WELLNESS-БЮДЖЕТ ЦЕЛИКОМ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
+        "wellness",
         "leases"
       ],
-      "weakness_id": "slw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl2"
       ],
-      "duration": "structural",
-      "stack_group": "sleepwork_cost",
-      "scene_type": "finance",
+      "duration": "persistent",
+      "stack_group": "sleepwork_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Бизнес-центр отдаёт часть зоны отдыха под переговорные.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда капсул компаниям» получает отдельную строку в отчёте."
+        "attack": "Подписать компании на полноценную wellness-программу конкурента и одновременно убрать потребность в капсулах SleepWork.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты уходят в wellness-конкурента."
+      },
+      "v2_effect": {
+        "group": "sleepwork_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "wellness": 2800,
+            "leases": 1200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "wellness_switch"
+          ],
+          "stream_loss_bps": {
+            "wellness": 9000,
+            "leases": 7000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "sleepwork_r3_4",
       "startup_slug": "sleepwork",
       "round_number": 3,
-      "title": "Договор на привычку",
-      "short_description": "Работодатель просит подтвердить посещаемость до продления программы.",
-      "result_headline": "SleepWork: договор на привычку",
-      "attack_type": "demand",
+      "title": "ЗАБРАТЬ ДОЛГОСРОЧНЫЕ ДОГОВОРЫ НА КАПСУЛЫ",
+      "short_description": "Предложить ключевым клиентам более дешёвую долгосрочную аренду у конкурента.",
+      "result_headline": "ЗАБРАТЬ ДОЛГОСРОЧНЫЕ ДОГОВОРЫ НА КАПСУЛЫ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "wellness"
+        "leases"
       ],
-      "weakness_id": "slw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "sl3"
       ],
-      "duration": "temporary",
-      "stack_group": "sleepwork_demand",
-      "scene_type": "demand",
+      "duration": "persistent",
+      "stack_group": "sleepwork_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Работодатель просит подтвердить посещаемость до продления программы.",
-        "company_response": "Команда SleepWork пересматривает размещение капсул и приглашает HR на короткий созвон.",
-        "result": "SleepWork: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Программы корпоративного здоровья» получает отдельную строку в отчёте."
+        "attack": "Предложить ключевым клиентам более дешёвую долгосрочную аренду у конкурента.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Долгосрочные договоры SleepWork переходят конкуренту."
+      },
+      "v2_effect": {
+        "group": "sleepwork_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "leases": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "fitmirror_r1_1",
       "startup_slug": "fitmirror",
       "round_number": 1,
-      "title": "Тренажёр дешевле зеркала",
-      "short_description": "Сеть спорттоваров запускает домашний комплект дешевле FitMirror.",
-      "result_headline": "FitMirror: тренажёр дешевле зеркала",
+      "title": "ВЫВЕСТИ ДЕШЁВЫЙ АНАЛОГ ЗЕРКАЛА",
+      "short_description": "Запустить домашнее фитнес-устройство с базовыми функциями заметно дешевле FitMirror.",
+      "result_headline": "ВЫВЕСТИ ДЕШЁВЫЙ АНАЛОГ ЗЕРКАЛА",
       "attack_type": "competition",
       "severity": "weak",
       "scale": "local",
@@ -2655,111 +2896,167 @@
       "target_stream_ids": [
         "hardware"
       ],
-      "weakness_id": "fmw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fm1"
       ],
       "duration": "temporary",
-      "stack_group": "fitmirror_competition",
+      "stack_group": "fitmirror_a",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Сеть спорттоваров запускает домашний комплект дешевле FitMirror.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+        "attack": "Запустить домашнее фитнес-устройство с базовыми функциями заметно дешевле FitMirror.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Покупатели выбирают дешёвый аналог вместо зеркала."
+      },
+      "v2_effect": {
+        "group": "fitmirror_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 1000
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "price_pressure"
+          ]
+        }
       }
     },
     {
       "id": "fitmirror_r1_2",
       "startup_slug": "fitmirror",
       "round_number": 1,
-      "title": "Программа без тарифа",
-      "short_description": "Мобильное приложение предлагает тренировки без зеркала.",
-      "result_headline": "FitMirror: программа без тарифа",
-      "attack_type": "product",
+      "title": "УВЕСТИ ПОДПИСЧИКОВ В БЕСПЛАТНЫЕ ТРЕНИРОВКИ",
+      "short_description": "Дать владельцам FitMirror бесплатные программы тренировок без ежемесячной платы.",
+      "result_headline": "УВЕСТИ ПОДПИСЧИКОВ В БЕСПЛАТНЫЕ ТРЕНИРОВКИ",
+      "attack_type": "competition",
       "severity": "weak",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "coaching"
       ],
-      "weakness_id": "fmw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fm2"
       ],
       "duration": "temporary",
-      "stack_group": "fitmirror_product",
-      "scene_type": "technology",
+      "stack_group": "fitmirror_b",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Мобильное приложение предлагает тренировки без зеркала.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+        "attack": "Дать владельцам FitMirror бесплатные программы тренировок без ежемесячной платы.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Пользователи сокращают платное coaching-сопровождение."
+      },
+      "v2_effect": {
+        "group": "fitmirror_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "coaching": 1400
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "retention_doubt"
+          ]
+        }
       }
     },
     {
       "id": "fitmirror_r1_3",
       "startup_slug": "fitmirror",
       "round_number": 1,
-      "title": "Сравнение в сторис",
-      "short_description": "Инфлюенсер сравнивает тренажёр с бесплатной программой телефона.",
-      "result_headline": "FitMirror: сравнение в сторис",
+      "title": "ДОКАЗАТЬ, ЧТО ТЕЛЕФОН ЗАМЕНЯЕТ ЗЕРКАЛО",
+      "short_description": "Провести публичное сравнение FitMirror с тренировкой через обычный смартфон.",
+      "result_headline": "ДОКАЗАТЬ, ЧТО ТЕЛЕФОН ЗАМЕНЯЕТ ЗЕРКАЛО",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "hardware"
+        "hardware",
+        "coaching"
       ],
-      "weakness_id": "fmw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fm3"
       ],
-      "duration": "persistent",
-      "stack_group": "fitmirror_competition",
+      "duration": "temporary",
+      "stack_group": "fitmirror_c",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Инфлюенсер сравнивает тренажёр с бесплатной программой телефона.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+        "attack": "Провести публичное сравнение FitMirror с тренировкой через обычный смартфон.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Смартфон воспринимается как замена и снижает обе выручки."
+      },
+      "v2_effect": {
+        "group": "fitmirror_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 700,
+            "coaching": 600
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "phone_substitute"
+          ]
+        }
       }
     },
     {
       "id": "fitmirror_r1_4",
       "startup_slug": "fitmirror",
       "round_number": 1,
-      "title": "Первый месяц после покупки",
-      "short_description": "Пользователи сомневаются в продлении тренировочной подписки.",
-      "result_headline": "FitMirror: первый месяц после покупки",
-      "attack_type": "product",
+      "title": "ЗАБРАТЬ ЛУЧШИЕ МЕСТА В МАГАЗИНАХ",
+      "short_description": "Выкупить лучшие демонстрационные позиции у крупных продавцов домашнего фитнеса.",
+      "result_headline": "ЗАБРАТЬ ЛУЧШИЕ МЕСТА В МАГАЗИНАХ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "coaching"
+        "hardware"
       ],
-      "weakness_id": "fmw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fm2"
       ],
-      "duration": "persistent",
-      "stack_group": "fitmirror_product",
-      "scene_type": "technology",
+      "duration": "temporary",
+      "stack_group": "fitmirror_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Пользователи сомневаются в продлении тренировочной подписки.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+        "attack": "Выкупить лучшие демонстрационные позиции у крупных продавцов домашнего фитнеса.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Зеркала теряют видимость в магазинах."
+      },
+      "v2_effect": {
+        "group": "fitmirror_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "fitmirror_r2_1",
       "startup_slug": "fitmirror",
       "round_number": 2,
-      "title": "Рассрочка на железо",
-      "short_description": "Конкурент субсидирует покупку домашнего оборудования.",
-      "result_headline": "FitMirror: рассрочка на железо",
+      "title": "ПЕРЕМАНИТЬ ПОКУПАТЕЛЕЙ РАССРОЧКОЙ",
+      "short_description": "Предложить покупателям конкурирующего устройства удобную рассрочку.",
+      "result_headline": "ПЕРЕМАНИТЬ ПОКУПАТЕЛЕЙ РАССРОЧКОЙ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
@@ -2767,27 +3064,53 @@
       "target_stream_ids": [
         "hardware"
       ],
-      "weakness_id": "fmw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fm1"
       ],
       "duration": "persistent",
-      "stack_group": "fitmirror_competition",
+      "stack_group": "fitmirror_a",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Конкурент субсидирует покупку домашнего оборудования.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+        "attack": "Предложить покупателям конкурирующего устройства удобную рассрочку.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Цена покупки становится главным барьером для FitMirror."
+      },
+      "v2_effect": {
+        "group": "fitmirror_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "price_pressure"
+          ],
+          "stream_loss_bps": {
+            "hardware": 3800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "affordability_crisis"
+          ]
+        }
       }
     },
     {
       "id": "fitmirror_r2_2",
       "startup_slug": "fitmirror",
       "round_number": 2,
-      "title": "Тренер в приложении",
-      "short_description": "Мобильный сервис запускает персональные планы по низкой цене.",
-      "result_headline": "FitMirror: тренер в приложении",
+      "title": "ПЕРЕМАНИТЬ ПОДПИСЧИКОВ БЕЗ ПОТЕРИ ПРОГРЕССА",
+      "short_description": "Дать перенос истории тренировок, планов и достижений в бесплатный сервис.",
+      "result_headline": "ПЕРЕМАНИТЬ ПОДПИСЧИКОВ БЕЗ ПОТЕРИ ПРОГРЕССА",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
@@ -2801,49 +3124,104 @@
         "fm3"
       ],
       "duration": "persistent",
-      "stack_group": "fitmirror_competition",
+      "stack_group": "fitmirror_b",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Мобильный сервис запускает персональные планы по низкой цене.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+        "attack": "Дать перенос истории тренировок, планов и достижений в бесплатный сервис.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Платные coaching-подписчики уходят без потери прогресса."
+      },
+      "v2_effect": {
+        "group": "fitmirror_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "coaching": 2200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "retention_doubt"
+          ],
+          "stream_loss_bps": {
+            "coaching": 4800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "subscription_churn"
+          ]
+        }
       }
     },
     {
       "id": "fitmirror_r2_3",
       "startup_slug": "fitmirror",
       "round_number": 2,
-      "title": "Удержание без экрана",
-      "short_description": "Покупатели делятся программами, которыми пользуются без зеркала.",
-      "result_headline": "FitMirror: удержание без экрана",
-      "attack_type": "product",
+      "title": "ВЫПУСТИТЬ ПОЛНЫЙ АНАЛОГ FITMIRROR НА ТЕЛЕФОНЕ",
+      "short_description": "Добавить оценку упражнений по камере, персональные планы и вывод тренировки на TV, без покупки зеркала.",
+      "result_headline": "ВЫПУСТИТЬ ПОЛНЫЙ АНАЛОГ FITMIRROR НА ТЕЛЕФОНЕ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
+        "hardware",
         "coaching"
       ],
-      "weakness_id": "fmw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "fm2"
       ],
-      "duration": "temporary",
-      "stack_group": "fitmirror_product",
-      "scene_type": "technology",
+      "duration": "persistent",
+      "stack_group": "fitmirror_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Покупатели делятся программами, которыми пользуются без зеркала.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+        "attack": "Добавить оценку упражнений по камере, персональные планы и вывод тренировки на TV, без покупки зеркала.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Телефонный аналог заменяет и устройство, и coaching."
+      },
+      "v2_effect": {
+        "group": "fitmirror_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 1600,
+            "coaching": 1200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "phone_substitute"
+          ],
+          "stream_loss_bps": {
+            "hardware": 3400,
+            "coaching": 2800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "hardware_substitution"
+          ]
+        }
       }
     },
     {
       "id": "fitmirror_r2_4",
       "startup_slug": "fitmirror",
       "round_number": 2,
-      "title": "Демо в торговом зале",
-      "short_description": "Магазин выделяет лучшее место более дешёвому оборудованию.",
-      "result_headline": "FitMirror: демо в торговом зале",
+      "title": "ВЫТЕСНИТЬ FITMIRROR С ВИТРИН",
+      "short_description": "Заключить договоры на лучшие витрины магазинов домашнего фитнеса.",
+      "result_headline": "ВЫТЕСНИТЬ FITMIRROR С ВИТРИН",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
@@ -2851,58 +3229,42 @@
       "target_stream_ids": [
         "hardware"
       ],
-      "weakness_id": "fmw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "fm1"
       ],
-      "duration": "structural",
-      "stack_group": "fitmirror_competition",
+      "duration": "persistent",
+      "stack_group": "fitmirror_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Магазин выделяет лучшее место более дешёвому оборудованию.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+        "attack": "Заключить договоры на лучшие витрины магазинов домашнего фитнеса.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "FitMirror теряет торговую видимость."
+      },
+      "v2_effect": {
+        "group": "fitmirror_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 1200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "fitmirror_r3_1",
       "startup_slug": "fitmirror",
       "round_number": 3,
-      "title": "Урок после распаковки",
-      "short_description": "Новые владельцы откладывают активацию подписки.",
-      "result_headline": "FitMirror: урок после распаковки",
-      "attack_type": "product",
+      "title": "ВЫДАВИТЬ FITMIRROR ИЗ ПРОДАЖ ДЕМПИНГОМ",
+      "short_description": "Предложить устройство заметно дешевле FitMirror во всех ключевых каналах.",
+      "result_headline": "ВЫДАВИТЬ FITMIRROR ИЗ ПРОДАЖ ДЕМПИНГОМ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
-      "feasibility": "established_in_state",
-      "target_stream_ids": [
-        "coaching"
-      ],
-      "weakness_id": "fmw2",
-      "weakness_match": "normal",
-      "evidence_fact_ids": [
-        "fm2"
-      ],
-      "duration": "persistent",
-      "stack_group": "fitmirror_product",
-      "scene_type": "technology",
-      "narrative": {
-        "attack": "Новые владельцы откладывают активацию подписки.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Пользователи замечают разницу между обещанием и опытом; проверка попадает в план. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
-      }
-    },
-    {
-      "id": "fitmirror_r3_2",
-      "startup_slug": "fitmirror",
-      "round_number": 3,
-      "title": "Марафон без устройства",
-      "short_description": "Тренер проводит челлендж с ковриком и телефоном.",
-      "result_headline": "FitMirror: марафон без устройства",
-      "attack_type": "competition",
-      "severity": "medium",
-      "scale": "company_wide",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "hardware"
@@ -2910,30 +3272,108 @@
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
-        "fm3"
+        "fm2"
       ],
-      "duration": "persistent",
-      "stack_group": "fitmirror_competition",
+      "duration": "structural",
+      "stack_group": "fitmirror_a",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Тренер проводит челлендж с ковриком и телефоном.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+        "attack": "Предложить устройство заметно дешевле FitMirror во всех ключевых каналах.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Продажи FitMirror падают из-за демпинга."
+      },
+      "v2_effect": {
+        "group": "fitmirror_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 2600
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "affordability_crisis"
+          ],
+          "stream_loss_bps": {
+            "hardware": 8400
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
+      }
+    },
+    {
+      "id": "fitmirror_r3_2",
+      "startup_slug": "fitmirror",
+      "round_number": 3,
+      "title": "ЗАПОЛНИТЬ РЫНОК Б/У ЗЕРКАЛАМИ",
+      "short_description": "Выкупить зеркала у пользователей, уже ушедших с подписки, и массово перепродать их дешевле новых FitMirror.",
+      "result_headline": "ЗАПОЛНИТЬ РЫНОК Б/У ЗЕРКАЛАМИ",
+      "attack_type": "competition",
+      "severity": "medium",
+      "scale": "company_wide",
+      "feasibility": "established_in_state",
+      "target_stream_ids": [
+        "coaching"
+      ],
+      "weakness_id": null,
+      "weakness_match": "normal",
+      "evidence_fact_ids": [
+        "fm3"
+      ],
+      "duration": "structural",
+      "stack_group": "fitmirror_b",
+      "scene_type": "competition",
+      "narrative": {
+        "attack": "Выкупить зеркала у пользователей, уже ушедших с подписки, и массово перепродать их дешевле новых FitMirror.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Вторичный рынок давит на coaching и поставляет дешёвое железо."
+      },
+      "v2_effect": {
+        "group": "fitmirror_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "coaching": 3000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "subscription_churn"
+          ],
+          "stream_loss_bps": {
+            "coaching": 9200,
+            "hardware": 7200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "fitmirror_r3_3",
       "startup_slug": "fitmirror",
       "round_number": 3,
-      "title": "Стоимость владения",
-      "short_description": "Покупатели считают цену зеркала вместе с подпиской и аксессуарами.",
-      "result_headline": "FitMirror: стоимость владения",
-      "attack_type": "finance",
+      "title": "СДЕЛАТЬ ФИТНЕС-ЗЕРКАЛО НЕНУЖНЫМ",
+      "short_description": "Продвигать полный мобильный фитнес-сервис с камерой телефона и телевизором как прямую замену FitMirror.",
+      "result_headline": "СДЕЛАТЬ ФИТНЕС-ЗЕРКАЛО НЕНУЖНЫМ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "hardware"
+        "hardware",
+        "coaching"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
@@ -2941,49 +3381,87 @@
         "fm1"
       ],
       "duration": "structural",
-      "stack_group": "fitmirror_finance",
-      "scene_type": "finance",
+      "stack_group": "fitmirror_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Покупатели считают цену зеркала вместе с подпиской и аксессуарами.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажи фитнес-зеркал» получает отдельную строку в отчёте."
+        "attack": "Продвигать полный мобильный фитнес-сервис с камерой телефона и телевизором как прямую замену FitMirror.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Мобильная замена вытесняет зеркало и coaching."
+      },
+      "v2_effect": {
+        "group": "fitmirror_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 2400,
+            "coaching": 1600
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "hardware_substitution"
+          ],
+          "stream_loss_bps": {
+            "hardware": 7800,
+            "coaching": 6200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "fitmirror_r3_4",
       "startup_slug": "fitmirror",
       "round_number": 3,
-      "title": "Архив тренировок",
-      "short_description": "Конкурент публикует бесплатную библиотеку домашних программ.",
-      "result_headline": "FitMirror: архив тренировок",
+      "title": "ЗАБРАТЬ ОСНОВНЫЕ КАНАЛЫ ПРОДАЖ",
+      "short_description": "Заключить эксклюзивные договоры с основными каналами FitMirror.",
+      "result_headline": "ЗАБРАТЬ ОСНОВНЫЕ КАНАЛЫ ПРОДАЖ",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "coaching"
+        "hardware"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "fm3"
       ],
-      "duration": "temporary",
-      "stack_group": "fitmirror_competition",
+      "duration": "structural",
+      "stack_group": "fitmirror_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Конкурент публикует бесплатную библиотеку домашних программ.",
-        "company_response": "FitMirror обновляет план удержания подписчиков и отправляет владельцам письмо о тренировках.",
-        "result": "FitMirror: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «ИИ-тренировки по подписке» получает отдельную строку в отчёте."
+        "attack": "Заключить эксклюзивные договоры с основными каналами FitMirror.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Основные каналы продаж переходят конкуренту."
+      },
+      "v2_effect": {
+        "group": "fitmirror_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "hardware": 2000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "cloudkitchen_r1_1",
       "startup_slug": "cloudkitchen",
       "round_number": 1,
-      "title": "Выдача агрегатора",
-      "short_description": "Платформа поднимает рестораны, которые оплачивают продвижение.",
-      "result_headline": "CloudKitchen: выдача агрегатора",
+      "title": "ВЫТЕСНИТЬ CLOUDKITCHEN ИЗ ВЫДАЧИ",
+      "short_description": "Выкупить продвижение конкурирующих кухонь над карточками CloudKitchen в агрегаторах.",
+      "result_headline": "ВЫТЕСНИТЬ CLOUDKITCHEN ИЗ ВЫДАЧИ",
       "attack_type": "competition",
       "severity": "weak",
       "scale": "local",
@@ -2991,27 +3469,41 @@
       "target_stream_ids": [
         "marketplace"
       ],
-      "weakness_id": "ckw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ck1"
       ],
       "duration": "temporary",
-      "stack_group": "cloudkitchen_competition",
+      "stack_group": "cloudkitchen_a",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Платформа поднимает рестораны, которые оплачивают продвижение.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+        "attack": "Выкупить продвижение конкурирующих кухонь над карточками CloudKitchen в агрегаторах.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Карточки CloudKitchen теряют заказы в агрегаторах."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 1000
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "ranking_pressure"
+          ]
+        }
       }
     },
     {
       "id": "cloudkitchen_r1_2",
       "startup_slug": "cloudkitchen",
       "round_number": 1,
-      "title": "Холодная логистика",
-      "short_description": "Поставщик меняет расписание продуктов для кухонь без залов.",
-      "result_headline": "CloudKitchen: холодная логистика",
+      "title": "СКУПИТЬ КЛЮЧЕВЫЕ ИНГРЕДИЕНТЫ",
+      "short_description": "Забрать свободный запас ходовых продуктов у общих поставщиков перед пиковыми днями.",
+      "result_headline": "СКУПИТЬ КЛЮЧЕВЫЕ ИНГРЕДИЕНТЫ",
       "attack_type": "supply",
       "severity": "weak",
       "scale": "regional",
@@ -3019,28 +3511,42 @@
       "target_stream_ids": [
         "marketplace"
       ],
-      "weakness_id": "ckw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ck2"
       ],
       "duration": "temporary",
-      "stack_group": "cloudkitchen_supply",
+      "stack_group": "cloudkitchen_b",
       "scene_type": "supply",
       "narrative": {
-        "attack": "Поставщик меняет расписание продуктов для кухонь без залов.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+        "attack": "Забрать свободный запас ходовых продуктов у общих поставщиков перед пиковыми днями.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Дефицит ингредиентов срывает меню и требует расходов."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 15000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "supply_pressure"
+          ]
+        }
       }
     },
     {
       "id": "cloudkitchen_r1_3",
       "startup_slug": "cloudkitchen",
       "round_number": 1,
-      "title": "Комиссия по меню",
-      "short_description": "Агрегатор вводит промо-комиссию на заметные позиции.",
-      "result_headline": "CloudKitchen: комиссия по меню",
-      "attack_type": "cost",
+      "title": "СКОПИРОВАТЬ ХИТЫ МЕНЮ И СБИТЬ ЦЕНУ",
+      "short_description": "Запустить virtual restaurant с аналогами самых продаваемых блюд CloudKitchen дешевле.",
+      "result_headline": "СКОПИРОВАТЬ ХИТЫ МЕНЮ И СБИТЬ ЦЕНУ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
@@ -3052,23 +3558,37 @@
       "evidence_fact_ids": [
         "ck1"
       ],
-      "duration": "persistent",
-      "stack_group": "cloudkitchen_cost",
-      "scene_type": "finance",
+      "duration": "temporary",
+      "stack_group": "cloudkitchen_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Агрегатор вводит промо-комиссию на заметные позиции.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+        "attack": "Запустить virtual restaurant с аналогами самых продаваемых блюд CloudKitchen дешевле.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клоны меню забирают заказы CloudKitchen."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 1100
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "menu_clone"
+          ]
+        }
       }
     },
     {
       "id": "cloudkitchen_r1_4",
       "startup_slug": "cloudkitchen",
       "round_number": 1,
-      "title": "Обед в офисе",
-      "short_description": "Корпоративный клиент переносит переговоры о питании на квартал.",
-      "result_headline": "CloudKitchen: обед в офисе",
-      "attack_type": "demand",
+      "title": "ПЕРЕМАНИТЬ ОФИСЫ БЕСПЛАТНЫМИ ДЕГУСТАЦИЯМИ",
+      "short_description": "Провести бесплатные дегустации и заключить офисные контракты конкурента.",
+      "result_headline": "ПЕРЕМАНИТЬ ОФИСЫ БЕСПЛАТНЫМИ ДЕГУСТАЦИЯМИ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
@@ -3080,22 +3600,34 @@
       "evidence_fact_ids": [
         "ck3"
       ],
-      "duration": "persistent",
-      "stack_group": "cloudkitchen_demand",
-      "scene_type": "demand",
+      "duration": "temporary",
+      "stack_group": "cloudkitchen_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Корпоративный клиент переносит переговоры о питании на квартал.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Корпоративное питание» получает отдельную строку в отчёте."
+        "attack": "Провести бесплатные дегустации и заключить офисные контракты конкурента.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Корпоративные заказы сокращаются."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "corporate": 1500
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "cloudkitchen_r2_1",
       "startup_slug": "cloudkitchen",
       "round_number": 2,
-      "title": "Рейтинг соседней кухни",
-      "short_description": "Конкурент покупает размещение рядом с популярными блюдами.",
-      "result_headline": "CloudKitchen: рейтинг соседней кухни",
+      "title": "ЗАБРАТЬ ПРОМО-БЛОКИ АГРЕГАТОРА",
+      "short_description": "Выкупить лучшие рекламные блоки агрегатора для конкурирующих кухонь.",
+      "result_headline": "ЗАБРАТЬ ПРОМО-БЛОКИ АГРЕГАТОРА",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
@@ -3103,27 +3635,53 @@
       "target_stream_ids": [
         "marketplace"
       ],
-      "weakness_id": "ckw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ck1"
       ],
       "duration": "persistent",
-      "stack_group": "cloudkitchen_competition",
+      "stack_group": "cloudkitchen_a",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Конкурент покупает размещение рядом с популярными блюдами.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+        "attack": "Выкупить лучшие рекламные блоки агрегатора для конкурирующих кухонь.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "CloudKitchen теряет обнаружимость и заказы."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "ranking_pressure"
+          ],
+          "stream_loss_bps": {
+            "marketplace": 4000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 15000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "discovery_crisis"
+          ]
+        }
       }
     },
     {
       "id": "cloudkitchen_r2_2",
       "startup_slug": "cloudkitchen",
       "round_number": 2,
-      "title": "Поставка на рассвете",
-      "short_description": "Партнёр меняет окно приёмки скоропортящихся продуктов.",
-      "result_headline": "CloudKitchen: поставка на рассвете",
+      "title": "ПЕРЕХВАТИТЬ ОКНА ПОСТАВОК",
+      "short_description": "Законтрактовать окна поставок перед пиковыми днями CloudKitchen.",
+      "result_headline": "ПЕРЕХВАТИТЬ ОКНА ПОСТАВОК",
       "attack_type": "supply",
       "severity": "strong",
       "scale": "local",
@@ -3131,27 +3689,53 @@
       "target_stream_ids": [
         "marketplace"
       ],
-      "weakness_id": "ckw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ck2"
       ],
       "duration": "persistent",
-      "stack_group": "cloudkitchen_supply",
+      "stack_group": "cloudkitchen_b",
       "scene_type": "supply",
       "narrative": {
-        "attack": "Партнёр меняет окно приёмки скоропортящихся продуктов.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+        "attack": "Законтрактовать окна поставок перед пиковыми днями CloudKitchen.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Меню страдает от дефицита продуктов."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 1600
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 15000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "supply_pressure"
+          ],
+          "stream_loss_bps": {
+            "marketplace": 3800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 30000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "menu_shortage"
+          ]
+        }
       }
     },
     {
       "id": "cloudkitchen_r2_3",
       "startup_slug": "cloudkitchen",
       "round_number": 2,
-      "title": "Комбо за баллы",
-      "short_description": "Купоны агрегатора снижают видимость органических заказов.",
-      "result_headline": "CloudKitchen: комбо за баллы",
+      "title": "ЗАПУСТИТЬ КЛОНЫ БРЕНДОВ С КУПОНАМИ",
+      "short_description": "Запустить клоны брендов CloudKitchen с купонами и более низкой ценой.",
+      "result_headline": "ЗАПУСТИТЬ КЛОНЫ БРЕНДОВ С КУПОНАМИ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
@@ -3159,27 +3743,53 @@
       "target_stream_ids": [
         "marketplace"
       ],
-      "weakness_id": "ckw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ck1"
       ],
-      "duration": "temporary",
-      "stack_group": "cloudkitchen_competition",
+      "duration": "persistent",
+      "stack_group": "cloudkitchen_c",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Купоны агрегатора снижают видимость органических заказов.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+        "attack": "Запустить клоны брендов CloudKitchen с купонами и более низкой ценой.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клоны подменяют исходные бренды в заказах."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 1900
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "menu_clone"
+          ],
+          "stream_loss_bps": {
+            "marketplace": 4200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "brand_substitution"
+          ]
+        }
       }
     },
     {
       "id": "cloudkitchen_r2_4",
       "startup_slug": "cloudkitchen",
       "round_number": 2,
-      "title": "Кейтеринг без зала",
-      "short_description": "Офис выбирает поставщика с гибким меню встреч.",
-      "result_headline": "CloudKitchen: кейтеринг без зала",
+      "title": "ЗАБРАТЬ КОРПОРАТИВНЫЕ КОНТРАКТЫ",
+      "short_description": "Заключить корпоративные договоры вместо CloudKitchen.",
+      "result_headline": "ЗАБРАТЬ КОРПОРАТИВНЫЕ КОНТРАКТЫ",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
@@ -3192,106 +3802,191 @@
       "evidence_fact_ids": [
         "ck3"
       ],
-      "duration": "structural",
-      "stack_group": "cloudkitchen_competition",
+      "duration": "persistent",
+      "stack_group": "cloudkitchen_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Офис выбирает поставщика с гибким меню встреч.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Корпоративное питание» получает отдельную строку в отчёте."
+        "attack": "Заключить корпоративные договоры вместо CloudKitchen.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Корпоративная выручка уходит конкуренту."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "corporate": 3000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "cloudkitchen_r3_1",
       "startup_slug": "cloudkitchen",
       "round_number": 3,
-      "title": "Холодильник под аудитом",
-      "short_description": "Партнёр проверяет график и температуру поставок.",
-      "result_headline": "CloudKitchen: холодильник под аудитом",
-      "attack_type": "supply",
+      "title": "ВЫТЕСНИТЬ CLOUDKITCHEN ИЗ ТОПА АГРЕГАТОРА",
+      "short_description": "Выкупить позиции в топе агрегатора для конкурирующих кухонь.",
+      "result_headline": "ВЫТЕСНИТЬ CLOUDKITCHEN ИЗ ТОПА АГРЕГАТОРА",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "marketplace"
       ],
-      "weakness_id": "ckw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ck2"
       ],
-      "duration": "persistent",
-      "stack_group": "cloudkitchen_supply",
-      "scene_type": "supply",
+      "duration": "structural",
+      "stack_group": "cloudkitchen_a",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Партнёр проверяет график и температуру поставок.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+        "attack": "Выкупить позиции в топе агрегатора для конкурирующих кухонь.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "CloudKitchen теряет место в выдаче."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 2500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "discovery_crisis"
+          ],
+          "stream_loss_bps": {
+            "marketplace": 8200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 25000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "cloudkitchen_r3_2",
       "startup_slug": "cloudkitchen",
       "round_number": 3,
-      "title": "Фото на первой строке",
-      "short_description": "Соседняя кухня обновляет карточки и получает больше переходов.",
-      "result_headline": "CloudKitchen: фото на первой строке",
-      "attack_type": "competition",
+      "title": "ЗАБРАТЬ КЛИЕНТОВ, ПОКА БЛЮДА СНЯТЫ С МЕНЮ",
+      "short_description": "Предложить клиентам CloudKitchen замену, пока блюда конкурента сняты с меню.",
+      "result_headline": "ЗАБРАТЬ КЛИЕНТОВ, ПОКА БЛЮДА СНЯТЫ С МЕНЮ",
+      "attack_type": "supply",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "marketplace"
       ],
-      "weakness_id": "ckw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ck1"
       ],
-      "duration": "persistent",
-      "stack_group": "cloudkitchen_competition",
-      "scene_type": "competition",
+      "duration": "structural",
+      "stack_group": "cloudkitchen_b",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Соседняя кухня обновляет карточки и получает больше переходов.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Заказы через агрегаторы» получает отдельную строку в отчёте."
+        "attack": "Предложить клиентам CloudKitchen замену, пока блюда конкурента сняты с меню.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты уходят; это уже customer churn."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 2200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "menu_shortage"
+          ],
+          "stream_loss_bps": {
+            "marketplace": 7200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 35000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
       }
     },
     {
       "id": "cloudkitchen_r3_3",
       "startup_slug": "cloudkitchen",
       "round_number": 3,
-      "title": "Планирование закупок",
-      "short_description": "Поставщик требует заранее подтверждать объём ингредиентов.",
-      "result_headline": "CloudKitchen: планирование закупок",
-      "attack_type": "supply",
+      "title": "ПЕРЕМАНИТЬ ПОСТОЯННЫХ КЛИЕНТОВ К КЛОНАМ МЕНЮ",
+      "short_description": "Закрепить клиентов CloudKitchen за клонами его меню купонами.",
+      "result_headline": "ПЕРЕМАНИТЬ ПОСТОЯННЫХ КЛИЕНТОВ К КЛОНАМ МЕНЮ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "corporate"
+        "marketplace"
       ],
-      "weakness_id": "ckw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ck2"
       ],
       "duration": "structural",
-      "stack_group": "cloudkitchen_supply",
-      "scene_type": "supply",
+      "stack_group": "cloudkitchen_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Поставщик требует заранее подтверждать объём ингредиентов.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Корпоративное питание» получает отдельную строку в отчёте."
+        "attack": "Закрепить клиентов CloudKitchen за клонами его меню купонами.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Постоянные клиенты переходят к клонам."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "marketplace": 2500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "brand_substitution"
+          ],
+          "stream_loss_bps": {
+            "marketplace": 8000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "cloudkitchen_r3_4",
       "startup_slug": "cloudkitchen",
       "round_number": 3,
-      "title": "Корпоративная дегустация",
-      "short_description": "Работодатель тестирует внутреннюю столовую перед продлением питания.",
-      "result_headline": "CloudKitchen: корпоративная дегустация",
+      "title": "ЗАКРЕПИТЬ ОФИСЫ ДОЛГОСРОЧНЫМИ ДОГОВОРАМИ",
+      "short_description": "Заключить эксклюзивные долгосрочные договоры с офисами CloudKitchen.",
+      "result_headline": "ЗАКРЕПИТЬ ОФИСЫ ДОЛГОСРОЧНЫМИ ДОГОВОРАМИ",
       "attack_type": "competition",
       "severity": "strong",
       "scale": "company_wide",
@@ -3304,50 +3999,76 @@
       "evidence_fact_ids": [
         "ck3"
       ],
-      "duration": "temporary",
-      "stack_group": "cloudkitchen_competition",
+      "duration": "structural",
+      "stack_group": "cloudkitchen_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Работодатель тестирует внутреннюю столовую перед продлением питания.",
-        "company_response": "Операционный директор CloudKitchen открывает таблицу смен и просит агрегатор подтвердить цифры.",
-        "result": "CloudKitchen: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Корпоративное питание» получает отдельную строку в отчёте."
+        "attack": "Заключить эксклюзивные долгосрочные договоры с офисами CloudKitchen.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Корпоративные контракты закрепляются за конкурентом."
+      },
+      "v2_effect": {
+        "group": "cloudkitchen_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "corporate": 5000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "agrodrone_r1_1",
       "startup_slug": "agrodrone",
       "round_number": 1,
-      "title": "Сезонный платёж позже",
-      "short_description": "Хозяйство сдвигает покупку дронов к началу полевых работ.",
-      "result_headline": "AgroDrone: сезонный платёж позже",
-      "attack_type": "finance",
+      "title": "ПЕРЕМАНИТЬ ПОКУПАТЕЛЕЙ ОТСРОЧКОЙ ДО УРОЖАЯ",
+      "short_description": "Предложить покупателям конкурирующих дронов оплату после урожая.",
+      "result_headline": "ПЕРЕМАНИТЬ ПОКУПАТЕЛЕЙ ОТСРОЧКОЙ ДО УРОЖАЯ",
+      "attack_type": "competition",
       "severity": "weak",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
         "equipment"
       ],
-      "weakness_id": "adw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad1"
       ],
       "duration": "temporary",
-      "stack_group": "agrodrone_finance",
-      "scene_type": "finance",
+      "stack_group": "agrodrone_a",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Хозяйство сдвигает покупку дронов к началу полевых работ.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+        "attack": "Предложить покупателям конкурирующих дронов оплату после урожая.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Продажи оборудования AgroDrone откладываются."
+      },
+      "v2_effect": {
+        "group": "agrodrone_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 1000
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "financing_pressure"
+          ]
+        }
       }
     },
     {
       "id": "agrodrone_r1_2",
       "startup_slug": "agrodrone",
       "round_number": 1,
-      "title": "Модуль без поставки",
-      "short_description": "Дистрибьютор задерживает специализированный датчик.",
-      "result_headline": "AgroDrone: модуль без поставки",
+      "title": "СКУПИТЬ СПЕЦИАЛИЗИРОВАННЫЕ КОНТРОЛЛЕРЫ",
+      "short_description": "Выкупить специализированные контроллеры перед закупкой AgroDrone.",
+      "result_headline": "СКУПИТЬ СПЕЦИАЛИЗИРОВАННЫЕ КОНТРОЛЛЕРЫ",
       "attack_type": "supply",
       "severity": "weak",
       "scale": "regional",
@@ -3355,228 +4076,386 @@
       "target_stream_ids": [
         "equipment"
       ],
-      "weakness_id": "adw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad3"
       ],
       "duration": "temporary",
-      "stack_group": "agrodrone_supply",
+      "stack_group": "agrodrone_b",
       "scene_type": "supply",
       "narrative": {
-        "attack": "Дистрибьютор задерживает специализированный датчик.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+        "attack": "Выкупить специализированные контроллеры перед закупкой AgroDrone.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Поставка оборудования задерживается и требует расходов."
+      },
+      "v2_effect": {
+        "group": "agrodrone_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 900
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 15000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "component_pressure"
+          ]
+        }
       }
     },
     {
       "id": "agrodrone_r1_3",
       "startup_slug": "agrodrone",
       "round_number": 1,
-      "title": "Дрон на демонстрации",
-      "short_description": "Конкурент проводит показ оборудования перед региональной закупкой.",
-      "result_headline": "AgroDrone: дрон на демонстрации",
+      "title": "ДАТЬ СПУТНИКОВЫЙ АНАЛИЗ БЕСПЛАТНО",
+      "short_description": "Предложить фермерам бесплатный спутниковый анализ вместо покупки дрона.",
+      "result_headline": "ДАТЬ СПУТНИКОВЫЙ АНАЛИЗ БЕСПЛАТНО",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "equipment"
+        "analysis"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad1"
       ],
-      "duration": "persistent",
-      "stack_group": "agrodrone_competition",
+      "duration": "temporary",
+      "stack_group": "agrodrone_c",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Конкурент проводит показ оборудования перед региональной закупкой.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+        "attack": "Предложить фермерам бесплатный спутниковый анализ вместо покупки дрона.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Фермеры сокращают платный анализ."
+      },
+      "v2_effect": {
+        "group": "agrodrone_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "analysis": 1600
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "satellite_trial"
+          ]
+        }
       }
     },
     {
       "id": "agrodrone_r1_4",
       "startup_slug": "agrodrone",
       "round_number": 1,
-      "title": "Отчёт по полю вручную",
-      "short_description": "Сервис предлагает сезонный анализ без покупки дрона.",
-      "result_headline": "AgroDrone: отчёт по полю вручную",
+      "title": "ПЕРЕМАНИТЬ ПОКУПАТЕЛЕЙ ДЕМО-ДРОНАМИ",
+      "short_description": "Провести бесплатные демонстрации конкурирующих дронов на ключевых полях.",
+      "result_headline": "ПЕРЕМАНИТЬ ПОКУПАТЕЛЕЙ ДЕМО-ДРОНАМИ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "analysis"
+        "equipment"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad2"
       ],
-      "duration": "persistent",
-      "stack_group": "agrodrone_competition",
+      "duration": "temporary",
+      "stack_group": "agrodrone_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Сервис предлагает сезонный анализ без покупки дрона.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+        "attack": "Провести бесплатные демонстрации конкурирующих дронов на ключевых полях.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Покупатели откладывают заказ AgroDrone."
+      },
+      "v2_effect": {
+        "group": "agrodrone_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 400
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "agrodrone_r2_1",
       "startup_slug": "agrodrone",
       "round_number": 2,
-      "title": "Комплектующие по записи",
-      "short_description": "Заказы редких контроллеров принимают по длинному графику.",
-      "result_headline": "AgroDrone: комплектующие по записи",
-      "attack_type": "supply",
+      "title": "ПЕРЕТЯНУТЬ ДИЛЕРОВ СЕЗОННЫМ КРЕДИТОМ",
+      "short_description": "Предложить дилерам сезонный кредит на продажу конкурирующих дронов.",
+      "result_headline": "ПЕРЕТЯНУТЬ ДИЛЕРОВ СЕЗОННЫМ КРЕДИТОМ",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "analysis"
+        "equipment"
       ],
-      "weakness_id": "adw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad3"
       ],
       "duration": "persistent",
-      "stack_group": "agrodrone_supply",
-      "scene_type": "supply",
+      "stack_group": "agrodrone_a",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Заказы редких контроллеров принимают по длинному графику.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+        "attack": "Предложить дилерам сезонный кредит на продажу конкурирующих дронов.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Дилеры сокращают продажи AgroDrone."
+      },
+      "v2_effect": {
+        "group": "agrodrone_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 1700
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "financing_pressure"
+          ],
+          "stream_loss_bps": {
+            "equipment": 3600
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "dealer_financing_loss"
+          ]
+        }
       }
     },
     {
       "id": "agrodrone_r2_2",
       "startup_slug": "agrodrone",
       "round_number": 2,
-      "title": "Окно посевной",
-      "short_description": "Погода переносит решения хозяйств о покупке техники.",
-      "result_headline": "AgroDrone: окно посевной",
-      "attack_type": "finance",
+      "title": "ПЕРЕХВАТИТЬ СЛЕДУЮЩУЮ ПАРТИЮ КОМПЛЕКТУЮЩИХ",
+      "short_description": "Законтрактовать следующую партию компонентов AgroDrone.",
+      "result_headline": "ПЕРЕХВАТИТЬ СЛЕДУЮЩУЮ ПАРТИЮ КОМПЛЕКТУЮЩИХ",
+      "attack_type": "supply",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
         "equipment"
       ],
-      "weakness_id": "adw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad1"
       ],
       "duration": "persistent",
-      "stack_group": "agrodrone_finance",
-      "scene_type": "finance",
+      "stack_group": "agrodrone_b",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Погода переносит решения хозяйств о покупке техники.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+        "attack": "Законтрактовать следующую партию компонентов AgroDrone.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Производство дронов встаёт и несёт расходы."
+      },
+      "v2_effect": {
+        "group": "agrodrone_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 15000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "component_pressure"
+          ],
+          "stream_loss_bps": {
+            "equipment": 4000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 30000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "production_backlog"
+          ]
+        }
       }
     },
     {
       "id": "agrodrone_r2_3",
       "startup_slug": "agrodrone",
       "round_number": 2,
-      "title": "Аналитика в закупке",
-      "short_description": "Хозяйство включает сезонные отчёты в тендер оборудования.",
-      "result_headline": "AgroDrone: аналитика в закупке",
-      "attack_type": "demand",
+      "title": "ПРОДАТЬ МОНИТОРИНГ БЕЗ ПОКУПКИ ДРОНА",
+      "short_description": "Продать фермерским хозяйствам мониторинг как сервис без покупки дрона.",
+      "result_headline": "ПРОДАТЬ МОНИТОРИНГ БЕЗ ПОКУПКИ ДРОНА",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "analysis"
+        "analysis",
+        "equipment"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad2"
       ],
-      "duration": "temporary",
-      "stack_group": "agrodrone_demand",
-      "scene_type": "demand",
+      "duration": "persistent",
+      "stack_group": "agrodrone_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Хозяйство включает сезонные отчёты в тендер оборудования.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+        "attack": "Продать фермерским хозяйствам мониторинг как сервис без покупки дрона.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Сервис заменяет оборудование и часть анализа."
+      },
+      "v2_effect": {
+        "group": "agrodrone_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "analysis": 2400,
+            "equipment": 1000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "satellite_trial"
+          ],
+          "stream_loss_bps": {
+            "analysis": 4800,
+            "equipment": 2800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "service_substitution"
+          ]
+        }
       }
     },
     {
       "id": "agrodrone_r2_4",
       "startup_slug": "agrodrone",
       "round_number": 2,
-      "title": "Касса до уборки",
-      "short_description": "Покупатель откладывает оплату до завершения урожайного цикла.",
-      "result_headline": "AgroDrone: касса до уборки",
-      "attack_type": "finance",
+      "title": "ЗАБРАТЬ РЕГИОНАЛЬНЫЕ ТЕНДЕРЫ",
+      "short_description": "Подать более выгодные заявки и забрать региональные тендеры AgroDrone.",
+      "result_headline": "ЗАБРАТЬ РЕГИОНАЛЬНЫЕ ТЕНДЕРЫ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "equipment"
       ],
-      "weakness_id": "adw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad1"
       ],
-      "duration": "structural",
-      "stack_group": "agrodrone_finance",
-      "scene_type": "finance",
+      "duration": "persistent",
+      "stack_group": "agrodrone_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Покупатель откладывает оплату до завершения урожайного цикла.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+        "attack": "Подать более выгодные заявки и забрать региональные тендеры AgroDrone.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Продажи оборудования в регионах сокращаются."
+      },
+      "v2_effect": {
+        "group": "agrodrone_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "agrodrone_r3_1",
       "startup_slug": "agrodrone",
       "round_number": 3,
-      "title": "Запасной контроллер",
-      "short_description": "Производитель объявляет дефицит детали для специализированных дронов.",
-      "result_headline": "AgroDrone: запасной контроллер",
-      "attack_type": "supply",
+      "title": "ЗАБРАТЬ КРУПНЫЕ ЗАКАЗЫ ПЕРЕД ПОСЕВНОЙ",
+      "short_description": "Заключить крупные заказы на дроны перед посевной вместо AgroDrone.",
+      "result_headline": "ЗАБРАТЬ КРУПНЫЕ ЗАКАЗЫ ПЕРЕД ПОСЕВНОЙ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "equipment"
       ],
-      "weakness_id": "adw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad3"
       ],
-      "duration": "persistent",
-      "stack_group": "agrodrone_supply",
-      "scene_type": "supply",
+      "duration": "structural",
+      "stack_group": "agrodrone_a",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Производитель объявляет дефицит детали для специализированных дронов.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Операционный график сдвигается, пока команда ищет запасной слот поставки. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+        "attack": "Заключить крупные заказы на дроны перед посевной вместо AgroDrone.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "AgroDrone теряет крупные заказы."
+      },
+      "v2_effect": {
+        "group": "agrodrone_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 2400
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "dealer_financing_loss"
+          ],
+          "stream_loss_bps": {
+            "equipment": 8000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "agrodrone_r3_2",
       "startup_slug": "agrodrone",
       "round_number": 3,
-      "title": "Спутниковый отчёт",
-      "short_description": "Платформа мониторинга снижает порог входа в анализ поля.",
-      "result_headline": "AgroDrone: спутниковый отчёт",
-      "attack_type": "competition",
+      "title": "ЗАБРАТЬ ХОЗЯЙСТВА НА ФОНЕ СРЫВА ПОСТАВОК",
+      "short_description": "Предложить хозяйствам готовый сервис, пока поставки AgroDrone сорваны.",
+      "result_headline": "ЗАБРАТЬ ХОЗЯЙСТВА НА ФОНЕ СРЫВА ПОСТАВОК",
+      "attack_type": "supply",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "established_in_state",
       "target_stream_ids": [
+        "equipment",
         "analysis"
       ],
       "weakness_id": null,
@@ -3584,27 +4463,55 @@
       "evidence_fact_ids": [
         "ad2"
       ],
-      "duration": "persistent",
-      "stack_group": "agrodrone_competition",
-      "scene_type": "competition",
+      "duration": "structural",
+      "stack_group": "agrodrone_b",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Платформа мониторинга снижает порог входа в анализ поля.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+        "attack": "Предложить хозяйствам готовый сервис, пока поставки AgroDrone сорваны.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Хозяйства уходят; причина переходит в customer churn."
+      },
+      "v2_effect": {
+        "group": "agrodrone_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 2500,
+            "analysis": 1000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "production_backlog"
+          ],
+          "stream_loss_bps": {
+            "equipment": 7200,
+            "analysis": 3500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 30000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
       }
     },
     {
       "id": "agrodrone_r3_3",
       "startup_slug": "agrodrone",
       "round_number": 3,
-      "title": "Полевой сервис на паузе",
-      "short_description": "Хозяйства откладывают обновление аналитики до следующего сезона.",
-      "result_headline": "AgroDrone: полевой сервис на паузе",
-      "attack_type": "demand",
+      "title": "ЗАМЕНИТЬ ПОКУПКУ ДРОНОВ СЕРВИСОМ ПО ПОДПИСКЕ",
+      "short_description": "Запустить подписочный мониторинг с камерой и спутниковыми данными вместо покупки дрона.",
+      "result_headline": "ЗАМЕНИТЬ ПОКУПКУ ДРОНОВ СЕРВИСОМ ПО ПОДПИСКЕ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
+        "equipment",
         "analysis"
       ],
       "weakness_id": null,
@@ -3613,133 +4520,219 @@
         "ad1"
       ],
       "duration": "structural",
-      "stack_group": "agrodrone_demand",
-      "scene_type": "demand",
+      "stack_group": "agrodrone_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Хозяйства откладывают обновление аналитики до следующего сезона.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Поток заказов меняется; сезонная акция не возвращает клиентов одним нажатием. Направление «Аналитика полей и сервис» получает отдельную строку в отчёте."
+        "attack": "Запустить подписочный мониторинг с камерой и спутниковыми данными вместо покупки дрона.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Подписка заменяет оборудование и анализ."
+      },
+      "v2_effect": {
+        "group": "agrodrone_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 2200,
+            "analysis": 2000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "service_substitution"
+          ],
+          "stream_loss_bps": {
+            "equipment": 7600,
+            "analysis": 6500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "agrodrone_r3_4",
       "startup_slug": "agrodrone",
       "round_number": 3,
-      "title": "Аванс за оборудование",
-      "short_description": "Дилер переносит оплату партии дронов на сезонный график.",
-      "result_headline": "AgroDrone: аванс за оборудование",
-      "attack_type": "finance",
+      "title": "ЗАКРЕПИТЬ ДИЛЕРОВ ЗА КОНКУРЕНТОМ",
+      "short_description": "Заключить эксклюзивные договоры с дилерами AgroDrone.",
+      "result_headline": "ЗАКРЕПИТЬ ДИЛЕРОВ ЗА КОНКУРЕНТОМ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
         "equipment"
       ],
-      "weakness_id": "adw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ad1"
       ],
-      "duration": "temporary",
-      "stack_group": "agrodrone_finance",
-      "scene_type": "finance",
+      "duration": "structural",
+      "stack_group": "agrodrone_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Дилер переносит оплату партии дронов на сезонный график.",
-        "company_response": "Команда AgroDrone сверяет полевой график с хозяйствами и переносит прогноз сезона на совещание.",
-        "result": "AgroDrone: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Продажа агродронов» получает отдельную строку в отчёте."
+        "attack": "Заключить эксклюзивные договоры с дилерами AgroDrone.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Дилеры закрепляются за конкурентом."
+      },
+      "v2_effect": {
+        "group": "agrodrone_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "equipment": 1200
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "moodads_r1_1",
       "startup_slug": "moodads",
       "round_number": 1,
-      "title": "Кампания о приватности",
-      "short_description": "Бренд спрашивает рекламодателей о сборе эмоциональных сигналов.",
-      "result_headline": "MoodAds: кампания о приватности",
+      "title": "РАЗОБЛАЧИТЬ СБОР ЭМОЦИОНАЛЬНЫХ ДАННЫХ",
+      "short_description": "Публично разобрать чувствительные сигналы MoodAds и показать это рекламодателям.",
+      "result_headline": "РАЗОБЛАЧИТЬ СБОР ЭМОЦИОНАЛЬНЫХ ДАННЫХ",
       "attack_type": "reputation",
       "severity": "weak",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "saas"
+        "saas",
+        "analytics"
       ],
-      "weakness_id": "maw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma1"
       ],
       "duration": "temporary",
-      "stack_group": "moodads_reputation",
+      "stack_group": "moodads_a",
       "scene_type": "reputation",
       "narrative": {
-        "attack": "Бренд спрашивает рекламодателей о сборе эмоциональных сигналов.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+        "attack": "Публично разобрать чувствительные сигналы MoodAds и показать это рекламодателям.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Рекламодатели сомневаются в приватности и сокращают закупки."
+      },
+      "v2_effect": {
+        "group": "moodads_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 800,
+            "analytics": 600
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -4,
+          "set_flags": [
+            "privacy_doubt"
+          ]
+        }
       }
     },
     {
       "id": "moodads_r1_2",
       "startup_slug": "moodads",
       "round_number": 1,
-      "title": "Поток данных ограничен",
-      "short_description": "Площадка меняет доступ к данным для аналитических партнёров.",
-      "result_headline": "MoodAds: поток данных ограничен",
-      "attack_type": "technology",
+      "title": "ДОБИТЬСЯ ПРОВЕРКИ ДОСТУПА К ДАННЫМ",
+      "short_description": "Передать партнёрам описание интеграций MoodAds и добиться проверки доступа.",
+      "result_headline": "ДОБИТЬСЯ ПРОВЕРКИ ДОСТУПА К ДАННЫМ",
+      "attack_type": "supply",
       "severity": "weak",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
+        "saas",
         "analytics"
       ],
-      "weakness_id": "maw2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma3"
       ],
       "duration": "temporary",
-      "stack_group": "moodads_technology",
-      "scene_type": "technology",
+      "stack_group": "moodads_b",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Площадка меняет доступ к данным для аналитических партнёров.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+        "attack": "Передать партнёрам описание интеграций MoodAds и добиться проверки доступа.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Проверка ограничивает доступ к данным и снижает продажи."
+      },
+      "v2_effect": {
+        "group": "moodads_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 600,
+            "analytics": 800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "data_access_review"
+          ]
+        }
       }
     },
     {
       "id": "moodads_r1_3",
       "startup_slug": "moodads",
       "round_number": 1,
-      "title": "Отчёт без настроения",
-      "short_description": "Конкурент продаёт аналитику конверсии без эмоциональных сигналов.",
-      "result_headline": "MoodAds: отчёт без настроения",
+      "title": "ДОКАЗАТЬ, ЧТО ТАРГЕТИНГ БЕЗ ЭМОЦИЙ РАБОТАЕТ",
+      "short_description": "Провести benchmark contextual targeting против MoodAds по цене и конверсии.",
+      "result_headline": "ДОКАЗАТЬ, ЧТО ТАРГЕТИНГ БЕЗ ЭМОЦИЙ РАБОТАЕТ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "saas"
+        "saas",
+        "analytics"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma2"
       ],
-      "duration": "persistent",
-      "stack_group": "moodads_competition",
+      "duration": "temporary",
+      "stack_group": "moodads_c",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Конкурент продаёт аналитику конверсии без эмоциональных сигналов.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+        "attack": "Провести benchmark contextual targeting против MoodAds по цене и конверсии.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты видят замену эмоциональному таргетингу."
+      },
+      "v2_effect": {
+        "group": "moodads_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 1000,
+            "analytics": 400
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "contextual_proof"
+          ]
+        }
       }
     },
     {
       "id": "moodads_r1_4",
       "startup_slug": "moodads",
       "round_number": 1,
-      "title": "Внутренняя аналитика клиента",
-      "short_description": "Рекламодатель переносит отчёты в собственную BI-команду.",
-      "result_headline": "MoodAds: внутренняя аналитика клиента",
+      "title": "ПЕРЕМАНИТЬ АНАЛИТИЧЕСКИХ КЛИЕНТОВ ДЕШЁВЫМИ ОТЧЁТАМИ",
+      "short_description": "Предложить клиентам MoodAds более дешёвые аналитические отчёты.",
+      "result_headline": "ПЕРЕМАНИТЬ АНАЛИТИЧЕСКИХ КЛИЕНТОВ ДЕШЁВЫМИ ОТЧЁТАМИ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
@@ -3752,573 +4745,1016 @@
       "evidence_fact_ids": [
         "ma2"
       ],
-      "duration": "persistent",
-      "stack_group": "moodads_competition",
+      "duration": "temporary",
+      "stack_group": "moodads_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Рекламодатель переносит отчёты в собственную BI-команду.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+        "attack": "Предложить клиентам MoodAds более дешёвые аналитические отчёты.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Аналитические контракты сокращаются."
+      },
+      "v2_effect": {
+        "group": "moodads_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "analytics": 1400
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "moodads_r2_1",
       "startup_slug": "moodads",
       "round_number": 2,
-      "title": "Запрос на удаление",
-      "short_description": "Клиент требует описать обработку чувствительных коммерческих сигналов.",
-      "result_headline": "MoodAds: запрос на удаление",
+      "title": "ЗАПУСТИТЬ PRIVACY-ПРОВЕРКИ У КЛИЕНТОВ",
+      "short_description": "Провести privacy-аудиты и предложить клиентам отказаться от рискованных интеграций MoodAds.",
+      "result_headline": "ЗАПУСТИТЬ PRIVACY-ПРОВЕРКИ У КЛИЕНТОВ",
       "attack_type": "reputation",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
+        "saas",
         "analytics"
       ],
-      "weakness_id": "maw1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma3"
       ],
       "duration": "persistent",
-      "stack_group": "moodads_reputation",
+      "stack_group": "moodads_a",
       "scene_type": "reputation",
       "narrative": {
-        "attack": "Клиент требует описать обработку чувствительных коммерческих сигналов.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+        "attack": "Провести privacy-аудиты и предложить клиентам отказаться от рискованных интеграций MoodAds.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Проверки снижают SaaS и analytics продажи."
+      },
+      "v2_effect": {
+        "group": "moodads_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 1400,
+            "analytics": 1000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "privacy_doubt"
+          ],
+          "stream_loss_bps": {
+            "saas": 3200,
+            "analytics": 2600
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -8,
+          "set_flags": [
+            "privacy_review_wave"
+          ]
+        }
       }
     },
     {
       "id": "moodads_r2_2",
       "startup_slug": "moodads",
       "round_number": 2,
-      "title": "Правила площадки",
-      "short_description": "Партнёр ограничивает источник рекламных данных до проверки доступа.",
-      "result_headline": "MoodAds: правила площадки",
-      "attack_type": "technology",
+      "title": "ДОБИТЬСЯ ОГРАНИЧЕНИЯ ПОТОКА ДАННЫХ",
+      "short_description": "Добиться у платформ ограничения потока данных для MoodAds.",
+      "result_headline": "ДОБИТЬСЯ ОГРАНИЧЕНИЯ ПОТОКА ДАННЫХ",
+      "attack_type": "supply",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "saas"
+        "saas",
+        "analytics"
       ],
-      "weakness_id": "maw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma3"
       ],
       "duration": "persistent",
-      "stack_group": "moodads_technology",
-      "scene_type": "technology",
+      "stack_group": "moodads_b",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Партнёр ограничивает источник рекламных данных до проверки доступа.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+        "attack": "Добиться у платформ ограничения потока данных для MoodAds.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Поток данных сужается, а компания несёт расходы."
+      },
+      "v2_effect": {
+        "group": "moodads_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 1500,
+            "analytics": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "data_access_review"
+          ],
+          "stream_loss_bps": {
+            "saas": 4000,
+            "analytics": 5000
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 30000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "data_restricted"
+          ]
+        }
       }
     },
     {
       "id": "moodads_r2_3",
       "startup_slug": "moodads",
       "round_number": 2,
-      "title": "Реклама без профиля",
-      "short_description": "Агентство тестирует контекстные сегменты вместо поведенческих признаков.",
-      "result_headline": "MoodAds: реклама без профиля",
+      "title": "ПЕРЕВЕСТИ КАМПАНИИ НА ТАРГЕТИНГ БЕЗ ЭМОЦИЙ",
+      "short_description": "Перевести рекламные кампании клиентов на contextual targeting.",
+      "result_headline": "ПЕРЕВЕСТИ КАМПАНИИ НА ТАРГЕТИНГ БЕЗ ЭМОЦИЙ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "saas"
+        "saas",
+        "analytics"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma1"
       ],
-      "duration": "temporary",
-      "stack_group": "moodads_competition",
+      "duration": "persistent",
+      "stack_group": "moodads_c",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Агентство тестирует контекстные сегменты вместо поведенческих признаков.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+        "attack": "Перевести рекламные кампании клиентов на contextual targeting.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Кампании уходят с MoodAds."
+      },
+      "v2_effect": {
+        "group": "moodads_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 1800,
+            "analytics": 800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "contextual_proof"
+          ],
+          "stream_loss_bps": {
+            "saas": 3800,
+            "analytics": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "contextual_migration"
+          ]
+        }
       }
     },
     {
       "id": "moodads_r2_4",
       "startup_slug": "moodads",
       "round_number": 2,
-      "title": "Независимый аудит",
-      "short_description": "Покупатель включает privacy-review перед продлением лицензии.",
-      "result_headline": "MoodAds: независимый аудит",
-      "attack_type": "reputation",
+      "title": "ЗАБРАТЬ BI-КОНТРАКТЫ",
+      "short_description": "Заключить BI-контракты вместо MoodAds.",
+      "result_headline": "ЗАБРАТЬ BI-КОНТРАКТЫ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "analytics"
       ],
-      "weakness_id": "maw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma3"
       ],
-      "duration": "structural",
-      "stack_group": "moodads_reputation",
-      "scene_type": "reputation",
+      "duration": "persistent",
+      "stack_group": "moodads_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Покупатель включает privacy-review перед продлением лицензии.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+        "attack": "Заключить BI-контракты вместо MoodAds.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Аналитические контракты закрепляются за конкурентом."
+      },
+      "v2_effect": {
+        "group": "moodads_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "analytics": 2400
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "moodads_r3_1",
       "startup_slug": "moodads",
       "round_number": 3,
-      "title": "Окно доступа закрыто",
-      "short_description": "Площадка сокращает срок жизни доступа к аналитическим данным.",
-      "result_headline": "MoodAds: окно доступа закрыто",
-      "attack_type": "technology",
+      "title": "СОРВАТЬ ПРОДЛЕНИЕ ЛИЦЕНЗИЙ ИЗ-ЗА PRIVACY-РИСКА",
+      "short_description": "Передать клиентам доказательства privacy-риска и предложить замену MoodAds.",
+      "result_headline": "СОРВАТЬ ПРОДЛЕНИЕ ЛИЦЕНЗИЙ ИЗ-ЗА PRIVACY-РИСКА",
+      "attack_type": "reputation",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
+        "saas",
         "analytics"
       ],
-      "weakness_id": "maw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma3"
       ],
-      "duration": "persistent",
-      "stack_group": "moodads_technology",
-      "scene_type": "technology",
+      "duration": "structural",
+      "stack_group": "moodads_a",
+      "scene_type": "reputation",
       "narrative": {
-        "attack": "Площадка сокращает срок жизни доступа к аналитическим данным.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+        "attack": "Передать клиентам доказательства privacy-риска и предложить замену MoodAds.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Лицензии не продлеваются."
+      },
+      "v2_effect": {
+        "group": "moodads_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 2000,
+            "analytics": 1500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "privacy_review_wave"
+          ],
+          "stream_loss_bps": {
+            "saas": 7200,
+            "analytics": 5000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -10,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "moodads_r3_2",
       "startup_slug": "moodads",
       "round_number": 3,
-      "title": "Конверсия в презентации",
-      "short_description": "Конкурент публикует кейс роста на альтернативной платформе.",
-      "result_headline": "MoodAds: конверсия в презентации",
-      "attack_type": "competition",
+      "title": "УВЕСТИ КЛИЕНТОВ, ПОКА ТАРГЕТИНГ ОСЛАБ",
+      "short_description": "Предложить клиентам стабильную альтернативу во время ограничения данных.",
+      "result_headline": "УВЕСТИ КЛИЕНТОВ, ПОКА ТАРГЕТИНГ ОСЛАБ",
+      "attack_type": "supply",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "saas"
+        "saas",
+        "analytics"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma2"
       ],
-      "duration": "persistent",
-      "stack_group": "moodads_competition",
-      "scene_type": "competition",
+      "duration": "structural",
+      "stack_group": "moodads_b",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Конкурент публикует кейс роста на альтернативной платформе.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+        "attack": "Предложить клиентам стабильную альтернативу во время ограничения данных.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты уходят; причина становится customer churn."
+      },
+      "v2_effect": {
+        "group": "moodads_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 2200,
+            "analytics": 1800
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "data_restricted"
+          ],
+          "stream_loss_bps": {
+            "saas": 8800,
+            "analytics": 8000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 70000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
       }
     },
     {
       "id": "moodads_r3_3",
       "startup_slug": "moodads",
       "round_number": 3,
-      "title": "Политика сегментов",
-      "short_description": "Рекламодатель исключает чувствительные аудитории из новой кампании.",
-      "result_headline": "MoodAds: политика сегментов",
-      "attack_type": "reputation",
+      "title": "ЗАМЕНИТЬ MOODADS PRIVACY-SAFE АНАЛОГОМ",
+      "short_description": "Запустить privacy-safe аналог эмоционального таргетинга.",
+      "result_headline": "ЗАМЕНИТЬ MOODADS PRIVACY-SAFE АНАЛОГОМ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "saas"
+        "saas",
+        "analytics"
       ],
-      "weakness_id": "maw1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma1"
       ],
       "duration": "structural",
-      "stack_group": "moodads_reputation",
-      "scene_type": "reputation",
+      "stack_group": "moodads_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Рекламодатель исключает чувствительные аудитории из новой кампании.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Клиенты задают больше вопросов; заявление само по себе спрос не восстанавливает. Направление «Лицензия для рекламодателей» получает отдельную строку в отчёте."
+        "attack": "Запустить privacy-safe аналог эмоционального таргетинга.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Privacy-safe сервис заменяет MoodAds."
+      },
+      "v2_effect": {
+        "group": "moodads_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "saas": 2500,
+            "analytics": 1500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "contextual_migration"
+          ],
+          "stream_loss_bps": {
+            "saas": 7800,
+            "analytics": 4500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "moodads_r3_4",
       "startup_slug": "moodads",
       "round_number": 3,
-      "title": "Агрегированные отчёты",
-      "short_description": "Площадка переводит статистику в более крупные срезы.",
-      "result_headline": "MoodAds: агрегированные отчёты",
-      "attack_type": "technology",
+      "title": "ЗАКРЕПИТЬ АНАЛИТИКУ У КОНКУРЕНТА",
+      "short_description": "Заключить эксклюзивные договоры на аналитику клиентов MoodAds.",
+      "result_headline": "ЗАКРЕПИТЬ АНАЛИТИКУ У КОНКУРЕНТА",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
         "analytics"
       ],
-      "weakness_id": "maw2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "ma3"
       ],
-      "duration": "temporary",
-      "stack_group": "moodads_technology",
-      "scene_type": "technology",
+      "duration": "structural",
+      "stack_group": "moodads_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Площадка переводит статистику в более крупные срезы.",
-        "company_response": "MoodAds готовит пояснение клиентам, а юристы проверяют формулировки в отчёте о данных.",
-        "result": "MoodAds: Сервис работает под новым ограничением, внесённым в еженедельный отчёт. Направление «Отчёты и аналитические услуги» получает отдельную строку в отчёте."
+        "attack": "Заключить эксклюзивные договоры на аналитику клиентов MoodAds.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Аналитическая выручка уходит конкуренту."
+      },
+      "v2_effect": {
+        "group": "moodads_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "analytics": 4500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "renteverything_r1_1",
       "startup_slug": "renteverything",
       "round_number": 1,
-      "title": "Износ без залога",
-      "short_description": "Вещи возвращаются позже и требуют дополнительного ремонта.",
-      "result_headline": "RentEverything: износ без залога",
-      "attack_type": "cost",
+      "title": "ЗАБРАТЬ РЕМОНТНЫЕ СЛОТЫ",
+      "short_description": "Зарезервировать мощности мастерских перед периодом возврата вещей RentEverything.",
+      "result_headline": "ЗАБРАТЬ РЕМОНТНЫЕ СЛОТЫ",
+      "attack_type": "supply",
       "severity": "weak",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
         "rental"
       ],
-      "weakness_id": "rew1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "re3"
       ],
       "duration": "temporary",
-      "stack_group": "renteverything_cost",
-      "scene_type": "finance",
+      "stack_group": "renteverything_a",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Вещи возвращаются позже и требуют дополнительного ремонта.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+        "attack": "Зарезервировать мощности мастерских перед периодом возврата вещей RentEverything.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Ремонты задерживаются и снижают доступный фонд."
+      },
+      "v2_effect": {
+        "group": "renteverything_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 700
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "repair_pressure"
+          ]
+        }
       }
     },
     {
       "id": "renteverything_r1_2",
       "startup_slug": "renteverything",
       "round_number": 1,
-      "title": "Возврат по спорному чеку",
-      "short_description": "Покупатели оспаривают списания после аренды.",
-      "result_headline": "RentEverything: возврат по спорному чеку",
-      "attack_type": "finance",
+      "title": "РАСКРУТИТЬ СПОРНЫЕ УДЕРЖАНИЯ",
+      "short_description": "Собрать реальные спорные случаи с залогами и показать проблему клиентам и владельцам.",
+      "result_headline": "РАСКРУТИТЬ СПОРНЫЕ УДЕРЖАНИЯ",
+      "attack_type": "reputation",
       "severity": "weak",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
+        "rental",
         "commission"
       ],
-      "weakness_id": "rew2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "re3"
       ],
       "duration": "temporary",
-      "stack_group": "renteverything_finance",
-      "scene_type": "finance",
+      "stack_group": "renteverything_b",
+      "scene_type": "reputation",
       "narrative": {
-        "attack": "Покупатели оспаривают списания после аренды.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+        "attack": "Собрать реальные спорные случаи с залогами и показать проблему клиентам и владельцам.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Клиенты и владельцы сомневаются в модели удержаний."
+      },
+      "v2_effect": {
+        "group": "renteverything_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 400,
+            "commission": 500
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": -3,
+          "set_flags": [
+            "dispute_attention"
+          ]
+        }
       }
     },
     {
       "id": "renteverything_r1_3",
       "startup_slug": "renteverything",
       "round_number": 1,
-      "title": "Партнёрский каталог",
-      "short_description": "Конкурент подключает владельцев вещей вне собственного фонда.",
-      "result_headline": "RentEverything: партнёрский каталог",
+      "title": "СБИТЬ ЗАЛОГ И ЦЕНУ АРЕНДЫ",
+      "short_description": "Запустить конкурирующий прокат дешевле и с меньшим залогом.",
+      "result_headline": "СБИТЬ ЗАЛОГ И ЦЕНУ АРЕНДЫ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "commission"
+        "rental"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "re2"
       ],
-      "duration": "persistent",
-      "stack_group": "renteverything_competition",
+      "duration": "temporary",
+      "stack_group": "renteverything_c",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Конкурент подключает владельцев вещей вне собственного фонда.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+        "attack": "Запустить конкурирующий прокат дешевле и с меньшим залогом.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Арендаторы выбирают более дешёвый прокат."
+      },
+      "v2_effect": {
+        "group": "renteverything_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 800
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "price_pressure"
+          ]
+        }
       }
     },
     {
       "id": "renteverything_r1_4",
       "startup_slug": "renteverything",
       "round_number": 1,
-      "title": "Прокат на выходные",
-      "short_description": "Локальный сервис снижает цену на вещи из собственного фонда.",
-      "result_headline": "RentEverything: прокат на выходные",
+      "title": "ПЕРЕМАНИТЬ ВЛАДЕЛЬЦЕВ НУЛЕВОЙ КОМИССИЕЙ",
+      "short_description": "Предложить владельцам нулевую комиссию за переход в каталог конкурента.",
+      "result_headline": "ПЕРЕМАНИТЬ ВЛАДЕЛЬЦЕВ НУЛЕВОЙ КОМИССИЕЙ",
       "attack_type": "competition",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "rental"
+        "commission"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "re1"
       ],
-      "duration": "persistent",
-      "stack_group": "renteverything_competition",
+      "duration": "temporary",
+      "stack_group": "renteverything_d",
       "scene_type": "competition",
       "narrative": {
-        "attack": "Локальный сервис снижает цену на вещи из собственного фонда.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+        "attack": "Предложить владельцам нулевую комиссию за переход в каталог конкурента.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Комиссионная выручка сокращается."
+      },
+      "v2_effect": {
+        "group": "renteverything_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "commission": 1000
+          },
+          "duration": "temporary",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "renteverything_r2_1",
       "startup_slug": "renteverything",
       "round_number": 2,
-      "title": "Ремонт перед сезоном",
-      "short_description": "Мастерские повышают цену восстановления часто арендуемых вещей.",
-      "result_headline": "RentEverything: ремонт перед сезоном",
-      "attack_type": "cost",
+      "title": "ОСТАВИТЬ ФОНД БЕЗ БЫСТРОГО РЕМОНТА",
+      "short_description": "Перехватить ремонтные мощности, необходимые фонду RentEverything.",
+      "result_headline": "ОСТАВИТЬ ФОНД БЕЗ БЫСТРОГО РЕМОНТА",
+      "attack_type": "supply",
       "severity": "medium",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
         "rental"
       ],
-      "weakness_id": "rew1",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "re3"
       ],
       "duration": "persistent",
-      "stack_group": "renteverything_cost",
-      "scene_type": "finance",
+      "stack_group": "renteverything_a",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Мастерские повышают цену восстановления часто арендуемых вещей.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+        "attack": "Перехватить ремонтные мощности, необходимые фонду RentEverything.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Фонд теряет доступность и несёт расходы."
+      },
+      "v2_effect": {
+        "group": "renteverything_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 1400
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 10000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "repair_pressure"
+          ],
+          "stream_loss_bps": {
+            "rental": 4200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 35000000,
+          "reputation_delta": 0,
+          "set_flags": [
+            "inventory_backlog"
+          ]
+        }
       }
     },
     {
       "id": "renteverything_r2_2",
       "startup_slug": "renteverything",
       "round_number": 2,
-      "title": "Проверка комплектации",
-      "short_description": "Клиенты чаще сообщают о неполных возвратах после аренды.",
-      "result_headline": "RentEverything: проверка комплектации",
-      "attack_type": "finance",
+      "title": "ЗАПУСТИТЬ МАССОВУЮ ПРОВЕРКУ СПОРНЫХ УДЕРЖАНИЙ",
+      "short_description": "Запустить массовые проверки спорных удержаний RentEverything.",
+      "result_headline": "ЗАПУСТИТЬ МАССОВУЮ ПРОВЕРКУ СПОРНЫХ УДЕРЖАНИЙ",
+      "attack_type": "reputation",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "rental"
+        "rental",
+        "commission"
       ],
-      "weakness_id": "rew2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "re3"
       ],
       "duration": "persistent",
-      "stack_group": "renteverything_finance",
-      "scene_type": "finance",
+      "stack_group": "renteverything_b",
+      "scene_type": "reputation",
       "narrative": {
-        "attack": "Клиенты чаще сообщают о неполных возвратах после аренды.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+        "attack": "Запустить массовые проверки спорных удержаний RentEverything.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Проверки бьют по аренде и комиссии."
+      },
+      "v2_effect": {
+        "group": "renteverything_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 800,
+            "commission": 1200
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 8000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "dispute_attention"
+          ],
+          "stream_loss_bps": {
+            "rental": 2800,
+            "commission": 3800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 30000000,
+          "reputation_delta": -5,
+          "set_flags": [
+            "dispute_wave"
+          ]
+        }
       }
     },
     {
       "id": "renteverything_r2_3",
       "startup_slug": "renteverything",
       "round_number": 2,
-      "title": "Партнёр задержал выплату",
-      "short_description": "Владелец каталога требует сверить комиссию по заказам.",
-      "result_headline": "RentEverything: партнёр задержал выплату",
-      "attack_type": "finance",
+      "title": "ПЕРЕМАНИТЬ АРЕНДАТОРОВ ПОДПИСКОЙ БЕЗ ЗАЛОГА",
+      "short_description": "Предложить арендаторам подписку конкурента без залога.",
+      "result_headline": "ПЕРЕМАНИТЬ АРЕНДАТОРОВ ПОДПИСКОЙ БЕЗ ЗАЛОГА",
+      "attack_type": "competition",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "commission"
+        "rental"
       ],
-      "weakness_id": "rew2",
-      "weakness_match": "exact",
+      "weakness_id": null,
+      "weakness_match": "normal",
       "evidence_fact_ids": [
         "re2"
       ],
-      "duration": "temporary",
-      "stack_group": "renteverything_finance",
-      "scene_type": "finance",
+      "duration": "persistent",
+      "stack_group": "renteverything_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Владелец каталога требует сверить комиссию по заказам.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+        "attack": "Предложить арендаторам подписку конкурента без залога.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Арендаторы уходят из проката RentEverything."
+      },
+      "v2_effect": {
+        "group": "renteverything_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 1500
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "price_pressure"
+          ],
+          "stream_loss_bps": {
+            "rental": 3800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": [
+            "renter_churn"
+          ]
+        }
       }
     },
     {
       "id": "renteverything_r2_4",
       "startup_slug": "renteverything",
       "round_number": 2,
-      "title": "Амортизация на витрине",
-      "short_description": "Покупатели сравнивают аренду с остаточной стоимостью вещи.",
-      "result_headline": "RentEverything: амортизация на витрине",
-      "attack_type": "cost",
+      "title": "УВЕСТИ ПАРТНЁРСКИЙ КАТАЛОГ",
+      "short_description": "Предложить владельцам более выгодный партнёрский каталог.",
+      "result_headline": "УВЕСТИ ПАРТНЁРСКИЙ КАТАЛОГ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "rental"
+        "commission"
       ],
-      "weakness_id": "rew1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "re1"
       ],
-      "duration": "structural",
-      "stack_group": "renteverything_cost",
-      "scene_type": "finance",
+      "duration": "persistent",
+      "stack_group": "renteverything_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Покупатели сравнивают аренду с остаточной стоимостью вещи.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+        "attack": "Предложить владельцам более выгодный партнёрский каталог.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Комиссионные договоры сокращаются."
+      },
+      "v2_effect": {
+        "group": "renteverything_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "commission": 1800
+          },
+          "duration": "persistent",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "renteverything_r3_1",
       "startup_slug": "renteverything",
       "round_number": 3,
-      "title": "Залог у конкурента ниже",
-      "short_description": "Маркетплейс снижает обеспечительный платёж для партнёрских товаров.",
-      "result_headline": "RentEverything: залог у конкурента ниже",
-      "attack_type": "competition",
+      "title": "ЗАБРАТЬ АРЕНДАТОРОВ, ПОКА ВЕЩИ НА РЕМОНТЕ",
+      "short_description": "Предложить арендаторам замену, пока вещи RentEverything находятся в ремонте.",
+      "result_headline": "ЗАБРАТЬ АРЕНДАТОРОВ, ПОКА ВЕЩИ НА РЕМОНТЕ",
+      "attack_type": "supply",
       "severity": "strong",
       "scale": "regional",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "commission"
+        "rental"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "re2"
       ],
-      "duration": "persistent",
-      "stack_group": "renteverything_competition",
-      "scene_type": "competition",
+      "duration": "structural",
+      "stack_group": "renteverything_a",
+      "scene_type": "supply",
       "narrative": {
-        "attack": "Маркетплейс снижает обеспечительный платёж для партнёрских товаров.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+        "attack": "Предложить арендаторам замену, пока вещи RentEverything находятся в ремонте.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Арендаторы уходят; причина становится customer churn."
+      },
+      "v2_effect": {
+        "group": "renteverything_a",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 2000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 8000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "inventory_backlog"
+          ],
+          "stream_loss_bps": {
+            "rental": 5500,
+            "commission": 1000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 20000000,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "cause": "customer_churn"
       }
     },
     {
       "id": "renteverything_r3_2",
       "startup_slug": "renteverything",
       "round_number": 3,
-      "title": "Самовывоз вместо доставки",
-      "short_description": "Соседний прокат выдаёт популярные товары рядом с жилыми кварталами.",
-      "result_headline": "RentEverything: самовывоз вместо доставки",
-      "attack_type": "competition",
+      "title": "УВЕСТИ ВЛАДЕЛЬЦЕВ И КЛИЕНТОВ НА ФОНЕ СПОРОВ",
+      "short_description": "Предложить владельцам и клиентам прозрачную альтернативу во время споров.",
+      "result_headline": "УВЕСТИ ВЛАДЕЛЬЦЕВ И КЛИЕНТОВ НА ФОНЕ СПОРОВ",
+      "attack_type": "reputation",
       "severity": "medium",
       "scale": "company_wide",
       "feasibility": "established_in_state",
       "target_stream_ids": [
-        "rental"
+        "rental",
+        "commission"
       ],
       "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "re1"
       ],
-      "duration": "persistent",
-      "stack_group": "renteverything_competition",
-      "scene_type": "competition",
+      "duration": "structural",
+      "stack_group": "renteverything_b",
+      "scene_type": "reputation",
       "narrative": {
-        "attack": "Соседний прокат выдаёт популярные товары рядом с жилыми кварталами.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Клиенты сравнивают предложения, а коммерческая команда обновляет презентацию. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+        "attack": "Предложить владельцам и клиентам прозрачную альтернативу во время споров.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Владельцы и клиенты уходят из RentEverything."
+      },
+      "v2_effect": {
+        "group": "renteverything_b",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 1500,
+            "commission": 1600
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "dispute_wave"
+          ],
+          "stream_loss_bps": {
+            "rental": 6000,
+            "commission": 7500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 45000000,
+          "reputation_delta": -8,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "renteverything_r3_3",
       "startup_slug": "renteverything",
       "round_number": 3,
-      "title": "Спор о состоянии",
-      "short_description": "Пользователь публикует фото спорного возврата и требует пересмотра.",
-      "result_headline": "RentEverything: спор о состоянии",
-      "attack_type": "finance",
+      "title": "ЗАКРЕПИТЬ АРЕНДАТОРОВ ДЕШЁВОЙ ПОДПИСКОЙ",
+      "short_description": "Заключить с арендаторами дешёвые долгосрочные подписки конкурента.",
+      "result_headline": "ЗАКРЕПИТЬ АРЕНДАТОРОВ ДЕШЁВОЙ ПОДПИСКОЙ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "local",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "commission"
+        "rental"
       ],
-      "weakness_id": "rew2",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "re3"
       ],
       "duration": "structural",
-      "stack_group": "renteverything_finance",
-      "scene_type": "finance",
+      "stack_group": "renteverything_c",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Пользователь публикует фото спорного возврата и требует пересмотра.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Казначейство переносит обсуждение ликвидности на встречу с той же таблицей. Направление «Комиссии сторонних владельцев» получает отдельную строку в отчёте."
+        "attack": "Заключить с арендаторами дешёвые долгосрочные подписки конкурента.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Арендаторы закрепляются у конкурента."
+      },
+      "v2_effect": {
+        "group": "renteverything_c",
+        "base_effect": {
+          "stream_loss_bps": {
+            "rental": 2000
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        },
+        "combo": {
+          "requires_all": [
+            "renter_churn"
+          ],
+          "stream_loss_bps": {
+            "rental": 7800
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     },
     {
       "id": "renteverything_r3_4",
       "startup_slug": "renteverything",
       "round_number": 3,
-      "title": "Фонд на техосмотре",
-      "short_description": "Часть каталога уходит на проверку после интенсивной аренды.",
-      "result_headline": "RentEverything: фонд на техосмотре",
-      "attack_type": "cost",
+      "title": "ЗАКРЕПИТЬ ВЛАДЕЛЬЦЕВ ЭКСКЛЮЗИВНЫМИ УСЛОВИЯМИ",
+      "short_description": "Заключить эксклюзивные условия с владельцами каталога RentEverything.",
+      "result_headline": "ЗАКРЕПИТЬ ВЛАДЕЛЬЦЕВ ЭКСКЛЮЗИВНЫМИ УСЛОВИЯМИ",
+      "attack_type": "competition",
       "severity": "strong",
       "scale": "company_wide",
       "feasibility": "plausible",
       "target_stream_ids": [
-        "rental"
+        "commission"
       ],
-      "weakness_id": "rew1",
+      "weakness_id": null,
       "weakness_match": "normal",
       "evidence_fact_ids": [
         "re3"
       ],
-      "duration": "temporary",
-      "stack_group": "renteverything_cost",
-      "scene_type": "finance",
+      "duration": "structural",
+      "stack_group": "renteverything_d",
+      "scene_type": "competition",
       "narrative": {
-        "attack": "Часть каталога уходит на проверку после интенсивной аренды.",
-        "company_response": "RentEverything сверяет акты возврата с каталогом и добавляет колонку в таблицу состояния.",
-        "result": "RentEverything: Финансовый отдел пересчитывает расходы и называет это оптимизацией планирования. Направление «Аренда вещей из собственного фонда» получает отдельную строку в отчёте."
+        "attack": "Заключить эксклюзивные условия с владельцами каталога RentEverything.",
+        "company_response": "Команда оценивает ущерб и выбирает защиту по прогнозу.",
+        "result": "Комиссионная выручка надолго уходит конкуренту."
+      },
+      "v2_effect": {
+        "group": "renteverything_d",
+        "base_effect": {
+          "stream_loss_bps": {
+            "commission": 2500
+          },
+          "duration": "structural",
+          "incident_cost_kopeks": 0,
+          "reputation_delta": 0,
+          "set_flags": []
+        }
       }
     }
   ]

@@ -38,6 +38,30 @@ DEFENSES: dict[str, dict[str, tuple]] = {
         'student_retention': ('c', 180000, 5500, 3, {}, {'subscriptions': 400}),
         'school_success_team': ('d', 180000, 5500, 9, {}, {}),
     },
+    'sleepwork': {
+        'flexible_lease': ('a', 250000, 6000, 9, {}, {}), 'compact_redeploy': ('b', 450000, 4500, 9, {'leases': 200}, {}),
+        'digital_wellness': ('c', 200000, 5000, 9, {}, {}), 'price_retention': ('d', 100000, 3500, 3, {}, {'leases': 300}),
+    },
+    'fitmirror': {
+        'financing_tradein': ('a', 300000, 6000, 9, {'hardware': 200}, {}), 'bundled_subscription': ('b', 180000, 5000, 3, {}, {'coaching': 500}),
+        'mobile_mode': ('c', 380000, 5500, 9, {}, {'coaching': 0}), 'retail_buyback': ('d', 220000, 6000, 3, {'hardware': 0}, {'hardware': 300}),
+    },
+    'cloudkitchen': {
+        'direct_channel': ('a', 450000, 5500, 9, {'marketplace': 300}, {}), 'second_supplier': ('b', 550000, 4500, 9, {'marketplace': 250}, {}),
+        'unique_menu_loyalty': ('c', 250000, 5500, 9, {}, {'marketplace': 400}), 'corporate_retention': ('d', 150000, 5000, 9, {}, {'corporate': 300}),
+    },
+    'agrodrone': {
+        'seasonal_leasing': ('a', 300000, 5500, 9, {'equipment': 0}, {'equipment': 400}), 'component_reserve': ('b', 650000, 4500, 9, {'equipment': 300}, {}),
+        'drone_as_a_service': ('c', 300000, 5500, 9, {}, {'analysis': 400}), 'dealer_subsidy': ('d', 200000, 5500, 9, {}, {'equipment': 300}),
+    },
+    'moodads': {
+        'privacy_safe_mode': ('a', 300000, 5500, 3, {}, {'saas': 300}), 'alternative_data': ('b', 450000, 4500, 9, {'saas': 300, 'analytics': 300}, {}),
+        'contextual_mode': ('c', 250000, 5500, 9, {}, {'saas': 400}), 'analytics_bundle': ('d', 150000, 5000, 9, {}, {'analytics': 300}),
+    },
+    'renteverything': {
+        'repair_reserve': ('a', 550000, 4500, 9, {'rental': 250}, {}), 'transparent_insurance': ('b', 350000, 5000, 9, {}, {'rental': 200, 'commission': 200}),
+        'lower_deposit': ('c', 250000, 5500, 3, {}, {'rental': 400}), 'partner_commission_cut': ('d', 150000, 5000, 9, {}, {'commission': 400}),
+    },
 }
 DEFENSE_LABELS = {
     'none': 'Защита не запущена', 'cost_cut': 'Аварийное сокращение расходов',
@@ -49,6 +73,12 @@ DEFENSE_LABELS = {
     'partner_service': 'Партнёрский сервис', 'quality_audit': 'Аудит качества',
     'backup_provider': 'Резервный поставщик сервиса', 'student_retention': 'Удержание учеников',
     'school_success_team': 'Команда для школ',
+    'flexible_lease': 'Гибкая аренда', 'compact_redeploy': 'Уплотнение и перенос', 'digital_wellness': 'Wellness без оборудования', 'price_retention': 'Снижение цены',
+    'financing_tradein': 'Рассрочка и trade-in', 'bundled_subscription': 'Подписка в комплекте', 'mobile_mode': 'Мобильный режим', 'retail_buyback': 'Выкуп витрин',
+    'direct_channel': 'Собственный канал', 'second_supplier': 'Второй поставщик', 'unique_menu_loyalty': 'Уникальное меню', 'corporate_retention': 'Удержание корпоратов',
+    'seasonal_leasing': 'Сезонный лизинг', 'component_reserve': 'Резерв компонентов', 'drone_as_a_service': 'Drone as a service', 'dealer_subsidy': 'Субсидия дилерам',
+    'privacy_safe_mode': 'Privacy-safe режим', 'alternative_data': 'Альтернативные данные', 'contextual_mode': 'Contextual режим', 'analytics_bundle': 'Аналитика в лицензии',
+    'repair_reserve': 'Ремонтный резерв', 'transparent_insurance': 'Прозрачная страховка', 'lower_deposit': 'Снижение залога', 'partner_commission_cut': 'Снижение комиссии',
 }
 
 
@@ -124,13 +154,17 @@ def _forecast(state: GameState, startup: StartupTemplate, start: int, name: str,
     if name != 'none':
         trial.v2_data.setdefault('defenses', []).append(_modifier(start, name, startup.slug))
     bankruptcy = None
+    unpaid = 0
+    revenue = 0
     for month in range(start, 10):
-        _, trial = _month(trial, startup, month, incident if month == start else 0,
-                          cost if month == start else 0)
+        row, trial = _month(trial, startup, month, incident if month == start else 0,
+                            cost if month == start else 0)
+        revenue += row.revenue_kopeks
         if trial.is_bankrupt:
             bankruptcy = month
+            unpaid = trial.unpaid_obligations_kopeks
             break
-    return bankruptcy, trial.cash_kopeks
+    return bankruptcy, trial.cash_kopeks, unpaid, revenue
 
 
 def _modifier(start: int, name: str, slug: str) -> dict[str, Any]:
@@ -144,30 +178,31 @@ def _modifier(start: int, name: str, slug: str) -> dict[str, Any]:
 
 
 def _select(state: GameState, startup: StartupTemplate, start: int, incident: int):
-    none_bankrupt, none_cash = _forecast(state, startup, start, 'none', 0, incident)
-    candidates = [('none', 0, none_bankrupt, none_cash)]
+    none_bankrupt, none_cash, none_unpaid, none_revenue = _forecast(state, startup, start, 'none', 0, incident)
+    candidates = [('none', 0, none_bankrupt, none_cash, none_unpaid, none_revenue)]
     active_groups = {e['group'] for e in state.v2_data.get('effects', []) if e.get('cause') != 'customer_churn'}
     prior = state.v2_data.get('defenses', [])
     for name, (letter, rubles, *_rest) in DEFENSES[startup.slug].items():
         group = f'{startup.slug}_{letter}'
-        if (group not in active_groups or
-            any(d['group'] == group and d['start'] <= start + 1 < d['start'] + d['months'] for d in prior)):
+        if (group not in active_groups or any(d['name'] == name for d in prior)):
             continue
         cost = rubles * 100
         if state.cash_kopeks < cost:
             continue
-        bankrupt, cash = _forecast(state, startup, start, name, cost, incident)
-        candidates.append((name, cost, bankrupt, cash))
+        bankrupt, cash, unpaid, revenue = _forecast(state, startup, start, name, cost, incident)
+        candidates.append((name, cost, bankrupt, cash, unpaid, revenue))
     if none_bankrupt is not None and not any(d['name'] == 'cost_cut' for d in prior):
         cost = q(Decimal(state.fixed_cost_kopeks) * Decimal(2500) / 10000)
         if state.cash_kopeks >= cost:
-            bankrupt, cash = _forecast(state, startup, start, 'cost_cut', cost, incident)
-            candidates.append(('cost_cut', cost, bankrupt, cash))
+            bankrupt, cash, unpaid, revenue = _forecast(state, startup, start, 'cost_cut', cost, incident)
+            candidates.append(('cost_cut', cost, bankrupt, cash, unpaid, revenue))
     # Survival dominates. If all fail, prefer later failure before cost.
-    best = min(enumerate(candidates), key=lambda pair: (
-        pair[1][2] is not None, -(pair[1][3] if pair[1][2] is None else pair[1][2]),
-        pair[1][1], pair[0]))[1]
-    name, cost, bankruptcy, cash = best
+    surviving = [item for item in candidates if item[2] is None]
+    if surviving:
+        best = max(enumerate(surviving), key=lambda pair: (pair[1][3], -pair[1][1], -pair[0]))[1]
+    else:
+        best = max(enumerate(candidates), key=lambda pair: (pair[1][2], -pair[1][4], pair[1][5], -pair[1][1], -pair[0]))[1]
+    name, cost, bankruptcy, cash, unpaid, revenue = best
     if name == 'none':
         reason = ('Защита не запущена: доступные меры не улучшают прогноз до девятого месяца.'
                   if len(candidates) > 1 else 'Защита не запущена: подходящей меры для текущей причины нет.')
@@ -178,8 +213,9 @@ def _select(state: GameState, startup: StartupTemplate, start: int, incident: in
               ('' if name == 'none' else f' {reason}')).replace(',', ' ')
     forecasts = [
         {'defense': candidate, 'cost_kopeks': candidate_cost,
-         'bankruptcy_month': candidate_bankruptcy, 'projected_cash_m9_kopeks': cash_m9}
-        for candidate, candidate_cost, candidate_bankruptcy, cash_m9 in candidates
+         'bankruptcy_month': candidate_bankruptcy, 'projected_cash_m9_kopeks': cash_m9,
+         'unpaid_obligations_kopeks': unpaid, 'cumulative_revenue_kopeks': revenue}
+        for candidate, candidate_cost, candidate_bankruptcy, cash_m9, unpaid, revenue in candidates
     ]
     return DefenseDecision(DefenseType(name), cost, start + 1, detail, reason), name, forecasts
 

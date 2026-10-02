@@ -622,7 +622,7 @@
     },
     {
       "slug": "sleepwork",
-      "version": 1,
+      "version": 2,
       "name": "SleepWork",
       "industry": "Office wellness",
       "asset_key": "sleepwork",
@@ -772,11 +772,11 @@
         }
       ],
       "baseline_cash_m9_kopeks": 386452590,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "fitmirror",
-      "version": 1,
+      "version": 2,
       "name": "FitMirror",
       "industry": "Fitness hardware",
       "asset_key": "fitmirror",
@@ -926,11 +926,11 @@
         }
       ],
       "baseline_cash_m9_kopeks": 586042321,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "cloudkitchen",
-      "version": 1,
+      "version": 2,
       "name": "CloudKitchen",
       "industry": "Food delivery",
       "asset_key": "cloudkitchen",
@@ -1080,11 +1080,11 @@
         }
       ],
       "baseline_cash_m9_kopeks": 559817926,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "agrodrone",
-      "version": 1,
+      "version": 2,
       "name": "AgroDrone",
       "industry": "AgriTech",
       "asset_key": "agrodrone",
@@ -1234,11 +1234,11 @@
         }
       ],
       "baseline_cash_m9_kopeks": 481269152,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "moodads",
-      "version": 1,
+      "version": 2,
       "name": "MoodAds",
       "industry": "AdTech",
       "asset_key": "moodads",
@@ -1388,11 +1388,11 @@
         }
       ],
       "baseline_cash_m9_kopeks": 557669338,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     },
     {
       "slug": "renteverything",
-      "version": 1,
+      "version": 2,
       "name": "RentEverything",
       "industry": "Rental marketplace",
       "asset_key": "renteverything",
@@ -1542,7 +1542,7 @@
         }
       ],
       "baseline_cash_m9_kopeks": 458550000,
-      "engine_version": "economy-v1"
+      "engine_version": "economy-v2"
     }
   ]
 }

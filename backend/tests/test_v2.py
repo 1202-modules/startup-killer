@@ -12,7 +12,8 @@ from backend.app.engine.v2 import _month, _select
 ROOT = Path(__file__).resolve().parents[2]
 STARTUPS = load_startups(ROOT / 'data/startups.json')
 CATALOG = load_attack_catalog(ROOT / 'data/attack_choices.json')
-V2 = ('petmind', 'coffeebot', 'foodrover', 'studygenie')
+V2 = ('petmind', 'coffeebot', 'foodrover', 'studygenie',
+      'sleepwork', 'fitmirror', 'cloudkitchen', 'agrodrone', 'moodads', 'renteverything')
 
 
 def play(slug, letters):
@@ -86,8 +87,11 @@ def test_none_reason_and_cost_cut_gate():
     assert forecasts[0]['defense'] == 'none'
     assert 'Защита не запущена' in decision.reason
     assert 'cost_cut' not in state.v2_data.get('defenses', [])
-    low_cash = GameState('v2-test', 'petmind', 1, 0, 200000000,
-                         startup.initial_fixed_cost_kopeks, startup.initial_reputation)
+    low_cash = GameState('v2-test', 'petmind', 1, 0, 190000000,
+                         startup.initial_fixed_cost_kopeks, startup.initial_reputation,
+                         v2_data={'effects': [{'group': 'petmind_b', 'cause': 'petmind_b',
+                                                   'streams': {'collars': 2000},
+                                               'duration': 'structural', 'remaining': 9}]})
     assert _select(low_cash, startup, 1, 0)[1] == 'cost_cut'
 
 
@@ -99,6 +103,21 @@ def test_defense_forecast_counts_months_after_current_round():
                                            'streams': {'collars': 2500}, 'duration': 'structural',
                                            'remaining': 9}]})
     assert _select(state, startup, 1, 0)[1] == 'second_factory'
+
+
+def test_named_defense_is_not_reused_after_it_was_recorded():
+    startup = STARTUPS['petmind']
+    state = GameState('v2-test', 'petmind', 1, 0, startup.initial_cash_kopeks,
+                      startup.initial_fixed_cost_kopeks, startup.initial_reputation,
+                      v2_data={'effects': [{'group': 'petmind_a', 'cause': 'petmind_a',
+                                           'streams': {'collars': 2500}, 'duration': 'structural',
+                                           'remaining': 9}],
+                               'defenses': [{'name': 'independent_audit', 'start': 1, 'months': 3,
+                                             'group': 'petmind_a', 'factor': 5500,
+                                             'variable': {}, 'discount': {}}]})
+    _, selected, forecasts = _select(state, startup, 1, 0)
+    assert selected != 'independent_audit'
+    assert all(item['defense'] != 'independent_audit' for item in forecasts)
 
 
 def test_independent_revenue_discounts_multiply():
@@ -153,3 +172,25 @@ def test_v2_deep_crisis_cash_threshold_is_sixty_percent():
             startup.baseline_series, startup.initial_fixed_cost_kopeks)
     assert calculate_score(*args, deep_runway_months=8, deep_cash_ratio=Decimal('0.6')).final_status.value == 'survived'
     assert calculate_score(*args).final_status.value == 'deep_crisis'
+
+
+def test_inevitable_bankruptcy_prefers_latest_then_unpaid(monkeypatch):
+    import backend.app.engine.v2 as v2
+    startup = STARTUPS['petmind']
+    state = GameState('x', 'petmind', 1, 0, 100000000, startup.initial_fixed_cost_kopeks, startup.initial_reputation,
+                      v2_data={'effects': [{'group': 'petmind_b', 'cause': 'petmind_b', 'streams': {'collars': 9000}, 'duration': 'structural', 'remaining': 9}]})
+    outcomes = {'none': (7, 0, 100, 10), 'second_factory': (8, 0, 60, 20), 'cost_cut': (8, 0, 80, 20)}
+    monkeypatch.setattr(v2, '_forecast', lambda *args: outcomes[args[3]])
+    decision, name, _ = v2._select(state, startup, 1, 0)
+    assert name == 'second_factory'
+
+
+def test_survival_beats_higher_prebankruptcy_revenue(monkeypatch):
+    import backend.app.engine.v2 as v2
+    startup = STARTUPS['petmind']
+    state = GameState('x', 'petmind', 1, 0, 100000000, startup.initial_fixed_cost_kopeks, startup.initial_reputation,
+                      v2_data={'effects': [{'group': 'petmind_b', 'cause': 'petmind_b', 'streams': {'collars': 9000}, 'duration': 'structural', 'remaining': 9}]})
+    outcomes = {'none': (7, 0, 100, 1000), 'second_factory': (None, 50000000, 0, 100), 'cost_cut': (8, 0, 50, 900)}
+    monkeypatch.setattr(v2, '_forecast', lambda *args: outcomes[args[3]])
+    decision, name, _ = v2._select(state, startup, 1, 0)
+    assert name == 'second_factory'
