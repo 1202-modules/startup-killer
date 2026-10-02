@@ -86,6 +86,18 @@ router = APIRouter(prefix="/api/v1")
 ROOT = Path(__file__).resolve().parents[3]
 
 
+def _active_session(db: Session, installation_id: uuid.UUID) -> Optional[GameSession]:
+    return db.scalar(
+        select(GameSession)
+        .where(
+            GameSession.browser_installation_id == installation_id,
+            GameSession.status != SessionStatus.completed,
+        )
+        .order_by(GameSession.created_at.desc())
+        .limit(1)
+    )
+
+
 @lru_cache(maxsize=1)
 def attack_catalog() -> AttackCatalog:
     catalog = load_attack_catalog(ROOT / "data" / "attack_choices.json")
@@ -208,9 +220,7 @@ def bootstrap(
     db: Session = Depends(get_db),
 ) -> BootstrapResponse:
     csrf_token = generate_csrf_token(installation.id)
-    existing_session = db.scalar(
-        select(GameSession).where(GameSession.browser_installation_id == installation.id)
-    )
+    existing_session = _active_session(db, installation.id)
     return BootstrapResponse(
         csrf_token=csrf_token,
         existing_session_id=existing_session.id if existing_session else None,
@@ -227,9 +237,7 @@ def get_me_session(
     if not installation:
         return SessionMeResponse(session_id=None, status=None)
 
-    session = db.scalar(
-        select(GameSession).where(GameSession.browser_installation_id == installation.id)
-    )
+    session = _active_session(db, installation.id)
     if not session:
         return SessionMeResponse(session_id=None, status=None)
 
@@ -272,10 +280,13 @@ def create_session(
             },
         )
 
-    # 2. Check for existing session associated with this browser installation
-    existing_session = db.scalar(
-        select(GameSession).where(GameSession.browser_installation_id == installation.id)
+    # Serialize new-session attempts per installation and reuse any unfinished game.
+    db.scalar(
+        select(BrowserInstallation)
+        .where(BrowserInstallation.id == installation.id)
+        .with_for_update()
     )
+    existing_session = _active_session(db, installation.id)
     if existing_session:
         response.status_code = 200
         startup_pub = build_startup_public_profile(existing_session.template_snapshot)
@@ -392,9 +403,7 @@ def create_session(
     except IntegrityError:
         db.rollback()
         # Handle concurrent creation for the same browser installation
-        existing_session = db.scalar(
-            select(GameSession).where(GameSession.browser_installation_id == installation.id)
-        )
+        existing_session = _active_session(db, installation.id)
         if existing_session:
             response.status_code = 200
             startup_pub = build_startup_public_profile(existing_session.template_snapshot)

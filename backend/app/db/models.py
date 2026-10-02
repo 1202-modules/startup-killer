@@ -110,10 +110,9 @@ class BrowserInstallation(Base):
     )
 
     # Relationships
-    session: Mapped[Optional["GameSession"]] = relationship(
+    sessions: Mapped[List["GameSession"]] = relationship(
         "GameSession",
         back_populates="browser_installation",
-        uselist=False,
         cascade="all, delete-orphan",
     )
 
@@ -125,7 +124,6 @@ class GameSession(Base):
     browser_installation_id: Mapped[uuid.UUID] = mapped_column(
         Uuid,
         ForeignKey("browser_installations.id", ondelete="CASCADE"),
-        unique=True,
         nullable=False,
         index=True,
     )
@@ -196,7 +194,7 @@ class GameSession(Base):
     # Relationships
     browser_installation: Mapped["BrowserInstallation"] = relationship(
         "BrowserInstallation",
-        back_populates="session",
+        back_populates="sessions",
     )
     template_version: Mapped["StartupTemplateVersion"] = relationship(
         "StartupTemplateVersion",

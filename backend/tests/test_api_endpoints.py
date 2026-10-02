@@ -90,7 +90,7 @@ def test_bootstrap_sets_cookie_and_returns_payload(client):
     assert data["existing_session_id"] is None
     assert data["game_rules"]["max_rounds"] == 3
     assert data["game_rules"]["months_per_round"] == 3
-    assert data["game_rules"]["one_attempt_per_browser"] is True
+    assert data["game_rules"]["one_attempt_per_browser"] is False
     assert data["features"]["sound_default"] is False
 
 
@@ -162,7 +162,7 @@ def test_create_session_requires_csrf_and_idempotency(client):
     assert r_long.json()["error"]["code"] == "INVALID_NICKNAME"
 
 
-def test_create_session_success_and_reuse_idempotency(client):
+def test_create_session_success_and_reuse_idempotency(client, db_engine):
     bootstrap_res = client.get("/api/v1/bootstrap")
     csrf_token = bootstrap_res.json()["csrf_token"]
     idempotency_key = str(uuid.uuid4())
@@ -208,6 +208,25 @@ def test_create_session_success_and_reuse_idempotency(client):
     # Check /bootstrap now reflects existing_session_id
     r_boot2 = client.get("/api/v1/bootstrap")
     assert r_boot2.json()["existing_session_id"] == session_id
+
+    # A completed run stays in history and does not block the next game.
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db_engine)
+    with SessionLocal() as db:
+        completed_session = db.get(GameSession, uuid.UUID(session_id))
+        completed_session.status = SessionStatus.completed
+        db.commit()
+
+    assert client.get("/api/v1/bootstrap").json()["existing_session_id"] is None
+    assert client.get("/api/v1/me/session").json() == {"session_id": None, "status": None}
+    r_new = client.post(
+        "/api/v1/sessions",
+        headers={"X-CSRF-Token": csrf_token, "Idempotency-Key": str(uuid.uuid4())},
+        json={"nickname": "NextPlayer"},
+    )
+    assert r_new.status_code == 201
+    assert r_new.json()["session_id"] != session_id
+    assert r_new.json()["reused_existing_session"] is False
+    assert client.get("/api/v1/me/session").json()["session_id"] == r_new.json()["session_id"]
 
 
 def test_get_session_details_and_ownership(client, db_engine):

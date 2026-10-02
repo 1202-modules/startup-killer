@@ -7,7 +7,7 @@ from pydantic import BaseModel, ConfigDict, Field
 class BootstrapGameRules(BaseModel):
     max_rounds: int = 3
     months_per_round: int = 3
-    one_attempt_per_browser: bool = True
+    one_attempt_per_browser: bool = False
 
 
 class BootstrapFeatures(BaseModel):
