@@ -129,10 +129,9 @@ export const GameView: React.FC = () => {
         <SceneRenderer type={roundResult.event.scene_type} onComplete={handleSceneComplete} />
       )}
       <GameLayout
-        left={<StartupDossier startup={session.startup} />}
         center={(
-          <div className="flex flex-col gap-6">
-            <StartupCenterStage startup={session.startup} round={session.next_round} maxRounds={gameRules?.max_rounds || 3} month={session.elapsed_months} />
+          <div className="flex h-full min-h-0 flex-col gap-3">
+            <StartupCenterStage startup={session.startup} round={session.next_round} maxRounds={gameRules?.max_rounds || 3} month={session.elapsed_months} compact={phase === 'EVENT_REVEAL'} />
             <RoundProgress round={session.next_round} maxRounds={gameRules?.max_rounds || 3} />
             {phase === 'SUBMITTING' && (
               <div role="status" className="p-6 bg-bg-card border border-border rounded-2xl flex items-center justify-center gap-3 font-mono text-sm text-text-secondary">
@@ -144,7 +143,7 @@ export const GameView: React.FC = () => {
               <RoundResultView result={roundResult} onContinue={handleContinueRound} isContinuing={continueMutation.isPending} />
             )}
             {session.can_attack && phase !== 'EVENT_REVEAL' && (
-              <div className="flex-1 flex flex-col justify-end gap-3">
+              <div className="flex min-h-0 flex-1 flex-col gap-3">
                 {attackError && <div role="alert" className="p-3 rounded-xl bg-accent-red/10 border border-accent-red/30 text-accent-red text-xs font-mono">{attackError}</div>}
                 <AttackChoiceGrid
                   choices={session.available_choices || []}
@@ -156,7 +155,8 @@ export const GameView: React.FC = () => {
             )}
           </div>
         )}
-        right={<FinancialPanel state={session.state} />}
+        analytics={<FinancialPanel state={session.state} />}
+        dossier={<StartupDossier startup={session.startup} />}
       />
     </div>
   );

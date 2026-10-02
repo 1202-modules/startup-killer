@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import type { AttackChoice } from '../../api/types';
+import { useGameStore } from '../../stores/gameStore';
 
 interface AttackChoiceGridProps {
   choices: AttackChoice[];
@@ -11,22 +12,25 @@ interface AttackChoiceGridProps {
 
 export const AttackChoiceGrid: React.FC<AttackChoiceGridProps> = ({ choices, roundNumber, onSelect, disabled = false }) => {
   const currentChoices = choices.filter(choice => choice.round_number === roundNumber);
+  const isReducedMotion = useGameStore(s => s.isReducedMotion);
 
   return (
-    <div className="flex flex-col gap-3">
-      <p className="text-sm leading-relaxed text-text-secondary">
-        Выберите приём атаки. Заголовок называет способ, описание показывает, как он ударит по бизнесу. После хода увидите реакцию команды, фактическую защиту (иногда её не будет) и финансовый итог за три месяца.
+    <div className="flex min-h-0 flex-1 flex-col gap-3">
+      <p className="shrink-0 text-sm leading-relaxed text-text-secondary">
+        Выберите приём атаки. После хода увидите реакцию команды и финансовый итог.
       </p>
-      <div role="group" aria-label="Выберите приём атаки" className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div role="group" aria-label="Выберите приём атаки" className="grid min-h-0 grid-cols-1 gap-3 sm:grid-cols-2 xl:flex-1 xl:grid-rows-2">
         {currentChoices.map((choice, index) => (
           <motion.button
             key={choice.id}
             type="button"
             disabled={disabled}
             onClick={() => onSelect(choice.id)}
+            initial={isReducedMotion ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
             whileHover={disabled ? undefined : { y: -2 }}
-            transition={{ duration: 0.16 }}
-            className="group min-h-28 p-4 sm:p-5 text-left bg-bg-card border border-border rounded-xl hover:border-accent-lime/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-lime disabled:opacity-60 disabled:cursor-wait transition-colors"
+            transition={{ duration: 0.24, delay: isReducedMotion ? 0 : index * 0.06 }}
+            className="group flex min-h-28 flex-col rounded-xl border border-border bg-bg-card p-4 text-left transition-colors hover:border-accent-lime/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-lime disabled:cursor-wait disabled:opacity-60 sm:p-5 xl:min-h-0"
           >
             <span className="flex items-start justify-between gap-3">
               <span className="font-display font-bold text-sm sm:text-base text-text-primary group-hover:text-accent-lime transition-colors">

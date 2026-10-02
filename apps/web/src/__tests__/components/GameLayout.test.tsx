@@ -3,17 +3,17 @@ import { describe, expect, it } from 'vitest';
 import { GameLayout } from '../../components/layout/GameLayout';
 
 describe('GameLayout', () => {
-  it('keeps financial stats in a full-width top strip between tablet and desktop breakpoints', () => {
-    render(
+  it('keeps analytics and dossier together on the right of the game stage', () => {
+    const { container } = render(
       <GameLayout
-        left={<div data-testid="left" />}
         center={<div data-testid="center" />}
-        right={<div data-testid="right" />}
+        analytics={<div data-testid="analytics" />}
+        dossier={<div data-testid="dossier" />}
       />,
     );
 
-    expect(screen.getByTestId('right').parentElement).toHaveClass('md:col-span-2', 'md:row-start-1');
-    expect(screen.getByTestId('left').parentElement).toHaveClass('md:row-start-2');
-    expect(screen.getByTestId('center').parentElement).toHaveClass('md:row-start-2');
+    expect(screen.getByTestId('center').closest('main')).toBeInTheDocument();
+    expect(screen.getByTestId('analytics').closest('aside')).toBe(screen.getByTestId('dossier').closest('aside'));
+    expect(container.firstChild).toHaveClass('xl:h-[100dvh]', 'xl:overflow-hidden');
   });
 });

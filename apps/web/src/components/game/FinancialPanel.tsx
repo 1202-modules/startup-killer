@@ -8,10 +8,10 @@ export const FinancialPanel: React.FC<{ state: GameState }> = ({ state }) => {
   const runwayColor = runway < 3 ? 'text-accent-red' : runway < 6 ? 'text-accent-amber' : 'text-accent-lime';
 
   return (
-    <div className="bg-bg-card border border-border rounded-xl p-5 grid grid-cols-1 gap-5 md:grid-cols-4 md:items-center md:gap-5 xl:flex xl:flex-col xl:gap-6">
+    <div className="grid shrink-0 grid-cols-1 gap-3 rounded-xl border border-border bg-bg-card p-4 md:grid-cols-4 md:items-center md:gap-5 xl:flex xl:flex-col xl:gap-3">
       <div className="md:col-span-1 min-w-0">
         <div className="text-xs text-text-secondary font-mono mb-1">ОСТАТОК СРЕДСТВ</div>
-        <div className="text-2xl md:text-xl xl:text-3xl font-mono text-text-primary tabular-nums whitespace-nowrap">
+        <div className="whitespace-nowrap font-mono text-2xl tabular-nums text-text-primary md:text-xl xl:text-2xl">
           <CashDisplay kopeks={state.cash_kopeks} />
         </div>
       </div>

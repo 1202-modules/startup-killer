@@ -34,7 +34,7 @@ describe('StartupCenterStage', () => {
     expect(screen.getByText(/РАУНД 1\/3 • МЕСЯЦ 1–3\/9/i)).toBeInTheDocument();
   });
 
-  it('renders responsive WebP hero sources and image', () => {
+  it('centers the startup title without occupying space with the old hero image', () => {
     const { container } = render(
       <StartupCenterStage
         startup={mockStartup}
@@ -44,12 +44,13 @@ describe('StartupCenterStage', () => {
       />
     );
 
-    const source = container.querySelector('source');
-    expect(source).toHaveAttribute('srcSet', '/assets/startups/coffeebot/hero-desktop.webp');
-    expect(source).toHaveAttribute('media', '(min-width: 768px)');
+    expect(container.querySelector('picture, img')).toBeNull();
+    expect(screen.getByRole('heading', { name: 'CoffeeBot' }).parentElement).toHaveClass('text-center');
+  });
 
-    const img = container.querySelector('img');
-    expect(img).toHaveAttribute('src', '/assets/startups/coffeebot/hero-mobile.webp');
-    expect(img).toHaveAttribute('alt', 'CoffeeBot');
+  it('keeps the result header compact', () => {
+    render(<StartupCenterStage startup={mockStartup} round={1} maxRounds={3} month={1} compact />);
+    expect(screen.getByRole('heading', { name: 'CoffeeBot' })).toBeInTheDocument();
+    expect(screen.queryByText('ЧЕМ ЗАНИМАЕТСЯ СТАРТАП')).not.toBeInTheDocument();
   });
 });

@@ -4,14 +4,14 @@ import { StartupPublic } from '../../api/types';
 const INDUSTRY_BY_SLUG: Record<string, string> = {
   coffeebot: 'Food robotics',
   petmind: 'Pet AI',
-  robopost: 'Delivery robotics',
-  lingvobot: 'EdTech AI',
-  neuroflow: 'Office wellness',
-  smartpulse: 'Fitness hardware',
-  darkkitchen: 'Food delivery',
-  agrodron: 'AgriTech',
-  deeptarget: 'AdTech',
-  flatrent: 'Rental marketplace',
+  foodrover: 'Delivery robotics',
+  studygenie: 'EdTech AI',
+  sleepwork: 'Office wellness',
+  fitmirror: 'Fitness hardware',
+  cloudkitchen: 'Food delivery',
+  agrodrone: 'AgriTech',
+  moodads: 'AdTech',
+  renteverything: 'Rental marketplace',
 };
 
 const FACT_TAGS: string[] = [
@@ -28,9 +28,9 @@ export const StartupDossier: React.FC<StartupDossierProps> = ({ startup }) => {
   const industry = startup.industry || INDUSTRY_BY_SLUG[startup.id] || 'Технологический сектор';
 
   return (
-    <div className="bg-bg-card border border-border rounded-2xl p-5 flex flex-col gap-5 shadow-lg">
+    <div className="flex flex-col gap-3 rounded-2xl border border-border bg-bg-card p-4 shadow-lg xl:min-h-0 xl:flex-1">
       {/* Dossier Header */}
-      <div className="flex flex-col gap-2 border-b border-border/60 pb-4">
+      <div className="flex flex-col gap-1 border-b border-border/60 pb-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse" />
@@ -43,7 +43,7 @@ export const StartupDossier: React.FC<StartupDossierProps> = ({ startup }) => {
           </span>
         </div>
 
-        <h2 className="text-xl sm:text-2xl font-display font-black text-text-primary tracking-tight uppercase mt-1">
+        <h2 className="mt-1 font-display text-xl font-black uppercase tracking-tight text-text-primary">
           ДОСЬЕ УЯЗВИМОСТЕЙ
         </h2>
 
@@ -56,7 +56,7 @@ export const StartupDossier: React.FC<StartupDossierProps> = ({ startup }) => {
       </div>
 
       {/* Facts List (01, 02, 03) */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between text-[11px] font-mono text-text-secondary uppercase tracking-wider">
           <span>КЛЮЧЕВЫЕ ФАКТЫ О ЦЕЛИ</span>
           <span className="text-accent-lime/70">{startup.public_facts.length} / 03</span>
@@ -69,7 +69,7 @@ export const StartupDossier: React.FC<StartupDossierProps> = ({ startup }) => {
           return (
             <div
               key={index}
-              className="bg-bg-surface/80 border border-border/80 hover:border-accent-lime/40 rounded-xl p-3.5 flex flex-col gap-2 transition-colors group"
+              className="group flex flex-col gap-1.5 rounded-xl border border-border/80 bg-bg-surface/80 p-2.5 transition-colors hover:border-accent-lime/40"
             >
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs font-bold text-accent-lime group-hover:text-accent-lime transition-colors">
@@ -79,7 +79,7 @@ export const StartupDossier: React.FC<StartupDossierProps> = ({ startup }) => {
                   {tag}
                 </span>
               </div>
-              <p className="text-xs text-text-primary leading-relaxed">
+              <p className="text-xs leading-snug text-text-primary">
                 {fact}
               </p>
             </div>
@@ -88,7 +88,7 @@ export const StartupDossier: React.FC<StartupDossierProps> = ({ startup }) => {
       </div>
 
       {/* Choice Guidance */}
-      <div className="p-4 rounded-xl bg-accent-amber/5 border border-accent-amber/25 flex flex-col gap-2">
+      <div className="flex flex-col gap-2 rounded-xl border border-accent-amber/25 bg-accent-amber/5 p-3 xl:hidden">
         <div className="flex items-center gap-2 text-accent-amber font-mono text-xs font-bold uppercase tracking-wider">
           <span>КАК ВЫБРАТЬ ХОД</span>
         </div>
